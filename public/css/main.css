@@ -1,0 +1,173 @@
+.canvas_img{
+    height: auto;
+    width: 500px;
+}
+
+.navbar-nav{
+    width: 100%;
+}
+
+.nav-right{
+    width: 100%;
+    float: right;
+    text-align: right;
+}
+
+.navbar-brand {
+    font-weight: bold;
+  }
+  
+
+  .navbar-brand span {
+    color: #ff4b5c; /* Warna merah untuk "CTFin" */
+  }
+  
+  .navbar-brand span:last-child {
+    color: #d3d3d3; /* Warna abu-abu untuk "AJA" */
+  }
+  
+
+@media only screen and (max-width: 600px) 
+{
+    .canvas_img{
+        height: auto;
+        width: 250px;
+    }
+}
+
+#particles-js {
+    position : absolute;
+    width:100%;
+    height:100%;
+}
+
+.panel.panel-default{
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #714cdf;
+    background-color: #0c0d16;
+}
+
+.solved
+{
+    background-color: #282a38 !important;
+}
+
+#svgContainer { 
+	z-index: -10;
+	position:absolute;
+}
+
+.mb-10{
+    margin-bottom: 6rem !important;
+}
+
+a:focus {
+    outline:none;
+}
+a::-moz-focus-inner {
+    border:0;
+}
+/* CLOCK */
+.countdown-timer {
+    zoom: 0.5;
+     -moz-transform: scale(0.5);
+}
+
+.footer img{
+    width: 350px;
+    height: 250px;
+}
+
+/* Additional styles for the new layout */
+.card {
+
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+}
+
+/* Navbar background color */
+.navbar {
+    background-color: #0c0d16; /* Warna latar belakang navbar */
+}
+
+.stats-section {
+
+
+    padding: 50px 0;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .stat-label {
+    font-size: 1.2rem;
+
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-top: 20px;
+  }
+  
+  .section-subtitle {
+    font-size: 1.2rem;
+
+    margin-bottom: 40px;
+  }
+  
+  .challenge-type {
+
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .challenge-type h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .challenge-type p {
+    font-size: 1rem;
+    color: #ccc;
+  }
+
+  /* Footer Section */
+  .footer {
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  .footer .social-icons a {
+    color: white;
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  .footer .social-icons a:hover {
+    color: #ff4b5c;
+
+  }
+
+
+  /* Additional styles for the new layout */
+.card {
+
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+}
