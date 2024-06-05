@@ -33,12 +33,9 @@ Route::get('/profile', function () {
     return view('profile-user');
 });
 
-Route::get('/scoreboard', function () {
-    return view('scoreboard-user');
-});
 
 Route::get('/setting', function () {
-    return view('setting-user');
+    return view('settings-user');
 });
 
 Route::get('/support', function () {

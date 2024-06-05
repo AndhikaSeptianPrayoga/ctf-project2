@@ -172,7 +172,7 @@
               </div>
               <div class="col-md-3">
                 <div class="card">
-                  <img class="card-img-top" src="{{ asset('img/Asep.jpg') }}" alt="Asep">
+                  <img class="card-img-top" src="{{ asset('img/asep.jpg') }}" alt="Asep">
                   <div class="card-body text-center">
                     <h5 class="card-title">Andhika Septian Prayoga</h5>
                     <p class="card-text">Fullstack Developer</p>
