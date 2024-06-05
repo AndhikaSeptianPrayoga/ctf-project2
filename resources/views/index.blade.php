@@ -40,7 +40,7 @@
       <div class="container">
           <div class="row">
             <div class="col-xl-6">
-              <h1 class="display-3">CAPTURE AND FLAG<span class="vim-caret">͏͏&nbsp;</span></h1>
+              <h1 class="display-3">CAPTURE THE FLAG<span class="vim-caret">͏͏&nbsp;</span></h1>
               <div class="lead mb-3 text-mono text-success">Welcome hackers! prove the world's most powerful hacking, is here! and prove the world that a computer genius with a laptop is not a nerd sitting in the corner ! join our CTF and expand your knowledge !</div>
               <div class="text-mono">
                 <a href="#"
@@ -69,32 +69,32 @@
               <div class="col-md-3">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-laptop-code"></i> Binary</h5>
-                    <p class="card-text">Binary adalah salah satu challenge yang diberikan oleh tim CTF.</p>
+                    <h5 class="card-title"><i class="fas fa-laptop-code"></i>Web Exploitation</h5>
+                    <p class="card-text">Exploiting a vulnerability</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-users"></i> Pramuka</h5>
-                    <p class="card-text">Pramuka adalah salah satu challenge yang diberikan oleh tim CTF.</p>
+                    <h5 class="card-title"><i class="fas fa-users"></i>Cryptography</h5>
+                    <p class="card-text">Find a encryption</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-user-secret"></i> Melacak Hackers</h5>
-                    <p class="card-text">Melacak Hackers adalah salah satu challenge yang diberikan oleh tim CTF.</p>
+                    <h5 class="card-title"><i class="fas fa-user-secret"></i>OSINT</h5>
+                    <p class="card-text">Find a information</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-laptop"></i> Kijang satu</h5>
-                    <p class="card-text">Kijang satu adalah salah satu challenge yang diberikan oleh tim CTF.</p>
+                    <h5 class="card-title"><i class="fas fa-laptop"></i>Programming</h5>
+                    <p class="card-text">Problem solving</p>
                   </div>
                 </div>
               </div>
@@ -104,16 +104,16 @@
   <div class="container text-center py-5">
     <div class="row">
       <div class="col-md-4">
-        <h2 class="stat-number">302,493</h2>
+        <h2 class="stat-number">302</h2>
         <p class="stat-label">Flags Submitted</p>
       </div>
       <div class="col-md-4">
         <h2 class="stat-number">715</h2>
-        <p class="stat-label">CTFs Hosted</p>
+        <p class="stat-label">Users</p>
       </div>
       <div class="col-md-4">
-        <h2 class="stat-number">64,282</h2>
-        <p class="stat-label">Teams Competed</p>
+        <h2 class="stat-number">600</h2>
+        <p class="stat-label">Challenges</p>
       </div>
     </div>
     <div class="row py-5">
@@ -208,7 +208,7 @@
                   <img class="card-img-top" src="{{ asset('img/sample_placeholder.png') }}" alt="Abay">
                   <div class="card-body text-center">
                     <h5 class="card-title">Akbar Wira Nugraha</h5>
-                    <p class="card-text">Back end Developer</p>
+                    <p class="card-text">CyberSec Enthusiast</p>
                     <div class="social-icons">
                       <a href="#"><i class="fab fa-twitter"></i></a>
                       <a href="#"><i class="fab fa-facebook-f"></i></a>
