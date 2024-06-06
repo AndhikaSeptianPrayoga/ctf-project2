@@ -46,10 +46,10 @@ Route::get('/test', function () {
     return view('test-user');
 });
 
-<<<<<<< HEAD
 Route::get('/dummy', function(){
     return view('dummy');
-=======
+});
+   
 Route::get('/login', function () {
     return view('login');
 });
@@ -60,5 +60,4 @@ Route::get('/register', function () {
 
 Route::get('/policy', function () {
     return view('policy');  
->>>>>>> abee878fb2c484bd4663c5659366120bebbe4241
 });
