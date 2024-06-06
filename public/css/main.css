@@ -181,9 +181,6 @@ a::-moz-focus-inner {
 
 }
 
-.footer a {
-  cursor: pointer;
-}
 
 
 
@@ -250,3 +247,11 @@ border-top-right-radius: 10px;
 }
 
 
+#particles-js {
+  pointer-events: none;
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
+}

@@ -271,7 +271,7 @@
 
 <!-- Footer Section -->
 <div class="footer" style=" color: white; padding: 20px; text-align: center; font-size: 16px;">
-<p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="/policy">Privacy Policy.</a></p>
+<p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="{{ asset('main.blade.php') }}">Privacy Policy.</a></p>
   <div class="social-icons">
     <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-twitter"></i></a>
     <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
