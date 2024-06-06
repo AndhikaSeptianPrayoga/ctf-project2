@@ -1,173 +1,252 @@
 .canvas_img{
-    height: auto;
-    width: 500px;
+  height: auto;
+  width: 500px;
 }
 
 .navbar-nav{
-    width: 100%;
+  width: 100%;
 }
 
 .nav-right{
-    width: 100%;
-    float: right;
-    text-align: right;
+  width: 100%;
+  float: right;
+  text-align: right;
 }
 
 .navbar-brand {
-    font-weight: bold;
-  }
-  
+  font-weight: bold;
+}
 
-  .navbar-brand span {
-    color: #ff4b5c; /* Warna merah untuk "CTFin" */
-  }
-  
-  .navbar-brand span:last-child {
-    color: #d3d3d3; /* Warna abu-abu untuk "AJA" */
-  }
-  
+
+.navbar-brand span {
+  color: #ff4b5c; /* Warna merah untuk "CTFin" */
+}
+
+.navbar-brand span:last-child {
+  color: #d3d3d3; /* Warna abu-abu untuk "AJA" */
+}
+
 
 @media only screen and (max-width: 600px) 
 {
-    .canvas_img{
-        height: auto;
-        width: 250px;
-    }
+  .canvas_img{
+      height: auto;
+      width: 250px;
+  }
 }
 
 #particles-js {
-    position : absolute;
-    width:100%;
-    height:100%;
+  position : absolute;
+  width:100%;
+  height:100%;
 }
 
 .panel.panel-default{
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    border: 1px solid #714cdf;
-    background-color: #0c0d16;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #714cdf;
+  background-color: #0c0d16;
 }
 
 .solved
 {
-    background-color: #282a38 !important;
+  background-color: #282a38 !important;
 }
 
 #svgContainer { 
-	z-index: -10;
-	position:absolute;
+z-index: -10;
+position:absolute;
 }
 
 .mb-10{
-    margin-bottom: 6rem !important;
+  margin-bottom: 6rem !important;
 }
 
 a:focus {
-    outline:none;
+  outline:none;
 }
 a::-moz-focus-inner {
-    border:0;
+  border:0;
 }
 /* CLOCK */
 .countdown-timer {
-    zoom: 0.5;
-     -moz-transform: scale(0.5);
+  zoom: 0.5;
+  -moz-transform: scale(0.5);
 }
 
 .footer img{
-    width: 350px;
-    height: 250px;
+  width: 350px;
+  height: 250px;
 }
 
 /* Additional styles for the new layout */
 .card {
 
-    border-radius: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
 }
 
 .card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0;
+  font-size: 1.25rem;
+  margin-bottom: 0;
 }
 
 /* Navbar background color */
 .navbar {
-    background-color: #0c0d16; /* Warna latar belakang navbar */
+  background-color: #0c0d16; /* Warna latar belakang navbar */
 }
 
 .stats-section {
 
 
-    padding: 50px 0;
-  }
-  
-  .stat-number {
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  
-  .stat-label {
-    font-size: 1.2rem;
-
-  }
-  
-  .section-title {
-    font-size: 2rem;
-    margin-top: 20px;
-  }
-  
-  .section-subtitle {
-    font-size: 1.2rem;
-
-    margin-bottom: 40px;
-  }
-  
-  .challenge-type {
-
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .challenge-type h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .challenge-type p {
-    font-size: 1rem;
-    color: #ccc;
-  }
-
-  /* Footer Section */
-  .footer {
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 16px;
-  }
-  
-  .footer .social-icons a {
-    color: white;
-    margin-right: 10px;
-    font-size: 20px;
-  }
-  
-  .footer .social-icons a:hover {
-    color: #ff4b5c;
-
-  }
-
-
-  /* Additional styles for the new layout */
-.card {
-
-    border-radius: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: white;
+  padding: 50px 0;
 }
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 1.2rem;
+
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+
+  margin-bottom: 40px;
+}
+
+.features-title{
+  font-size: 2rem;
+  margin-top: 70px;
+
+}
+
+.challenge-type {
+
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+.features-icon{
+  margin: 0;
+  padding: 1rem 1.3rem;
+  border-radius: 0.5rem;
+}
+
+.features-icon svg{
+  fill: white;
+}
+
+
+
+.challenge-type h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.challenge-type p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+/* Footer Section */
+.footer {
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.footer .social-icons a {
+  color: white;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.footer .social-icons a:hover {
+  color: #ff4b5c;
+
+}
+
+.footer a {
+  cursor: pointer;
+}
+
+
+
+/* Additional styles for the new layout */
+.card {
+border-radius: 10px;
+margin-bottom: 20px;
+text-align: center;
+color: white;
+height: 100%; /* Ensure cards fill the available height */
+display: flex;
+flex-direction: column;
+}
+
+
+.card-img-top {
+width: 100%;
+height: 200px; /* Adjust the height as needed */
+object-fit: cover;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+}
+
+
+
+/* policy */
+
+.privacy-policy-container {
+  background: var(--bg-body);
+  padding: 20px;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.privacy_policy {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 600px; 
+  color: var(--primary-color);
+}
+
+.privacy_policy section {
+  display: inline-block;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 600px; 
+}
+.privacy_policy section h2{
+  color: var(--primary-color);
+
+}
+.privacy_policy h1, .privacy_policy h2 {
+  color: #333;
+}
+
+.privacy_policy ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.privacy_policy a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+
