@@ -40,7 +40,7 @@
       <div class="container">
           <div class="row">
             <div class="col-xl-6">
-              <h1 class="display-3">CAPTURE THE FLAG<span class="vim-caret">͏͏&nbsp;</span></h1>
+              <h1 class="display-3">CAPTURE AND FLAG<span class="vim-caret">͏͏&nbsp;</span></h1>
               <div class="lead mb-3 text-mono text-success">Welcome hackers! prove the world's most powerful hacking, is here! and prove the world that a computer genius with a laptop is not a nerd sitting in the corner ! join our CTF and expand your knowledge !</div>
               <div class="text-mono">
                 <a href="#"
@@ -62,39 +62,39 @@
           <div class="row text-center">
               <div class="col-12">
                 <h2 class="section-title">Challenges</h2>
-                <p class="section-subtitle">Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
+                <p class="section-subtitle">Jelajahi Serunya Tantangan! Temukan Adrenalin yang Tak Tergantikan dalam Menyelesaikan Setiap Masalah. Yuk, Segera Hadapi Challanges Kami dan Buktikan Kemampuanmu!</p>
               </div>
             </div>
             <div class="row">
               <div class="col-md-3">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-laptop-code"></i>Web Exploitation</h5>
-                    <p class="card-text">Exploiting a vulnerability</p>
+                    <h5 class="card-title"><i class="fas fa-laptop-code"></i> Binary</h5>
+                    <p class="card-text">Binary adalah salah satu challenge yang diberikan oleh tim CTF.</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-users"></i>Cryptography</h5>
-                    <p class="card-text">Find a encryption</p>
+                    <h5 class="card-title"><i class="fas fa-users"></i> Pramuka</h5>
+                    <p class="card-text">Pramuka adalah salah satu challenge yang diberikan oleh tim CTF.</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-user-secret"></i>OSINT</h5>
-                    <p class="card-text">Find a information</p>
+                    <h5 class="card-title"><i class="fas fa-user-secret"></i> Melacak Hackers</h5>
+                    <p class="card-text">Melacak Hackers adalah salah satu challenge yang diberikan oleh tim CTF.</p>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-laptop"></i>Programming</h5>
-                    <p class="card-text">Problem solving</p>
+                    <h5 class="card-title"><i class="fas fa-laptop"></i> Kijang satu</h5>
+                    <p class="card-text">Kijang satu adalah salah satu challenge yang diberikan oleh tim CTF.</p>
                   </div>
                 </div>
               </div>
@@ -104,42 +104,52 @@
   <div class="container text-center py-5">
     <div class="row">
       <div class="col-md-4">
-        <h2 class="stat-number">302</h2>
+        <h2 class="stat-number">302,493</h2>
         <p class="stat-label">Flags Submitted</p>
       </div>
       <div class="col-md-4">
         <h2 class="stat-number">715</h2>
-        <p class="stat-label">Users</p>
+        <p class="stat-label">CTFs Hosted</p>
       </div>
       <div class="col-md-4">
-        <h2 class="stat-number">600</h2>
-        <p class="stat-label">Challenges</p>
+        <h2 class="stat-number">64,282</h2>
+        <p class="stat-label">Teams Competed</p>
       </div>
     </div>
     <div class="row py-5">
       <div class="col-12">
-        <img src="{{ asset('img/sample_placeholder.png') }}" alt="Hacking Content" class="img-fluid">
-        <h2 class="section-title">World-Class Hacking Content</h2>
-        <p class="section-subtitle">Covering all challenge categories and difficulty levels with the latest and must-known attack paths and exploit techniques.</p>
+        <img src="{{ asset('img/banner.png') }}" alt="Hacking Content" class="img-fluid">
+        <h2 class="section-title features-title">Features</h2>
+        <p class="section-subtitle">Nikmati beragam fitur menarik yang kami tawarkan untuk meningkatkan pengalaman Capture The Flag Anda.</p>
       </div>
     </div>
     <div class="row">
       <div class="col-md-4">
         <div class="challenge-type">
-          <h3>Full Pwn-Style</h3>
-          <p>Boot2Root machines, custom to your needs, with diverse difficulty, attack paths, and OSes. Players will need to find the user and root flag. Get ready for action!</p>
+        <div class="features-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                        <path d="M0 0v24h24v-24h-24zm1 1h11v3.55c0 .932.575 1.357 1.109 1.357.332 0 .672-.156.953-.438.284-.296.389-.469.786-.469.47 0 1.152.534 1.152 1.5s-.682 1.5-1.152 1.5c-.396 0-.501-.173-.785-.468-.281-.283-.621-.438-.953-.438-.535-.001-1.11.424-1.11 1.356v3.55h-3.55c-.536 0-.439-.139-.108-.454.262-.245.658-.616.658-1.394 0-1.039-1.004-2.152-2.5-2.152s-2.5 1.113-2.5 2.152c0 .777.396 1.148.658 1.394.333.317.425.454-.108.454h-3.55v-11zm0 22v-10h3.55c.933 0 1.356-.575 1.356-1.109 0-.332-.155-.672-.438-.953-.294-.284-.468-.388-.468-.786 0-.47.534-1.152 1.5-1.152s1.5.682 1.5 1.152c0 .397-.174.501-.469.785-.282.281-.438.621-.438.953.001.535.425 1.11 1.357 1.11h3.55v3.55c0 .535-.137.44-.454.109-.245-.263-.616-.659-1.394-.659-1.039 0-2.152 1.004-2.152 2.5s1.113 2.5 2.152 2.5c.777 0 1.148-.396 1.394-.659.317-.333.454-.424.454.109v2.55h-11zm22 0h-10v-2.55c0-.932-.575-1.357-1.109-1.357-.332 0-.672.156-.953.438-.284.296-.389.469-.786.469-.47 0-1.152-.534-1.152-1.5s.682-1.5 1.152-1.5c.396 0 .501.173.785.468.281.283.621.438.953.438.534 0 1.109-.425 1.109-1.357v-3.549h3.55c.536 0 .439.139.108.454-.261.245-.657.616-.657 1.394 0 1.039 1.004 2.152 2.5 2.152s2.5-1.113 2.5-2.152c0-.777-.396-1.148-.658-1.394-.333-.317-.425-.454.108-.454h2.55v10zm-2.55-11c-.933 0-1.356.575-1.356 1.109 0 .332.155.672.438.953.294.284.468.388.468.786 0 .47-.534 1.152-1.5 1.152s-1.5-.682-1.5-1.152c0-.397.174-.501.469-.785.282-.281.438-.621.438-.953 0-.534-.424-1.109-1.356-1.109h-3.551v-3.551c0-.535.137-.44.454-.109.245.263.616.659 1.394.659 1.039 0 2.152-1.004 2.152-2.5s-1.113-2.5-2.152-2.5c-.777 0-1.148.396-1.394.659-.317.333-.454.424-.454-.109v-3.55h10v11h-2.55z"/></svg>
+                </div>
+          <h3>Challanges</h3>
+          <p>Dari kode yang rumit hingga misteri yang menarik, hadapi tantangan beragam kami untuk mengasah keahlian Anda dalam keamanan cyber</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="challenge-type">
-          <h3>AD-Style</h3>
-          <p>Active Directory labs simulating real-world enterprise environments with the latest attack techniques. Try to capture all the flags and reach Domain Admin.</p>
+        <div class="features-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"><path d="M5 9v8h-2v-8h2zm2-2h-6v12h6v-12zm6-4v14h-2v-14h2zm2-2h-6v18h6v-18zm6 13v3h-2v-3h2zm2-2h-6v7h6v-7zm1 9h-24v2h24v-2z"/></svg>
+                </div>
+          <h3>Leaderboard</h3>
+          <p>Lihat peringkat Anda, rasakan semangat persaingan, dan jadilah yang teratas di leaderboard kami!</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="challenge-type">
-          <h3>Jeopardy-Style</h3>
-          <p>All challenge types are included in this category. Pick the ones that best fit your company's CTF requirements. From reversing and web to pwn and hardware.</p>
+        <div class="features-icon">
+                    <svg width="40" height="40" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m18.891 19.498h-13.782l-1.52-9.501h16.823zm-14.306-12.506h14.868l-.227 1.506h-14.415zm.993-2.494h12.882l-.13.983h-12.623zm16.421 4.998c0-.558-.456-.998-1.001-.998h-.253c.309-2.064.289-1.911.289-2.009 0-.58-.469-1.008-1-1.008h-.189c.193-1.461.187-1.399.187-1.482 0-.671-.575-1.001-1.001-1.001h-14.024c-.536 0-1.001.433-1.001 1 0 .083-.008.013.188 1.483h-.19c-.524 0-1.001.422-1.001 1.007 0 .101-.016-.027.29 2.01h-.291c-.569 0-1.001.464-1.001.999 0 .118-.105-.582 1.694 10.659.077.486.496.842.988.842h14.635c.492 0 .911-.356.988-.842 1.801-11.25 1.693-10.54 1.693-10.66z" fill-rule="nonzero"/></svg>
+                </div>
+          <h3>Category</h3>
+          <p>Dengan kategori yang jelas dan terstruktur, Anda dapat menemukan tantangan sesuai minat dan keahlian Anda.</p>
         </div>
       </div>
     </div>
@@ -150,7 +160,7 @@
             <div class="row text-center">
               <div class="col-12">
                 <h2 class="section-title">Our Team</h2>
-                <p class="section-subtitle">Nulla dolorum nulla nesciunt rerum facere sed ut inventore quam porro nihil id ratione ea sunt quis dolorem dolore earum</p>
+                <p class="section-subtitle">Tim kami terdiri dari para profesional berdedikasi yang menggabungkan kreativitas dan keahlian teknis untuk menghasilkan karya terbaik. Kenali mereka:</p>
               </div>
             </div>
             <div class="row">
@@ -172,7 +182,7 @@
               </div>
               <div class="col-md-3">
                 <div class="card">
-                  <img class="card-img-top" src="{{ asset('img/asep.jpg') }}" alt="Asep">
+                  <img class="card-img-top" src="{{ asset('img/Asep.jpg') }}" alt="Asep">
                   <div class="card-body text-center">
                     <h5 class="card-title">Andhika Septian Prayoga</h5>
                     <p class="card-text">Fullstack Developer</p>
@@ -188,7 +198,7 @@
               </div>
               <div class="col-md-3">
                 <div class="card">
-                  <img class="card-img-top" src="{{ asset('img/sample_placeholder.png') }}" alt="Rija">
+                  <img class="card-img-top" src="{{ asset('img/Riza.jpg') }}" alt="Rija">
                   <div class="card-body text-center">
                     <h5 class="card-title">M Riza Buccharelli</h5>
                     <p class="card-text">UI/UX Designer</p>
@@ -205,10 +215,10 @@
               
               <div class="col-md-3">
                 <div class="card">
-                  <img class="card-img-top" src="{{ asset('img/sample_placeholder.png') }}" alt="Abay">
+                  <img class="card-img-top" src="{{ asset('img/akbar.jpeg') }}" alt="Abay">
                   <div class="card-body text-center">
                     <h5 class="card-title">Akbar Wira Nugraha</h5>
-                    <p class="card-text">CyberSec Enthusiast</p>
+                    <p class="card-text">Back end Developer</p>
                     <div class="social-icons">
                       <a href="#"><i class="fab fa-twitter"></i></a>
                       <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -224,7 +234,7 @@
 
           <div class="col-md-3">
                 <div class="card">
-                  <img class="card-img-top" src="{{ asset('img/sample_placeholder.png') }}" alt="Ipul">
+                  <img class="card-img-top" src="{{ asset('img/saeful.jpg') }}" alt="Ipul">
                   <div class="card-body text-center">
                     <h5 class="card-title">Saeful Rizal</h5>
                     <p class="card-text">Database Engineer</p>
@@ -239,21 +249,29 @@
                 </div>
               </div>
             </div>
+            
           </div>
-          <!-- End of Our Team Section -->
 
+          
+          <!-- End of Our Team Section -->
           <div class="footer">
-            <div class="row justify-content-center" style="text-align: center">
-              <div class="col">
-                <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
-              </div>
-              <div class="col">
-                <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
-              </div>
-            </div>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ asset('img/kampus.jpg') }}" alt="kampus">
+        </div>
+        <div class="col-md-6">
+            <h3>Deskripsi Kampus</h3>
+            <p>Deskripsi kampus akan ditampilkan di sini. Anda bisa menambahkan deskripsi singkat tentang kampus, fasilitasnya, program-programnya, atau informasi lain yang relevan.</p>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
 <!-- Footer Section -->
 <div class="footer" style=" color: white; padding: 20px; text-align: center; font-size: 16px;">
-  <p>&copy; 2024 KELOMPOK CTF. Semua Hak Dilindungi.</p>
+<p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="/policy">Privacy Policy.</a></p>
   <div class="social-icons">
     <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-twitter"></i></a>
     <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
