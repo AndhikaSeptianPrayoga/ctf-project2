@@ -44,4 +44,23 @@ Route::get('/support', function () {
 
 Route::get('/test', function () {
     return view('test-user');
+<<<<<<< HEAD
+=======
+});
+
+Route::get('/dummy', function(){
+    return view('dummy');
+});
+   
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('registration');
+});
+
+Route::get('/policy', function () {
+    return view('policy');  
+>>>>>>> b669768bfe222e3b6bc69e52f7d0558fd82fed56
 });
