@@ -188,7 +188,7 @@
               </div>
               <div class="col-md-3">
                 <div class="card">
-                  <img class="card-img-top" src="{{ asset('img/sample_placeholder.png') }}" alt="Rija">
+                  <img class="card-img-top" src="{{ asset('img/riza.jpg') }}" alt="Rija">
                   <div class="card-body text-center">
                     <h5 class="card-title">M Riza Buccharelli</h5>
                     <p class="card-text">UI/UX Designer</p>
@@ -205,7 +205,7 @@
               
               <div class="col-md-3">
                 <div class="card">
-                  <img class="card-img-top" src="{{ asset('img/sample_placeholder.png') }}" alt="Abay">
+                  <img class="card-img-top" src="{{ asset('img/akbar.jpeg') }}" alt="Abay">
                   <div class="card-body text-center">
                     <h5 class="card-title">Akbar Wira Nugraha</h5>
                     <p class="card-text">CyberSec Enthusiast</p>
