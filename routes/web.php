@@ -45,3 +45,7 @@ Route::get('/support', function () {
 Route::get('/test', function () {
     return view('test-user');
 });
+
+Route::get('/dummy', function(){
+    return view('dummy');
+});
