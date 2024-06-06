@@ -198,7 +198,7 @@
               </div>
               <div class="col-md-3">
                 <div class="card">
-                  <img class="card-img-top" src="{{ asset('img/Riza.jpg') }}" alt="Rija">
+                  <img class="card-img-top" src="{{ asset('img/riza.jpg') }}" alt="Rija">
                   <div class="card-body text-center">
                     <h5 class="card-title">M Riza Buccharelli</h5>
                     <p class="card-text">UI/UX Designer</p>
