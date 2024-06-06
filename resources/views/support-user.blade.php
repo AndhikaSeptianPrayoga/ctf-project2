@@ -27,28 +27,28 @@
             </div>
             <ul>
               <li class="nav-item">
-                <a href="#">
+                <a href="/user">
                   <i class="fa fa-home nav-icon"></i>
                   <span class="nav-text">Home</span>
                 </a>
               </li>
 
               <li class="nav-item">
-                <a href="profile.html">
+                <a href="/profile">
                   <i class="fa fa-user nav-icon"></i>
                   <span class="nav-text">Profile</span>
                 </a>
               </li>
     
               <li class="nav-item">
-                <a href="#">
+                <a href="challenge">
                   <i class="fa fa-bars nav-icon"></i>
                   <span class="nav-text">Challenges</span>
                 </a>
               </li>
     
               <li class="nav-item">
-                <a href="scoreboard.html">
+                <a href="/board">
                   <i class="fa fa-trophy nav-icon"></i>
                   <span class="nav-text">Scoreboard</span>
                 </a>
@@ -58,20 +58,20 @@
     
           <ul>
             <li class="nav-item active">
-              <a href="Support.html">
+              <a href="/support">
                 <i class="fas fa-question-circle nav-icon"></i>
                 <span class="nav-text">Support</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="settings.html">
+              <a href="/setting">
                 <i class="fa fa-cog nav-icon"></i>
                 <span class="nav-text">Settings</span>
               </a>
             </li>
     
             <li class="nav-item">
-              <a href="../index.html">
+              <a href="/">
                 <i class="fa fa-sign-out-alt nav-icon"></i>
                 <span class="nav-text">Logout</span>
               </a>
