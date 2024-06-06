@@ -54,3 +54,19 @@ Route::get('/scoreboard', function () {
 Route::get('/test', function () {
     return view('test-user');
 });
+
+Route::get('/dummy', function(){
+    return view('dummy');
+});
+   
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('registration');
+});
+
+Route::get('/policy', function () {
+    return view('policy');  
+});
