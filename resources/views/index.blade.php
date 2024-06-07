@@ -26,8 +26,8 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a href="/user" class="nav-item nav-link active text-white">Home</a>
-              <a href="#" class="nav-item nav-link text-white">Notification</a>
+            <a href="/" class="nav-item nav-link active text-white">Home</a>
+              <a href="/login" class="nav-item nav-link text-white">Notification</a>
               <a href="/user" class="nav-item nav-link text-white">Users</a>
               <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
               <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>

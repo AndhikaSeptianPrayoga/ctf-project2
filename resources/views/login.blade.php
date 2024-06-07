@@ -27,7 +27,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a href="/index" class="pl-md-0 p-3 text-light">Home</a>
+            <a href="/" class="pl-md-0 p-3 text-light">Home</a>
             <a href="/login" class="p-3 text-decoration-none text-light active">Login</a>
             <a href="/register" class="p-3 text-decoration-none text-light">Register</a>
           </div>
