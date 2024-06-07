@@ -55,18 +55,18 @@ Route::get('/test', function () {
     return view('test-user');
 });
 
-// App Routes
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
 
-Route::get('/dashboard', 'DashboardController@show')->name('dashboard');
+Route::get('/admin-user', function () {
+    return view('admin-users');
+});
 
-// Users
-Route::get('/users', 'UserController@index')->name('user.index');
-Route::get('/users/create', 'UserController@create')->name('user.create');
-Route::post('/users/create', 'UserController@store')->name('user.store');
-Route::get('/users/{user}', 'UserController@edit')->name('user.edit');
-Route::patch('/users/{user}', 'UserController@update')->name('user.update');
-Route::delete('/users/{user}', 'UserController@destroy')->name('user.destroy');
+Route::get('/admin-add-user', function () {
+    return view('admin-add-user');
+});
 
-// Profile
-Route::get('/profile', 'ProfileController@edit')->name('profile.edit');
-Route::post('/profile', 'ProfileController@update')->name('profile.update');
+Route::get('admin-challenge', function () {
+    return view('admin-challenge');
+});

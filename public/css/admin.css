@@ -974,8 +974,32 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+/* Dashboard */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.pagination button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--card-bg-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.pagination button:hover {
+    background-color: var(--primary-hover-color);
+}
 
-
+.add-users-Admin {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
 
 /* Responsive Setting */
 @media (max-width: 1120px) {
