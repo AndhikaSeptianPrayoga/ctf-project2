@@ -29,6 +29,15 @@
             <a href="/" class="nav-item nav-link active text-white">Home</a>
               <a href="/login" class="nav-item nav-link text-white">Notification</a>
               <a href="/user" class="nav-item nav-link text-white">Users</a>
+            <a href="/user" class="nav-item nav-link active text-white">Home</a>
+              <a href="#" class="nav-item nav-link text-white">Notification</a>
+              <div class="dropdown">
+                           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
+                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="/login">Login</a>
+                              <a class="dropdown-item" href="/register">Register</a>
+                           </div>
+              </div>
               <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
               <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>
             </div>
