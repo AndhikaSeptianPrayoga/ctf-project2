@@ -23,52 +23,24 @@
     <div class="navbar-dark text-white">
         <div class="container">
             <nav class="navbar px-0 navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="#"><span class="text-danger">CTFin</span><span class="text-white">AJA</span></a>
+                <a class="navbar-brand" href="/"><span class="text-danger">CTFin</span><span class="text-white">AJA</span></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2 navbar-search-input" type="search" placeholder="Cari..." aria-label="Search">
-                        <button class="btn navbar-search-button my-2 my-sm-0" type="submit">Cari</button>
-                    </form>
+                <div class="navbar-nav">
+                    <a href="/user" class="nav-item nav-link active text-white">Home</a>
+                    <a href="#" class="nav-item nav-link text-white">Notification</a>
+                    <a href="/user" class="nav-item nav-link text-white">Users</a>
+                    <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
+                    <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>
+                </div>
                 </div>
             </nav>
         </div>
     </div>
 
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="sidebar bg-sidebar">
-                    <div class="user-info text-center">
-                        <img src="{{ asset('img/sample_placeholder.png') }}" alt="User Image" class="img-fluid rounded-circle">
-                        <h4 class="mt-2">Name User</h4>
-                    </div>
-                    <ul class="nav flex-column mt-4">
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">Home</a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link active" href="#">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">Challenges</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Scoreboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Notification</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Settings</li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         <div class="col-md-9">
             <div class="leaderboard-container">
                 <h3 class="text-center mb-4">Leaderboard</h3>

@@ -75,6 +75,16 @@
 
     </section>
 </div>
+<!-- Footer Section -->
+<div class="footer" style="background-color: #222; color: white; padding: 20px; text-align: center; font-size: 16px; position: relative; z-index: 10;">
+  <p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="{{ url('/policy') }}" style="color: #ffffff;">Privacy Policy</a>.</p>
+  <div class="social-icons">
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-twitter"></i></a>
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

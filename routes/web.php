@@ -42,6 +42,15 @@ Route::get('/support', function () {
     return view('support-user');
 });
 
+Route::get('/policy', function () {
+    return view('policy');
+});
+// Route::get('/policy', [PolicyController::class, 'show'])->name('policy');
+
+Route::get('/scoreboard', function () {
+    return view('scoreboard-user');
+});
+
 Route::get('/test', function () {
     return view('test-user');
 });
