@@ -55,8 +55,6 @@ Route::get('/test', function () {
     return view('test-user');
 });
 
-
-
 // App Routes
 
 Route::get('/dashboard', 'DashboardController@show')->name('dashboard');
