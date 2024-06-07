@@ -73,7 +73,6 @@ a::-moz-focus-inner {
 /* CLOCK */
 .countdown-timer {
   zoom: 0.5;
-  -moz-transform: scale(0.5);
 }
 
 .footer img{
