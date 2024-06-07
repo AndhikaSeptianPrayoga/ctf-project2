@@ -1,6 +1,7 @@
 .canvas_img{
   height: auto;
   width: 500px;
+  transform: none;
 }
 
 .navbar-nav{
