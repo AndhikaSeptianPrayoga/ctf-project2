@@ -194,6 +194,7 @@ color: white;
 height: 100%; /* Ensure cards fill the available height */
 display: flex;
 flex-direction: column;
+transform: none; /* Define the standard property 'transform' for compatibility */
 }
 
 
