@@ -54,3 +54,12 @@ Route::get('/scoreboard', function () {
 Route::get('/test', function () {
     return view('test-user');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('registration');
+});
+
