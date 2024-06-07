@@ -8,10 +8,9 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="assets/css/bootstrap4-neon-glow.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/particles.css">
-    
+    <link rel="stylesheet" href="../css/bootstrap4-neon-glow.min.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/particles.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
     
@@ -28,57 +27,52 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a href="index.html" class="pl-md-0 p-3 text-light">Home</a>
-            <a href="login.html" class="p-3 text-decoration-none text-light active">Login</a>
-            <a href="registration.html" class="p-3 text-decoration-none text-light">Register</a>
+            <a href="/" class="pl-md-0 p-3 text-light">Home</a>
+            <a href="/login" class="p-3 text-decoration-none text-light active">Login</a>
+            <a href="/register" class="p-3 text-decoration-none text-light">Register</a>
           </div>
         </div>
       </nav>
-
     </div>
   </div>
 
-<div class="container py-5 mb-5">
-  <h1 class="mb-5" style="text-align: center">Before we start HACKING<span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>
-  <div class="row py-4">
-    <div class="col-md-8 order-md-2">
-      <h4 class="mb-3">Enter your credentials</h4>
-      <form class="needs-validation" novalidate>
-        <div class="mb-3">
-          <label for="username">Username</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">@</span>
+  <div class="container py-5 mb-5">
+      <h1 class="mb-5" style="text-align: center">Before we start HACKING<span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>
+      <div class="row py-4 justify-content-center">
+        <div class="col-md-6 glass-effect-login">
+          <h4 class="mb-3">Enter your credentials</h4>
+          <form class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="username">Username</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">@</span>
+                </div>
+                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                  Your username is required.
+                </div>
+              </div>
             </div>
-            <input type="text" class="form-control" id="username" placeholder="Username" required>
-            <div class="invalid-feedback" style="width: 100%;">
-              Your username is required.
-            </div>
-          </div>
-        </div>
 
-        <div class="mb-3">
-          <label for="password">Password <span class="text-muted"></span></label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">#</span>
+            <div class="mb-3">
+              <label for="password">Password <span class="text-muted"></span></label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">#</span>
+                </div>
+                <input type="password" class="form-control" id="password" placeholder="Make sure nobody's behind you ;)">
+                <div class="invalid-feedback">
+                  Please enter a valid password.
+                </div>
+              </div>
             </div>
-            <input type="password" class="form-control" id="password" placeholder="Make sure nobody's behind you ;)">
-            <div class="invalid-feedback">
-              Please enter a valid password.
-            </div>
-          </div>
+            <hr class="mb-4">
+            <button class="btn btn-outline-success btn-shadow btn-lg btn-block" type="submit"> Lets Hack! </button>
+          </form>
         </div>
-        <hr class="mb-4">
-        <hr class="mb-4">
-        <button class="btn btn-outline-success btn-shadow btn-lg btn-block" type="submit"> Lets Hack! </button>
-      </form>
+      </div>
     </div>
-    <div class="col-md-2 order-md-1"></div>
-    <div class="col-md-2 order-md-3"></div>
-  </div>
-</div>
-
 
 
     <!-- Optional JavaScript -->

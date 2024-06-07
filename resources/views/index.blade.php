@@ -20,17 +20,26 @@
     <div class="navbar-dark text-white">
       <div class="container">
         <nav class="navbar px-0 navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
+        <a class="navbar-brand" href="/"><span>CTFin</span><span>AJA</span></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a href="#" class="nav-item nav-link active text-white">Home</a>
+            <a href="/" class="nav-item nav-link active text-white">Home</a>
+              <a href="/login" class="nav-item nav-link text-white">Notification</a>
+              <a href="/user" class="nav-item nav-link text-white">Users</a>
+            <a href="/user" class="nav-item nav-link active text-white">Home</a>
               <a href="#" class="nav-item nav-link text-white">Notification</a>
-              <a href="{{ asset('main.blade.php') }}" class="nav-item nav-link text-white">Users</a>
-              <a href="#" class="nav-item nav-link text-white">Scoreboard</a>
-              <a href="#" class="nav-item nav-link text-white">Challenges</a>
+              <div class="dropdown">
+                           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
+                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="/login">Login</a>
+                              <a class="dropdown-item" href="/register">Register</a>
+                           </div>
+              </div>
+              <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
+              <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>
             </div>
           </div>
         </nav>
@@ -271,7 +280,7 @@
 
 <!-- Footer Section -->
 <div class="footer" style=" color: white; padding: 20px; text-align: center; font-size: 16px;">
-<p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="{{ asset('main.blade.php') }}">Privacy Policy.</a></p>
+<p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="/policy">Privacy Policy.</a></p>
   <div class="social-icons">
     <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-twitter"></i></a>
     <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
