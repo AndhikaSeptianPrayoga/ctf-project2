@@ -23,26 +23,27 @@
 
       <div id="particles-js"></div>
 
-  <div class="navbar-dark text-white">
-    <div class="container">
-      <nav class="navbar px-0 navbar-expand-lg navbar-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a href="/" class="pl-md-0 p-3 text-light">Home</a>
-            <a href="/login" class="p-3 text-decoration-none text-light">Login</a>
-            <a href="/register" class="p-3 text-decoration-none text-light active">Register</a>
+  <div id="particles-js"></div>
+    <div class="navbar-dark text-white">
+      <div class="container">
+        <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/"><span>CTFin</span><span>AJA</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a href="/" class="nav-item nav-link active text-white">Home</a>
+              <a href="/login" class="nav-item nav-link text-white">Notification</a>
+              <a href="/user" class="nav-item nav-link text-white">Users</a>
+              <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
+              <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>
+            </div>
           </div>
-        </div>
-      </nav>
-
+        </nav>
+      </div>
     </div>
-  </div>
 
-
-  
   <div class="container py-5 mb-5 glass-effect-register">
 <h1 class="mb-5" style="text-align: center">Register your team for the CTF<span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>
 <div class="row py-4">
@@ -99,7 +100,7 @@
               </div>
             </div>
           </div>
-          
+
         <hr class="mb-4">
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="solemnly-swear">
