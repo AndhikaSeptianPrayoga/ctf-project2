@@ -102,7 +102,7 @@
                           <form id="contact" action="" method="post">
                             <h3>Settings Profile</h3>
                             <fieldset>
-                              <h5>Name</h5>
+                              <h5>Username</h5>
                               <input placeholder="Lorem Ipsum" type="text" tabindex="1">
                             </fieldset>
                             <fieldset>
@@ -110,12 +110,8 @@
                               <input placeholder="loremipsum@gmail.com" type="email" tabindex="2">
                             </fieldset>
                             <fieldset>
-                              <h5>Phone</h5>
+                              <h5>Password</h5>
                               <input placeholder="Team Lorem Ipsum" type="tel" tabindex="3">
-                            </fieldset>
-                            <fieldset>
-                              <h5>BIO</h5>
-                              <textarea placeholder="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum" tabindex="5"></textarea>
                             </fieldset>
                             <fieldset>
                               <button name="submit" type="submit" id="contact-submit" data-submit="Edit Profile Saved">Submit Edit</button>

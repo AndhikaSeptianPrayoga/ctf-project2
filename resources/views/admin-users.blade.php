@@ -96,11 +96,7 @@
                             <th>No.</th>
                             <th>Username</th>
                             <th>Email</th>
-                            <th>Team</th>
                             <th>Role</th>
-                            <th>Status</th>
-                            <th>Banned</th>
-                            <th>Admin</th>
                             <th>Hapus</th>
                         </tr>
                     </thead>
@@ -119,19 +115,19 @@
     </section>
     <script>
         const users = [
-            { no: 1, username: "FaizalAG", email: "faizalazzriel@gmail.com", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 2, username: "admin", email: "admin@ctf.akbarwirian.my.id", team: "KOSAN-U", role: "Admin", status: "Aktif", banned: "Banned", admin: "UnAdmin", hapus: "Hapus" },
-            { no: 3, username: "Akbar_Wira", email: "akbarwiranugraha@gmail.com", team: "KOSAN-U", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 4, username: "Dhika", email: "a@gmail.com", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 5, username: "andhika", email: "andhikapangestu6@gmail.com", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 6, username: "BentarCr00s", email: "bentar.croos@upi.edu", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 7, username: "a", email: "a@gmail.com", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 8, username: "Riza", email: "rizlli@gmail.com", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 9, username: "rizaa", email: "rizlildsd@gmail.com", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 10, username: "faizal", email: "faizalazzriel@gmail.com", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 11, username: "JohnDoe", email: "john.doe@gmail.com", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 12, username: "JaneSmith", email: "jane.smith@gmail.com", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" },
-            { no: 13, username: "User123", email: "user123@gmail.com", team: "-", role: "Users", status: "Aktif", banned: "Banned", admin: "Adminkan", hapus: "Hapus" }
+            { no: 1, username: "FaizalAG", email: "faizalazzriel@gmail.com",   role: "Users", hapus: "Hapus" },
+            { no: 2, username: "admin", email: "admin@ctf.akbarwirian.my.id",   role: "Admin", hapus: "Hapus" },
+            { no: 3, username: "Akbar_Wira", email: "akbarwiranugraha@gmail.com",   role: "Users", hapus: "Hapus" },
+            { no: 4, username: "Dhika", email: "a@gmail.com",   role: "Users", hapus: "Hapus" },
+            { no: 5, username: "andhika", email: "andhikapangestu6@gmail.com",   role: "Users", hapus: "Hapus" },
+            { no: 6, username: "BentarCr00s", email: "bentar.croos@upi.edu",   role: "Users", hapus: "Hapus" },
+            { no: 7, username: "a", email: "a@gmail.com",   role: "Users", hapus: "Hapus" },
+            { no: 8, username: "Riza", email: "rizlli@gmail.com",   role: "Users", hapus: "Hapus" },
+            { no: 9, username: "rizaa", email: "rizlildsd@gmail.com",   role: "Users", hapus: "Hapus" },
+            { no: 10, username: "faizal", email: "faizalazzriel@gmail.com",   role: "Users", hapus: "Hapus" },
+            { no: 11, username: "JohnDoe", email: "john.doe@gmail.com",   role: "Users", hapus: "Hapus" },
+            { no: 12, username: "JaneSmith", email: "jane.smith@gmail.com",   role: "Users", hapus: "Hapus" },
+            { no: 13, username: "User123", email: "user123@gmail.com",   role: "Users", hapus: "Hapus" }
         ];
         const rowsPerPage = 10;
         let currentPage = 1;
@@ -150,11 +146,8 @@
                         <td>${user.no}</td>
                         <td>${user.username}</td>
                         <td>${user.email}</td>
-                        <td>${user.team}</td>
+
                         <td>${user.role}</td>
-                        <td>${user.status}</td>
-                        <td><button class="btn btn-danger">${user.banned}</button></td>
-                        <td><button class="btn btn-success">${user.admin}</button></td>
                         <td><button class="btn btn-danger">${user.hapus}</button></td>
                     </tr>
                 `;
@@ -196,11 +189,7 @@
                         <td>${user.no}</td>
                         <td>${user.username}</td>
                         <td>${user.email}</td>
-                        <td>${user.team}</td>
                         <td>${user.role}</td>
-                        <td>${user.status}</td>
-                        <td><button class="btn btn-danger">${user.banned}</button></td>
-                        <td><button class="btn btn-success">${user.admin}</button></td>
                         <td><button class="btn btn-danger">${user.hapus}</button></td>
                     </tr>
                 `;

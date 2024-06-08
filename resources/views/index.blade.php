@@ -43,12 +43,12 @@
               <h1 class="display-3">CAPTURE THE FLAG<span class="vim-caret">͏͏&nbsp;</span></h1>
               <div class="lead mb-3 text-mono text-success">Welcome hackers! prove the world's most powerful hacking, is here! and prove the world that a computer genius with a laptop is not a nerd sitting in the corner ! join our CTF and expand your knowledge !</div>
               <div class="text-mono">
-                <a href="#"
+                <a href="/register"
                   title="Get Started"
                   class="btn btn-success btn-shadow px-3 my-2 ml-0 text-left">
                   Get Started
                 </a>
-                <a href="#"
+                <a href="/login"
                   class="btn btn-danger btn-shadow px-3 my-2 ml-0 ml-sm-1 text-left">
                   Re-Join
                 </a>
@@ -164,7 +164,8 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-3">
+              <!-- First Row -->
+              <div class="col-md-4">
                 <div class="card">
                   <img class="card-img-top" src="{{ asset('img/faizal.jpeg') }}" alt="Ijel">
                   <div class="card-body text-center">
@@ -180,7 +181,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <div class="card">
                   <img class="card-img-top" src="{{ asset('img/Asep.jpg') }}" alt="Asep">
                   <div class="card-body text-center">
@@ -196,7 +197,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-4">
                 <div class="card">
                   <img class="card-img-top" src="{{ asset('img/riza.jpg') }}" alt="Rija">
                   <div class="card-body text-center">
@@ -212,8 +213,10 @@
                   </div>
                 </div>
               </div>
-              
-              <div class="col-md-3">
+            </div>
+            <div class="row mt-4">
+              <!-- Second Row -->
+              <div class="col-md-6">
                 <div class="card">
                   <img class="card-img-top" src="{{ asset('img/akbar.jpeg') }}" alt="Abay">
                   <div class="card-body text-center">
@@ -229,10 +232,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
+              <div class="col-md-6">
                 <div class="card">
                   <img class="card-img-top" src="{{ asset('img/saeful.jpg') }}" alt="Ipul">
                   <div class="card-body text-center">
@@ -249,21 +249,14 @@
                 </div>
               </div>
             </div>
+          </div>
+            </div>
             
           </div>
 
           
           <!-- End of Our Team Section -->
           <div class="footer">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="{{ asset('img/kampus.jpg') }}" alt="kampus">
-        </div>
-        <div class="col-md-6">
-            <h3>Deskripsi Kampus</h3>
-            <p>Deskripsi kampus akan ditampilkan di sini. Anda bisa menambahkan deskripsi singkat tentang kampus, fasilitasnya, program-programnya, atau informasi lain yang relevan.</p>
-        </div>
-    </div>
 </div>
 
     </div>
