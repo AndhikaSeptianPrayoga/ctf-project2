@@ -43,12 +43,12 @@
               <h1 class="display-3">CAPTURE THE FLAG<span class="vim-caret">͏͏&nbsp;</span></h1>
               <div class="lead mb-3 text-mono text-success">Welcome hackers! prove the world's most powerful hacking, is here! and prove the world that a computer genius with a laptop is not a nerd sitting in the corner ! join our CTF and expand your knowledge !</div>
               <div class="text-mono">
-                <a href="#"
+                <a href="/register"
                   title="Get Started"
                   class="btn btn-success btn-shadow px-3 my-2 ml-0 text-left">
                   Get Started
                 </a>
-                <a href="#"
+                <a href="/login"
                   class="btn btn-danger btn-shadow px-3 my-2 ml-0 ml-sm-1 text-left">
                   Re-Join
                 </a>

@@ -99,41 +99,7 @@
               </div>
             </div>
           </div>
-
-        <div class="row">
-          <div class="col-md-5 mb-3">
-            <label for="country">College</label>
-            <select class="custom-select d-block w-100" id="college" required>
-              <option value="">Choose...</option>
-              <option>PICT</option>
-              <option>COEP</option>
-              <option>VIT</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid college.
-            </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="state">Year</label>
-            <select class="custom-select d-block w-100" id="year" required>
-              <option value="">Choose...</option>
-              <option>First Year</option>
-              <option>Second Year</option>
-              <option>Third Year</option>
-              <option>Final Year</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid year
-            </div>
-          </div>
-          <div class="col-md-3 mb-3">
-            <label for="dept">Department</label>
-            <input type="text" class="form-control" id="dept" placeholder="" required>
-            <div class="invalid-feedback">
-              Department is required
-            </div>
-          </div>
-        </div>
+          
         <hr class="mb-4">
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="solemnly-swear">

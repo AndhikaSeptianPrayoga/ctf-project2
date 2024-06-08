@@ -67,6 +67,14 @@ Route::get('/admin-add-user', function () {
     return view('admin-add-user');
 });
 
-Route::get('admin-challenge', function () {
+Route::get('/admin-challenge', function () {
     return view('admin-challenge');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('Registration');
 });
