@@ -45,7 +45,6 @@ Route::get('/support', function () {
 Route::get('/policy', function () {
     return view('policy');
 });
-// Route::get('/policy', [PolicyController::class, 'show'])->name('policy');
 
 Route::get('/scoreboard', function () {
     return view('scoreboard-user');
@@ -55,18 +54,18 @@ Route::get('/test', function () {
     return view('test-user');
 });
 
-Route::get('/dummy', function(){
-    return view('dummy');
-});
-   
-Route::get('/login', function () {
-    return view('login');
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
-Route::get('/register', function () {
-    return view('registration');
+Route::get('/admin-user', function () {
+    return view('admin-users');
 });
 
-Route::get('/policy', function () {
-    return view('policy');  
+Route::get('/admin-add-user', function () {
+    return view('admin-add-user');
+});
+
+Route::get('admin-challenge', function () {
+    return view('admin-challenge');
 });
