@@ -7,10 +7,12 @@
     <title>Capture The Flag - Register</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="assets/css/bootstrap4-neon-glow.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/particles.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/particles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+    <script defer   src="../Js/main.js"></script>
     
     
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -29,9 +31,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a href="index.html" class="pl-md-0 p-3 text-light">Home</a>
-            <a href="login.html" class="p-3 text-decoration-none text-light">Login</a>
-            <a href="registration.html" class="p-3 text-decoration-none text-light active">Register</a>
+            <a href="/" class="pl-md-0 p-3 text-light">Home</a>
+            <a href="/login" class="p-3 text-decoration-none text-light">Login</a>
+            <a href="/register" class="p-3 text-decoration-none text-light active">Register</a>
           </div>
         </div>
       </nav>
@@ -41,12 +43,11 @@
 
 
   
-<div class="container py-5 mb-5">
-
-  <h1 class="mb-5" style="text-align: center">Register your team for the CTF<span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>
-  <div class="row py-4">
-    <div class="col-md-8 order-md-2">
-      <h4 class="mb-3">TEAM INFO</h4>
+  <div class="container py-5 mb-5 glass-effect-register">
+<h1 class="mb-5" style="text-align: center">Register your team for the CTF<span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>
+<div class="row py-4">
+  <div class="col-md-8 order-md-2">
+    <h4 class="mb-3">TEAM INFO</h4>
       <form class="needs-validation" novalidate>
         <div class="row">
           <div class="col-md-6 mb-3">
@@ -141,6 +142,7 @@
         <hr class="mb-4">
         <!-- <a href="#!" class="btn btn-outline-primary btn-shadow">Outline Button</a> -->
 
+        
         <button class="btn btn-outline-success btn-shadow btn-lg btn-block" type="submit"> Count me in. </button>
       </form>
     </div>

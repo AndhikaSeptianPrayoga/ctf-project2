@@ -1,6 +1,7 @@
 .canvas_img{
   height: auto;
   width: 500px;
+  transform: none;
 }
 
 .navbar-nav{
@@ -72,7 +73,6 @@ a::-moz-focus-inner {
 /* CLOCK */
 .countdown-timer {
   zoom: 0.5;
-  -moz-transform: scale(0.5);
 }
 
 .footer img{
@@ -181,9 +181,6 @@ a::-moz-focus-inner {
 
 }
 
-.footer a {
-  cursor: pointer;
-}
 
 
 
@@ -196,6 +193,7 @@ color: white;
 height: 100%; /* Ensure cards fill the available height */
 display: flex;
 flex-direction: column;
+transform: none; /* Define the standard property 'transform' for compatibility */
 }
 
 
@@ -250,3 +248,8 @@ border-top-right-radius: 10px;
 }
 
 
+
+.footer {
+  position: relative;
+  z-index: 1;
+}
