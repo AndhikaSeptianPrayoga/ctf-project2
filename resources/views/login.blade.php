@@ -7,34 +7,38 @@
     <title>Capture The Flag - Login</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="../css/bootstrap4-neon-glow.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/particles.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/particles.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+    <script defer   src="../Js/main.js"></script>
     
   </head>
   <body>
 
     <div id="particles-js"></div>
 
-  <div class="navbar-dark text-white">
-    <div class="container">
-      <nav class="navbar px-0 navbar-expand-lg navbar-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a href="/index" class="pl-md-0 p-3 text-light">Home</a>
-            <a href="/login" class="p-3 text-decoration-none text-light active">Login</a>
-            <a href="/register" class="p-3 text-decoration-none text-light">Register</a>
+  <div id="particles-js"></div>
+    <div class="navbar-dark text-white">
+      <div class="container">
+        <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/"><span>CTFin</span><span>AJA</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a href="/" class="nav-item nav-link active text-white">Home</a>
+              <a href="/login" class="nav-item nav-link text-white">Notification</a>
+              <a href="/user" class="nav-item nav-link text-white">Users</a>
+              <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
+              <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </div>
-  </div>
 
   <div class="container py-5 mb-5">
       <h1 class="mb-5" style="text-align: center">Before we start HACKING<span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>

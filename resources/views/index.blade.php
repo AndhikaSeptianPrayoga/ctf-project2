@@ -26,15 +26,9 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a href="/user" class="nav-item nav-link active text-white">Home</a>
-              <a href="#" class="nav-item nav-link text-white">Notification</a>
-              <div class="dropdown">
-                           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User</a>
-                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="/login">Login</a>
-                              <a class="dropdown-item" href="/register">Register</a>
-                           </div>
-              </div>
+            <a href="/" class="nav-item nav-link active text-white">Home</a>
+              <a href="/login" class="nav-item nav-link text-white">Notification</a>
+              <a href="/user" class="nav-item nav-link text-white">Users</a>
               <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
               <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>
             </div>
@@ -49,12 +43,12 @@
               <h1 class="display-3">CAPTURE THE FLAG<span class="vim-caret">͏͏&nbsp;</span></h1>
               <div class="lead mb-3 text-mono text-success">Welcome hackers! prove the world's most powerful hacking, is here! and prove the world that a computer genius with a laptop is not a nerd sitting in the corner ! join our CTF and expand your knowledge !</div>
               <div class="text-mono">
-                <a href="#"
+                <a href="/register"
                   title="Get Started"
                   class="btn btn-success btn-shadow px-3 my-2 ml-0 text-left">
                   Get Started
                 </a>
-                <a href="#"
+                <a href="/login"
                   class="btn btn-danger btn-shadow px-3 my-2 ml-0 ml-sm-1 text-left">
                   Re-Join
                 </a>
@@ -276,8 +270,8 @@
 </div>
 
 <!-- Footer Section -->
-<div class="footer" style="background-color: #222; color: white; padding: 20px; text-align: center; font-size: 16px; position: relative; z-index: 10;">
-  <p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="{{ url('/policy') }}" style="color: #ffffff;">Privacy Policy</a>.</p>
+<div class="footer" style=" color: white; padding: 20px; text-align: center; font-size: 16px;">
+<p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="/policy">Privacy Policy.</a></p>
   <div class="social-icons">
     <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-twitter"></i></a>
     <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>

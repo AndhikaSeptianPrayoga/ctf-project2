@@ -32,8 +32,7 @@
 .flip-clock-wrapper.clearfix:after {
   clear: both; }
 
-.flip-clock-wrapper.clearfix {
-  *zoom: 1; }
+
 
 /* Main */
 .flip-clock-wrapper {

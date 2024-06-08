@@ -80,8 +80,6 @@ Route::get('/register', function () {
     return view('Registration');
 });
 
-
-
 Route::get('/scoreboard', [ChallengeController::class, 'getRanking'])->name('scoreboard');
 
 Route::get('/views', [UserChallengeSolutionController::class, 'showSolutions'])->name('solutions');
