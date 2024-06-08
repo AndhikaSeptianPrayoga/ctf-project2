@@ -89,15 +89,18 @@
                   </div>
                   <div class="card-body">
                     <ul class="list-group">
-                      <li class="list-group-item">Total Users: 13</li>
-                      <li class="list-group-item">Total Challenges: 5</li>
-                      <li class="list-group-item">Total Notifications: 1</li>
-                      <li class="list-group-item">Total Solves: 156</li>
+                      <li class="list-group-item"><i class="fas fa-users"></i> Total Users: 13</li>
+                      <li class="list-group-item"><i class="fas fa-trophy"></i> Total Challenges: 5</li>
+                      <li class="list-group-item"><i class="fas fa-bell"></i> Total Notifications: 1</li>
+                      <li class="list-group-item"><i class="fas fa-check"></i> Total Solves: 156</li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
+            <br>
+            <br>
+            <br>
         
             <div class="row">
               <div class="col-md-6">
@@ -116,17 +119,20 @@
                   <div class="card-header">
                     <h5>Recent Solved Challenges</h5>
                   </div>
-                  <div class="card-body">
+                    <div class="card-body">
                     <ul class="list-group">
-                      <li class="list-group-item">Challenge 1 - Solved by User 1</li>
-                      <li class="list-group-item">Challenge 2 - Solved by User 2</li>
-                      <li class="list-group-item">Challenge 3 - Solved by User 3</li>
-                      <!-- Add more list items here -->
+                      <li class="list-group-item"><i class="fa fa-check"></i> Challenge 1 - Solved by User 1</li>
+                      <li class="list-group-item"><i class="fa fa-check"></i> Challenge 2 - Solved by User 2</li>
+                      <li class="list-group-item"><i class="fa fa-check"></i> Challenge 3 - Solved by User 3</li>
                     </ul>
-                  </div>
+                    </div>
                 </div>
               </div>
             </div>
+
+            <br>
+            <br>
+            <br>
         
             <div class="row">
               <div class="col-md-12">

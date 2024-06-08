@@ -12,17 +12,18 @@
     <link rel="stylesheet" href="{{ asset('css/particles.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#description',
+            plugins: 'a11ychecker advcode advlist anchor autolink charmap codesample emoticons link lists media mediaembed pageembed permanentpen powerpaste table advtable tinymcespellchecker',
+            toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+            toolbar_mode: 'floating',
+        });
+    </script>
     <script defer src="../Js/main.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-    <title>Capture And Flag</title>
 </head>
 <body>
-
     <div id="particles-js"></div>
     <nav class="main-menu">
         <div>
@@ -33,33 +34,41 @@
           <ul>
             <li class="nav-item ">
               <a href="#">
-                <i class="fa fa-home nav-icon"></i>
+                <i class="fa fa-home
+                  nav-icon"></i>
                 <span class="nav-text">Dashboard</span>
               </a>
             </li>
-
-            <li class="nav-item active ">
+            
+            <li class="nav-item">
               <a href="profile.html">
                 <i class="fa fa-users nav-icon"></i>
                 <span class="nav-text">Users</span>
               </a>
+
             </li>
-  
-            <li class="nav-item">
+
+            <li class="nav-item active">
               <a href="#">
                 <i class="fa fa-trophy nav-icon"></i>
                 <span class="nav-text">Challenges</span>
               </a>
+
             </li>
-  
+
             <li class="nav-item">
               <a href="scoreboard.html">
                 <i class="fa fa-check nav-icon"></i>
                 <span class="nav-text">Solved</span>
               </a>
+
             </li>
+
           </ul>
+
         </div>
+
+
   
         <ul>
           <li class="nav-item">
@@ -78,128 +87,127 @@
         </ul>
       </nav>
   
-    <section class="content">
+      <section class="content">
         <div class="inside-content">
             <div class="search-and-check">
                 <form class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search User..." onkeyup="searchUser()"/>
+                    <input type="text" id="searchInput" placeholder="Search  challenge..." onkeyup="search challenge()"/>
                     <i class="bx bx-search"></i>
                 </form>
             </div>
             <div class="header">
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
-                <div class="lead mb-3 text-mono text-success">Control List users. And here is for the 
-                    <a href="#"
-                    title="Get Started"
-                    class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">
-                    Add User
-                  </a>
-            </div>
+                <div class="lead mb-3 text-mono text-success">
+                    Control List  challenges. And here is for the
+                    <a href="#" title="Get Started" class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">Add  challenge</a>
+                </div>
             </div>
             <div class="table-responsive">
-                <div class="container mt-5">
-                    <h1 class="mb-4">Manage Challenges</h1>
-            
-                    <form id="addChallengeForm" onsubmit="addChallenge(event)">
-                        <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" class="form-control" id="title" name="title" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="category">Category</label>
-                            <input type="text" class="form-control" id="category" name="category" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="flag">Flag</label>
-                            <input type="text" class="form-control" id="flag" name="flag" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="points">Points</label>
-                            <input type="number" class="form-control" id="points" name="points" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-            
-                    <h2 class="mt-5">Challenges List</h2>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Flag</th>
-                                <th>Points</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="challengeTableBody"></tbody>
-                    </table>
-                </div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Category</th>
+                            <th>Flag</th>
+                            <th>Point</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id=" challengeTableBody">
+                        <!--  challenge rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <button onclick="prevPage()" id="btnPrev">Previous</button>
+                Page: <span id="page"></span>
+                <button onclick="nextPage()" id="btnNext">Next</button>
+            </div>
+        </div>
     </section>
-
-
+    
     <script>
-        let challenges = [];
-        let currentEditIndex = -1;
-
-        function displayChallenges() {
-            const tableBody = document.getElementById("challengeTableBody");
+        const  challenges = [
+            
+        ];
+        const rowsPerPage = 10;
+        let currentPage = 1;
+    
+        function display challenges() {
+            const start = (currentPage - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            const paginated challenges =  challenges.slice(start, end);
+    
+            const tableBody = document.getElementById(" challengeTableBody");
             tableBody.innerHTML = "";
-
-            challenges.forEach((challenge, index) => {
+    
+            for (const  challenge of paginated challenges) {
                 const row = `
                     <tr>
-                        <td>${index + 1}</td>
-                        <td>${challenge.title}</td>
-                        <td>${challenge.category}</td>
-                        <td>${challenge.flag}</td>
-                        <td>${challenge.points}</td>
-                        <td>
-                            <button class="btn btn-warning" onclick="editChallenge(${index})">Edit</button>
-                            <button class="btn btn-danger" onclick="deleteChallenge(${index})">Delete</button>
-                        </td>
+                        <td>${ challenge.no}</td>
+                        <td>${ challenge. challengename}</td>
+                        <td>${ challenge.email}</td>
+                        <td>${ challenge.category}</td>
+                        <td>${ challenge.flag}</td>
+                        <td>${ challenge.point}</td>
+                        <td><button class="btn btn-danger">${ challenge.action}</button></td>
                     </tr>
                 `;
                 tableBody.insertAdjacentHTML('beforeend', row);
-            });
-        }
-
-        function addChallenge(event) {
-            event.preventDefault();
-            const title = document.getElementById("title").value;
-            const category = document.getElementById("category").value;
-            const flag = document.getElementById("flag").value;
-            const points = document.getElementById("points").value;
-
-            if (currentEditIndex === -1) {
-                const newChallenge = { title, category, flag, points };
-                challenges.push(newChallenge);
-            } else {
-                challenges[currentEditIndex] = { title, category, flag, points };
-                currentEditIndex = -1;
             }
-
-            displayChallenges();
-            document.getElementById("addChallengeForm").reset();
+    
+            document.getElementById("page").innerText = currentPage;
+            document.getElementById("btnPrev").disabled = currentPage === 1;
+            document.getElementById("btnNext").disabled = end >=  challenges.length;
         }
-
-        function editChallenge(index) {
-            currentEditIndex = index;
-            const challenge = challenges[index];
-
-            document.getElementById("title").value = challenge.title;
-            document.getElementById("category").value = challenge.category;
-            document.getElementById("flag").value = challenge.flag;
-            document.getElementById("points").value = challenge.points;
+    
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                display challenges();
+            }
         }
-
-        function deleteChallenge(index) {
-            challenges.splice(index, 1);
-            displayChallenges();
+    
+        function nextPage() {
+            if ((currentPage * rowsPerPage) <  challenges.length) {
+                currentPage++;
+                display challenges();
+            }
         }
-
-        displayChallenges();
+    
+        function search challenge() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const filtered challenges =  challenges.filter( challenge =>
+                 challenge.email.toLowerCase().includes(searchInput) ||
+                 challenge.category.toLowerCase().includes(searchInput) ||
+                 challenge.flag.toLowerCase().includes(searchInput) ||
+                 challenge.point.toString().includes(searchInput) ||
+                 challenge.action.toLowerCase().includes(searchInput)
+            );
+    
+            const tableBody = document.getElementById(" challengeTableBody");
+            tableBody.innerHTML = "";
+    
+            for (const  challenge of filtered challenges) {
+                const row = `
+                    <tr>
+                        <td>${ challenge.no}</td>
+                        <td>${ challenge.category}</td>
+                        <td>${ challenge.flag}</td>
+                        <td>${ challenge.point}</td>
+                        <td><button class="btn btn-danger">${ challenge.action}</button></td>
+                    </tr>
+                `;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            }
+        }
+    
+        window.onload = function() {
+            display challenges();
+        };
     </script>
+
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

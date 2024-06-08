@@ -72,6 +72,13 @@ Route::get('/admin-challenge', function () {
     return view('admin-challenge');
 });
 
+Route::get('/admin-add-challenge', function () {
+    return view('admin-add-challenge');
+});
+Route::get('/solved', function () {
+    return view('admin-solved');
+});
+
 Route::get('/login', function () {
     return view('login');
 });

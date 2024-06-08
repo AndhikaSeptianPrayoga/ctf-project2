@@ -109,17 +109,6 @@
                           </a>
                           </div>
                       </form>
-                      <div class="button-down-hint">
-                        <a href="#"
-                          title="Download"
-                          class="btn btn-danger btn-shadow px-3 my-2 ml-0 text-left">
-                          Download
-                        </a>
-                        <a href="#"
-                          class="btn btn-danger btn-shadow px-3 my-2 ml-0 ml-sm-1 text-left">
-                          Get hint
-                        </a>
-                      </div>
                   </div>
               </div>
               <div class="card bg-sidebar text-white mt-4">
