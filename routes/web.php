@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserChallengeSolutionController;
+use App\Http\Controllers\ChallengeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,18 +56,32 @@ Route::get('/test', function () {
     return view('test-user');
 });
 
-Route::get('/dummy', function(){
-    return view('dummy');
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
-   
+
+Route::get('/admin-user', function () {
+    return view('admin-users');
+});
+
+Route::get('/admin-add-user', function () {
+    return view('admin-add-user');
+});
+
+Route::get('/admin-challenge', function () {
+    return view('admin-challenge');
+});
+
 Route::get('/login', function () {
     return view('login');
 });
 
 Route::get('/register', function () {
-    return view('registration');
+    return view('Registration');
 });
 
-Route::get('/policy', function () {
-    return view('policy');  
-});
+
+
+Route::get('/scoreboard', [ChallengeController::class, 'getRanking'])->name('scoreboard');
+
+Route::get('/views', [UserChallengeSolutionController::class, 'showSolutions'])->name('solutions');

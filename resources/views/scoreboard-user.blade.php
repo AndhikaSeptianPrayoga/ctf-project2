@@ -44,35 +44,36 @@
         <div class="col-md-9">
             <div class="leaderboard-container">
                 <h3 class="text-center mb-4">Leaderboard</h3>
-                <div class="table-responsive">
-                    <table class="table table-dark table-hover">
-                        <thead>
-                            <tr>
-                                <th>Rank</th>
-                                <th>Username</th>
-                                <th>Score</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Contoh data statis, ganti dengan data dinamis sesuai dengan backend -->
-                            <tr>
-                                <td>1</td>
-                                <td>user123</td>
-                                <td>1500</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>user456</td>
-                                <td>1450</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>user789</td>
-                                <td>1400</td>
-                            </tr>
-                            <!-- Akhir dari contoh data -->
-                        </tbody>
-                    </table>
+             
+   
+             
+    <table class="table table-dark table-hover" style="width: 100%; min-width: 800px;">
+        <colgroup>
+            <col style="width: 10%;">
+            <col style="width: 40%;">
+            <col style="width: 50%;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score Point</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($rankings as $key => $ranking)
+            <tr>
+                <td>{{ $key + 1 }}</td>
+                <td>{{ $ranking->username }}</td>
+                <td>{{ $ranking->total_points }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+
+
+</div>
                 </div>
             </div>
         </div>
