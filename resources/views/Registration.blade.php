@@ -44,7 +44,7 @@
       <div class="row py-4">
         <div class="col-md-8 order-md-2">
           <h4 class="mb-3">TEAM INFO</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" novalidate action="/register" method="POST">
 
             <div class="mb-3">
               <label for="username">Username</label>

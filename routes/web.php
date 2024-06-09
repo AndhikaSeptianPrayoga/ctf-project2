@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserChallengeSolutionController;
 use App\Http\Controllers\ChallengeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,4 +107,9 @@ use App\Http\Controllers\AdminChallengeController;
 
 Route::get('/admin-challenge', [AdminChallengeController::class, 'index'])->name('admin-challenge.index');
 Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.destroy');
+
+Route::get('/login', [LoginController::class, 'index']);
+
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'index']);
 
