@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2024 at 02:18 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jun 09, 2024 at 10:39 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,21 +54,17 @@ DELIMITER ;
 CREATE TABLE `category` (
   `id_category` int(11) NOT NULL,
   `category` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
 --
 
 INSERT INTO `category` (`id_category`, `category`) VALUES
-(1, 'OSINT'),
-(2, 'REVERSE'),
-(3, 'CRYPTO'),
-(4, 'FORENSIC'),
-(5, 'WEB'),
-(6, 'MISC'),
-(7, 'STEGANO'),
-(8, 'PROGRAMMING');
+(1, 'Programming'),
+(2, 'Web Exploit'),
+(3, 'Cryptography'),
+(4, 'OSINT');
 
 -- --------------------------------------------------------
 
@@ -84,7 +80,7 @@ CREATE TABLE `challenges` (
   `flag` varchar(50) NOT NULL,
   `poin` int(11) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `challenges`
@@ -94,8 +90,8 @@ INSERT INTO `challenges` (`id_chall`, `title`, `descript`, `id_category`, `flag`
 (118, 'Melacak Hengker', '<p>Anda adalah seorang digital forensik investigator yang menangani kasus peretasan satelit china oleh MR.Bucchaereli. Anda diberikan sebuah bahan petunjuk oleh informan rekan Anda, Anda diminta untuk melacak perangkat yang digunakan oleh peretas yang bernama MR.Bucchaereli itu.<br><br><a href=\"https://ctf.akbarwiran.my.id/assets/uploads/test.jpg\" target=\"_blank\">BAHAN PETUNJUK KASUS</a></p>', 4, 'CTFinAJA{KomputerNasa}', 10, 1),
 (126, 'Kijang Satu', '<p>Tolong terjemahkan kode aparatur negara ini, ada Intel yang sedang mengawasi Anda!</p>', 3, 'CTFinAJA{aman}', 10, 1),
 (127, 'Binary', '<p>Terjemahkan binary tersebut..</p>', 3, 'CTFinAJA{tobat}', 5, 1),
-(128, 'Pramuka', '<p>Terjemahkan dong Maniezz</p>', 3, 'CTFinAJA{hell0}', 5, 1),
-(129, 'saya ikan', 'tolong terjemahkan bahasa saya', 3, 'CTFinAJA{k3l4z_484n6kuh}', 15, 1);
+(128, 'Pramuka', '<p>Terjemahkan dong Maniezz</p>', 2, 'CTFinAJA{hell0}', 5, 1),
+(129, 'saya ikan', 'tolong terjemahkan bahasa saya', 1, 'CTFinAJA{k3l4z_484n6kuh}', 15, 1);
 
 -- --------------------------------------------------------
 
@@ -107,7 +103,7 @@ CREATE TABLE `files` (
   `id_file` int(11) NOT NULL,
   `id_chall` int(11) NOT NULL,
   `file_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `files`
@@ -127,7 +123,7 @@ CREATE TABLE `notification` (
   `title` varchar(50) NOT NULL,
   `description` text NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `notification`
@@ -135,26 +131,6 @@ CREATE TABLE `notification` (
 
 INSERT INTO `notification` (`id_notif`, `title`, `description`, `status`) VALUES
 (16, 'About CTF', '<p><b>Apa itu Capture The Flag (CTF)?</b></p><p>Capture The Flag (CTF) adalah kompetisi keamanan cyber yang menantang peserta untuk menyelesaikan serangkaian tantangan untuk mencari \"bendera\" atau flag. Bendera ini bisa berupa teks, kode, atau file yang disembunyikan di berbagai jenis tantangan, seperti pemrograman, steganografi, analisis forensik, dan lainnya.</p><p><br></p><p><b>Bagaimana Cara Berpartisipasi?</b></p><p>Para peserta biasanya bergabung dalam tim atau mengikuti secara individu untuk menyelesaikan tantangan yang disediakan dalam berbagai kategori seperti web, OSINT (Open Source Intelligence), reverse engineering, programming, miscellaneous (misc), steganografi, forensic, dan banyak lagi. Mereka akan menggunakan pengetahuan dan keterampilan mereka dalam keamanan komputer untuk menemukan solusi untuk setiap tantangan.</p><p><br></p><p><b>Mengapa CTF Penting?</b></p><p>CTF adalah cara yang bagus untuk mengasah keterampilan dalam keamanan cyber, serta mempelajari teknik-teknik baru dan berinteraksi dengan komunitas keamanan. Selain itu, CTF juga membantu meningkatkan pemahaman tentang kerentanan keamanan yang mungkin ada dalam sistem dan aplikasi.</p><p><br></p><p><b>Siapa yang Bisa Berpartisipasi?</b></p><p>Siapa pun yang tertarik dalam bidang keamanan cyber, termasuk pemula dan profesional, dapat berpartisipasi dalam CTF. Tidak ada batasan usia atau latar belakang pendidikan untuk ikut serta dalam kompetisi ini.</p><p><br></p><p><b>Ayo Bergabung!</b></p><p>Jika Anda tertarik untuk menguji dan meningkatkan keterampilan keamanan cyber Anda, bergabunglah dalam kompetisi CTF kami dan hadapi tantangan seru dari berbagai kategori! Semakin Anda berlatih, semakin Anda akan berkembang dalam dunia keamanan cyber.</p>', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reset_pass`
---
-
-CREATE TABLE `reset_pass` (
-  `id_reset` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `reset_pass`
---
-
-INSERT INTO `reset_pass` (`id_reset`, `email`, `token`) VALUES
-(227, 'a@gmail.com', 'BG0TAkjo2ImPqf1QtEJyX5KLlpMaWe'),
-(228, 'faizalazzriel@gmail.com', 'cwq5ZhHfjmRJgiku7GS36aQPb4KWDv');
 
 -- --------------------------------------------------------
 
@@ -169,14 +145,13 @@ CREATE TABLE `solves` (
   `user_flag` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `solves`
 --
 
 INSERT INTO `solves` (`id_solve`, `id_user`, `id_chall`, `user_flag`, `created_at`, `status`) VALUES
-(47349, 18140, 118, 'CTFinAJA{Xiaomi}', '2024-02-10 22:46:45', 1),
 (47350, 18143, 118, 'CTFinAJA{*}', '2024-02-10 22:53:11', 0),
 (47351, 18144, 118, 'CTFinAJA{Xiaomi}', '2024-02-10 22:53:44', 0),
 (47352, 18144, 118, 'CTFinAJA{Xiaomi}', '2024-02-10 22:53:51', 0),
@@ -206,10 +181,7 @@ INSERT INTO `solves` (`id_solve`, `id_user`, `id_chall`, `user_flag`, `created_a
 (47376, 18144, 118, 'CTFinAJA{Xiaomi}', '2024-02-11 01:59:49', 0),
 (47377, 18145, 118, 'CTFinAJA{XXiaomi}', '2024-02-11 07:27:18', 0),
 (47378, 18145, 118, 'CTFinAJA{XXiaomi}', '2024-02-11 07:27:19', 0),
-(47379, 18145, 118, 'CTFinAJA{Xiaomi}', '2024-02-11 07:27:27', 1),
-(47380, 18146, 118, 'CTFinAJA{Xiaomi}', '2024-02-11 07:32:15', 1),
 (47381, 18145, 119, 'CTFinAJA{tes}', '2024-02-11 07:36:38', 1),
-(47382, 18144, 118, 'CTFinAJA{Xiaomi}', '2024-02-11 07:37:14', 1),
 (47383, 18145, 120, 'CTFRST{oke}', '2024-02-11 07:45:02', 1),
 (47384, 18145, 121, 'CTFinAJA{tes}', '2024-02-11 07:53:41', 1),
 (47385, 18145, 122, 'CTFinAJA{tes}', '2024-02-11 07:58:47', 1),
@@ -293,13 +265,8 @@ INSERT INTO `solves` (`id_solve`, `id_user`, `id_chall`, `user_flag`, `created_a
 (47463, 18147, 118, 'CTFinAJA{JEMBOT}', '2024-02-16 11:27:41', 0),
 (47464, 18147, 118, 'CTFinAJA{JEMBOT}', '2024-02-16 11:27:42', 0),
 (47465, 18148, 118, 'CTFinAJA{Xiaomi}', '2024-02-16 23:30:18', 0),
-(47466, 18148, 118, 'CTFinAJA{KomputerNasa}', '2024-02-16 23:30:28', 1),
-(47467, 18149, 118, 'CTFinAJA{KomputerNasa}', '2024-02-17 00:03:04', 1),
 (47468, 18150, 118, 'zfag', '2024-02-17 00:06:15', 0),
-(47469, 18150, 118, 'CTFinAJA{KomputerNasa}', '2024-02-17 00:06:25', 1),
 (47470, 18151, 118, 'CTFinAJA{Xiaomi}', '2024-02-17 00:10:37', 0),
-(47471, 18151, 118, 'CTFinAJA{KomputerNasa}', '2024-02-17 00:10:47', 1),
-(47472, 18153, 118, 'CTFinAJA{KomputerNasa}', '2024-02-17 00:23:33', 1),
 (47473, 18153, 127, 'CTFinAJA{Xiaomi}', '2024-02-17 00:52:55', 0),
 (47474, 18153, 128, 'CTFinAJA{hell0}', '2024-02-17 00:53:20', 1),
 (47475, 18153, 126, 'CTFinAJA{aman}', '2024-02-17 00:53:34', 1),
@@ -310,11 +277,9 @@ INSERT INTO `solves` (`id_solve`, `id_user`, `id_chall`, `user_flag`, `created_a
 (47480, 18156, 118, 'southeast', '2024-02-21 14:38:55', 0),
 (47481, 18156, 118, 'south east', '2024-02-21 14:39:09', 0),
 (47482, 18156, 118, 'South East', '2024-02-21 14:39:16', 0),
-(47483, 18157, 127, 'CTFinAJA{tobat}', '2024-02-21 23:54:13', 1),
 (47484, 18157, 128, 'CTFinAJA{HELL0}', '2024-02-21 23:56:06', 0),
 (47485, 18157, 128, 'CTFinAJA{HELL0}', '2024-02-21 23:57:14', 0),
 (47486, 18157, 128, 'hello', '2024-02-21 23:57:22', 0),
-(47487, 18157, 118, 'CTFinAJA{KomputerNasa}', '2024-02-21 23:58:45', 1),
 (47488, 18157, 126, 'CTFinAJA{Administrasi-Manajemen-Amanah-Nominasi}', '2024-02-22 00:00:27', 0),
 (47489, 18157, 126, 'CTFinAJA{Administrasi-Manajemen-Amanah-Nominasi}', '2024-02-22 00:00:36', 0),
 (47490, 18157, 126, 'CTFinAJA{Administrasi-Manajemen-Amanah-Nominasi}', '2024-02-22 00:00:45', 0),
@@ -330,8 +295,7 @@ INSERT INTO `solves` (`id_solve`, `id_user`, `id_chall`, `user_flag`, `created_a
 (47500, 18161, 126, 'CTFinAJA{Administrasi-Manajemen-Amanah-Nominasi}', '2024-03-25 13:22:21', 0),
 (47501, 18158, 128, 'CTFinAJA{.... . .-.. .-.. -----}', '2024-03-26 03:07:43', 0),
 (47502, 18158, 128, '242342', '2024-03-26 03:07:48', 0),
-(47503, 18163, 128, 'CTFinAJA{HELL0}', '2024-05-17 22:48:24', 0),
-(47504, 18163, 128, 'CTFinAJA{hell0}', '2024-05-17 22:49:24', 1);
+(47503, 18163, 128, 'CTFinAJA{HELL0}', '2024-05-17 22:48:24', 0);
 
 --
 -- Triggers `solves`
@@ -361,7 +325,7 @@ CREATE TABLE `users` (
   `password` char(32) NOT NULL,
   `email` varchar(50) NOT NULL,
   `role` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -371,17 +335,8 @@ INSERT INTO `users` (`id_user`, `username`, `password`, `email`, `role`) VALUES
 (18141, 'FaizalAG', 'd489a3289ecdc847cb67f7a480e6f9fa', 'faizalazzriel@gmail.com', 0),
 (18152, 'admin', '250301faa7ff245750df7b7bb00553f4', 'admin@ctf.akbarwiran.my.id', 1),
 (18153, 'Akbar_Wira', '11922c130465a5ef37e2b957b1b1f00d', 'akbarwiranugraha2@gmail.com', 0),
-(18155, 'Dhika', '0cc175b9c0f1b6a831c399e269772661', 'a@gmail.com', 0),
 (18156, 'andhikap', '390ba5f6b5f18dd4c63d7cda170a0c74', 'andhikapangestu66@gmail.com', 0),
-(18157, 'BentarCr00s', '993b757c971bb0110e2831b33a4d8d53', 'bentar.croos@upi.edu', 0),
-(18158, 'a', '0cc175b9c0f1b6a831c399e269772661', 'a@gmail.com', 0),
-(18159, 'Riza', '41a44352a6f3cd3b45282acbce50927c', 'rizlli@gmail.com', 0),
-(18160, 'rizaa', '41a44352a6f3cd3b45282acbce50927c', 'rizllidsd@gmail.com', 0),
-(18161, 'faizal', '97404a2d1c5fa01027e2650fff41e108', 'faizalazzriel@gmail.com', 0),
-(18162, 'abaykansaja', '55f967c2abf032adc35824e3cfb6b48d', 'pantaibabi@gmail.com', 0),
-(18163, 'IvanBesti', '4a041a67f0d9b3afd33a84891001112c', 'crack3806@gmail.com', 0),
-(18164, 'Halobanh', '4297f44b13955235245b2497399d7a93', 'a@gmail.com', 0),
-(18165, 'rizz', 'riza123', 'admiadssdn@gmail.com', 0);
+(18161, 'faizal', '97404a2d1c5fa01027e2650fff41e108', 'faizalazzriel@gmail.com', 0);
 
 --
 -- Indexes for dumped tables
@@ -410,12 +365,6 @@ ALTER TABLE `files`
 --
 ALTER TABLE `notification`
   ADD PRIMARY KEY (`id_notif`);
-
---
--- Indexes for table `reset_pass`
---
-ALTER TABLE `reset_pass`
-  ADD PRIMARY KEY (`id_reset`);
 
 --
 -- Indexes for table `solves`
@@ -457,12 +406,6 @@ ALTER TABLE `files`
 --
 ALTER TABLE `notification`
   MODIFY `id_notif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `reset_pass`
---
-ALTER TABLE `reset_pass`
-  MODIFY `id_reset` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=230;
 
 --
 -- AUTO_INCREMENT for table `solves`
