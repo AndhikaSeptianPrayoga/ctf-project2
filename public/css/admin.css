@@ -45,6 +45,42 @@
     color: #d3d3d3; /* Warna abu-abu untuk "AJA" */
   }
 
+    /* Webkit Browsers */
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+  
+    ::-webkit-scrollbar-track {
+      background: #2c3e50;
+      border-radius: 10px;
+    }
+  
+    ::-webkit-scrollbar-thumb {
+      background: #1abc9c;
+      border-radius: 10px;
+      border: 3px solid #2c3e50;
+    }
+  
+    ::-webkit-scrollbar-thumb:hover {
+      background: #16a085;
+    }
+  
+    ::-webkit-scrollbar-thumb:active {
+      background: #0e7765;
+    }
+  
+    /* Firefox */
+    body {
+      scrollbar-width: thin;
+      scrollbar-color: #1abc9c #2c3e50;
+    }
+  
+    .my-custom-scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: #1abc9c #2c3e50;
+    }
+    
 /* Banner Header */
 .ctf-banner {
   padding: 20px;
