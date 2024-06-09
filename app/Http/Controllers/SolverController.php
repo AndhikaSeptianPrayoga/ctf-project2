@@ -19,7 +19,6 @@ class SolverController extends Controller
             ->orderBy('solves.created_at', 'desc')
             ->get();
 
-        // Kirim data ke view 'test-user'
         return view('test-user', compact('solvers'));
     }
 }

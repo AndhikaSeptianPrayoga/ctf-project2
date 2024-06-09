@@ -115,7 +115,7 @@
                                     <th>No</th>
                                     <th>Username</th>
                                     <th>Challenge</th>
-                                    <th>Time</th>
+                                    <th>Date</th>
                                 </tr>
                             </thead>
                             <tbody>
