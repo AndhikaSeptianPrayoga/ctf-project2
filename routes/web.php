@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserChallengeSolutionController;
+use App\Http\Controllers\ChallengeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -9,23 +11,93 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
 */
 
 Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/user', function () {
+    return view('home-user');
+});
+
+Route::get('/challenge', function () {
+    return view('all-challenge');
+});
+
+Route::get('/board', function () {
+    return view('board-user');
+});
+
+Route::get('/profile', function () {
+    return view('profile-user');
+});
+
+
+Route::get('/setting', function () {
+    return view('settings-user');
+});
+
+Route::get('/support', function () {
+    return view('support-user');
+});
+
+Route::get('/policy', function () {
+    return view('policy');
+});
+// Route::get('/policy', [PolicyController::class, 'show'])->name('policy');
+
+Route::get('/scoreboard', function () {
+    return view('scoreboard-user');
+});
+
+Route::get('/test', function () {
+    return view('test-user');
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/admin-user', function () {
+    return view('admin-users');
+});
+
+Route::get('/admin-add-user', function () {
+    return view('admin-add-user');
+});
+
+Route::get('/admin-challenge', function () {
+    return view('admin-challenge');
+});
+
+Route::get('/admin-add-challenge', function () {
+    return view('admin-add-challenge');
+});
+
+Route::get('/solved', function () {
+    return view('admin-solved');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function () {
+    return view('Registration');
+});
+
+Route::get('/setting-admin', function () {
+    return view('admin-setting');
+});
+
+Route::get('/scoreboard', [ChallengeController::class, 'getRanking'])->name('scoreboard');
+
+Route::get('/views', [UserChallengeSolutionController::class, 'showSolutions'])->name('solutions');
 require __DIR__.'/auth.php';
