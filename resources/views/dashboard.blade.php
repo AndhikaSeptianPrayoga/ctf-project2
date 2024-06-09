@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PICT - CTF</title>
 
+    <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user.css') }}">
@@ -15,6 +17,7 @@
     <script defer   src="../Js/main.js"></script>
     <link rel="stylesheet" href="{{ asset('js/dashboard.js') }}">
     <title>Capture And Flag</title>
+    
 </head>
 
     <body>
