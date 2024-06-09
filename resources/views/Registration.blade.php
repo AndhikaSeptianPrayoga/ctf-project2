@@ -41,63 +41,69 @@
 
     <div class="container py-5 mb-5 glass-effect-register">
       <h1 class="mb-5" style="text-align: center">Register your team for the CTF<span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>
-      <div class="row py-4">
+      <div class="row py-4 d-flex justify-content-center align-items-center">
         <div class="col-md-8 order-md-2">
           <h4 class="mb-3">TEAM INFO</h4>
-          <form class="needs-validation" novalidate action="/register" method="POST">
-
-            <div class="mb-3">
-              <label for="username">Username</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">@</span>
-                </div>
-                <input type="text" class="form-control" id="username" placeholder="Username" required>
-                <div class="invalid-feedback" style="width: 100%;">Your username is required.</div>
-              </div>
+          <form class="needs-validation" novalidate action="/register" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="mb-3">
+        <label for="username">Username</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">@</span>
             </div>
-
-            <div class="mb-3">
-              <label for="email">Email <span class="text-muted"></span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-              <div class="invalid-feedback">Please enter a valid email address.</div>
+            <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{old('username')}}">
+            @error('username')
+            <div class="invalid-feedback" style="width: 100%;">
+                {{ $message }}
             </div>
-
-            <div class="mb-3">
-              <label for="password">Password <span class="text-muted"></span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">#</span>
-                </div>
-                <input type="password" class="form-control" id="password" placeholder="Make sure nobody's behind you ;)">
-                <div class="invalid-feedback">Please enter a valid password.</div>
-              </div>
-              <small class="d-block text-center mt-3">Are you a member? <a href="/login">Login</a></small>
-            </div>
-
-            <div class="mb-3">
-              <label for="image">Upload Image</label>
-              <input type="file" class="form-control-file" id="image" onchange="previewImage(event)">
-            </div>
-
-            <div class="mb-3">
-              <img id="imagePreview" src="" alt="Image Preview" style="display: none; max-width: 100%; height: auto;">
-            </div>
-
-            <hr class="mb-4">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="solemnly-swear">
-              <label class="custom-control-label" for="solemnly-swear">I solemnly swear that I am up to no good.</label>
-            </div>
-            <small class="form-text text-muted">By clicking "Count me in", you agree to our terms of service and privacy policy. We'll occasionally send you account related emails.</small>
-            <hr class="mb-4">
-            <button class="btn btn-outline-success btn-shadow btn-lg btn-block" type="submit">Count me in.</button>
-          </form>
+            @enderror
         </div>
-        <div class="col-md-2 order-md-1"></div>
-        <div class="col-md-2 order-md-3"></div>
-      </div>
     </div>
+
+    <div class="mb-3">
+        <label for="email">Email <span class="text-muted"></span></label>
+        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="you@example.com" required value="{{old('email')}}">
+        @error('email')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
+
+    <div class="mb-3">
+        <label for="password">Password <span class="text-muted"></span></label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">#</span>
+            </div>
+            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="Make sure nobody's behind you ;)" required>
+            @error('password')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="image">Upload Image</label>
+        <input type="file" class="form-control-file" id="image" name="image" onchange="previewImage(event)">
+    </div>
+
+    <div class="mb-3">
+        <img id="imagePreview" src="" alt="Image Preview" style="display: none; max-width: 100%; height: auto;">
+    </div>
+
+    <hr class="mb-4">
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="solemnly-swear">
+        <label class="custom-control-label" for="solemnly-swear">I solemnly swear that I am up to no good.</label>
+    </div>
+    <small class="form-text text-muted">By clicking "Count me in", you agree to our terms of service and privacy policy. We'll occasionally send you account related emails.</small>
+    <hr class="mb-4">
+    <button class="btn btn-outline-success btn-shadow btn-lg btn-block" type="submit">Count me in.</button>
+</form>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

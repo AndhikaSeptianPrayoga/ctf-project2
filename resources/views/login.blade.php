@@ -45,7 +45,7 @@
       <div class="row py-4 justify-content-center">
         <div class="col-md-6 glass-effect-login">
           <h4 class="mb-3">Enter your credentials</h4>
-          <form class="needs-validation" novalidate method="POST">
+          <form class="needs-validation" novalidate action="/login" method="POST">
             <div class="mb-3">
               <label for="username">Username</label>
               <div class="input-group">

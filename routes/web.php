@@ -112,5 +112,6 @@ Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destro
 Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
