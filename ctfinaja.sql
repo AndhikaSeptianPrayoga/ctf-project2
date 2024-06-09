@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2024 at 10:39 PM
+-- Generation Time: Jun 10, 2024 at 01:07 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -324,6 +324,7 @@ CREATE TABLE `users` (
   `username` varchar(30) NOT NULL,
   `password` char(32) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `file` varchar(255) DEFAULT NULL,
   `role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -331,12 +332,14 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `username`, `password`, `email`, `role`) VALUES
-(18141, 'FaizalAG', 'd489a3289ecdc847cb67f7a480e6f9fa', 'faizalazzriel@gmail.com', 0),
-(18152, 'admin', '250301faa7ff245750df7b7bb00553f4', 'admin@ctf.akbarwiran.my.id', 1),
-(18153, 'Akbar_Wira', '11922c130465a5ef37e2b957b1b1f00d', 'akbarwiranugraha2@gmail.com', 0),
-(18156, 'andhikap', '390ba5f6b5f18dd4c63d7cda170a0c74', 'andhikapangestu66@gmail.com', 0),
-(18161, 'faizal', '97404a2d1c5fa01027e2650fff41e108', 'faizalazzriel@gmail.com', 0);
+INSERT INTO `users` (`id_user`, `username`, `password`, `email`, `file`, `role`) VALUES
+(18141, 'FaizalAG', 'd489a3289ecdc847cb67f7a480e6f9fa', 'faizalazzriel@gmail.com', 'img/default-profile.png', 0),
+(18152, 'admin', '250301faa7ff245750df7b7bb00553f4', 'admin@ctf.akbarwiran.my.id', 'img/default-profile.png', 1),
+(18153, 'Akbar_Wira', '11922c130465a5ef37e2b957b1b1f00d', 'akbarwiranugraha2@gmail.com', 'img/default-profile.png', 0),
+(18156, 'andhikap', '390ba5f6b5f18dd4c63d7cda170a0c74', 'andhikapangestu66@gmail.com', 'img/default-profile.png', 0),
+(18161, 'faizal', '97404a2d1c5fa01027e2650fff41e108', 'faizalazzriel@gmail.com', 'img/default-profile.png', 0),
+(18166, 'jawir', '52bc47a6b56aebf04e2d295225421b24', 'jawir@jawir.com', 'img/1717968935_hengker.jpg', 0),
+(18167, 'joni', '1eebfc05efeb8cb09b56f2c504565204', 'joni@joni.com', 'img/default-profile.png', 0);
 
 --
 -- Indexes for dumped tables
@@ -417,7 +420,7 @@ ALTER TABLE `solves`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18166;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18168;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
