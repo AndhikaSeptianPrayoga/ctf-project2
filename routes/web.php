@@ -6,6 +6,7 @@ use App\Http\Controllers\UserChallengeSolutionController;
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SolverController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +58,7 @@ Route::get('/scoreboard', function () {
     return view('scoreboard-user');
 });
 
-Route::get('/test', function () {
+Route::get('/detail-chall', function () {
     return view('test-user');
     return view('welcome');
 });
@@ -112,3 +113,4 @@ Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 
+Route::get('/detail-chall', [SolverController::class, 'index']); //buat detail challenge
