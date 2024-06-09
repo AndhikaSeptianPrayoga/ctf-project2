@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserChallengeSolutionController;
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\Auth\RegisterControllers;
 use App\Http\Controllers\SolverController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
@@ -116,8 +116,8 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
-Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/register', [RegisterControllers::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterControllers::class, 'register']);
 
 Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
 Route::get('/challenge', [ChallengeController::class, 'index']);
