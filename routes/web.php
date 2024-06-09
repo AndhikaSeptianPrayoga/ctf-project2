@@ -117,7 +117,11 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
 
+<<<<<<< HEAD
 Route::get('/detail-chall', [SolverController::class, 'index']); //buat detail challenge
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/user', [UserController::class, 'index'])->name('user');
+=======
+Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
+>>>>>>> f57c8a02be53dea9134d4097b10bfcd90939a7de
