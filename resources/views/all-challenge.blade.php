@@ -91,49 +91,6 @@
           </div>
             <div class="upcoming-challanges">
               <h1>CHALLANGE</h1>
-              <div class="filter-container">
-  <div class="filter-group">
-    <label class="filter-label" for="sort-by">Sort by:</label>
-    <select class="filter-select" id="sort-by">
-      <option value="featured">Popularity</option>
-      <option value="price">View</option>
-      <option value="popularity">Difficulty</option>
-    </select>
-  </div>
-  <div class="filter-group">
-    <label class="filter-label" for="page">Page:</label>
-    <select class="filter-select" id="page">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3" selected>3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-  </div>
-  <div class="filter-group">
-    <label class="filter-label" for="challange-style">Style Challenge:</label>
-    <div class="filter-select" id="challange-style">
-      Stego
-      <span class="close-icon" onclick="closeFilter('challange-style')">X</span>
-    </div>
-    <ul class="filter-options" id="challange-style-options">
-      <li onclick="selectFilter('challange-style', 'Stego')">Stego</li>
-      <li onclick="selectFilter('challange-style', 'OSINT')">OSINT</li>
-      <li onclick="selectFilter('challange-style', 'Web')">Web</li>
-      <li onclick="selectFilter('challange-style', 'Forensics')">Forensics</li>
-      <li onclick="selectFilter('challange-style', 'Cryptography')">Cryptography</li>
-      <li onclick="selectFilter('challange-style', 'Miscellaneous')">Miscellaneous</li>
-    </ul>
-  </div>
-  <div class="filter-group">
-    <label class="filter-label" for="dificult">Dificulty:</label>
-    <div class="filter-select" id="dificult"></div>
-    <ul class="filter-options" id="dificult-options">
-      <li onclick="selectFilter('dificult', 'easy')">Easy</li>
-      <li onclick="selectFilter('dificult', 'medium')">Medium</li>
-      <li onclick="selectFilter('dificult', 'hard')">Hard</li>
-    </ul>
-  </div>
 </div>
 
 <script>

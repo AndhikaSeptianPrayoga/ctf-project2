@@ -50,7 +50,6 @@ Route::get('/support', function () {
 Route::get('/policy', function () {
     return view('policy');
 });
-// Route::get('/policy', [PolicyController::class, 'show'])->name('policy');
 
 Route::get('/scoreboard', function () {
     return view('scoreboard-user');
