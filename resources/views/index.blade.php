@@ -188,7 +188,7 @@
                   <img class="card-img-top" src="{{ asset('img/Asep.jpg') }}" alt="Asep">
                   <div class="card-body text-center">
                     <h5 class="card-title">Andhika Septian Prayoga</h5>
-                    <p class="card-text">Fullstack Developer</p>
+                    <p class="card-text">Back End Developer</p>
                     <div class="social-icons">
                       <a href="#"><i class="fab fa-twitter"></i></a>
                       <a href="#"><i class="fab fa-facebook-f"></i></a>
