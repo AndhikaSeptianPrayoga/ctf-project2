@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserChallengeSolutionController;
 use App\Http\Controllers\ChallengeController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Auth\LoginControllers;
 use App\Http\Controllers\Auth\RegisterControllers;
 use App\Http\Controllers\SolverController;
 use App\Http\Controllers\DashboardController;
@@ -111,10 +111,22 @@ use App\Http\Controllers\AdminChallengeController;
 Route::get('/admin-challenge', [AdminChallengeController::class, 'index'])->name('admin-challenge.index');
 Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.destroy');
 
-Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/login', [LoginControllers::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginControllers::class, 'login']);
+Route::post('/logout', [LoginControllers::class, 'logout'])->name('logout');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+Route::middleware(['auth', 'user'])->group(function () {
+    Route::get('/user', function () {
+        return view('home-user');
+    })->name('user');
+});
 
 Route::get('/register', [RegisterControllers::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterControllers::class, 'register']);
@@ -124,5 +136,5 @@ Route::get('/challenge', [ChallengeController::class, 'index']);
 Route::get('/challenge/detail-chall/{id}', [ChallengeController::class, 'show']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
-Route::get('/user', [UserController::class, 'index'])->name('user')->middleware('auth');
+// Route::get('/user', [UserController::class, 'index'])->name('user')->middleware('auth');
 
