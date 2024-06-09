@@ -78,37 +78,14 @@
 
     <section class="content">
         <div class="inside-content">
-            <div class="search-and-check">
-                <form class="search-box">
-                    <input type="text" placeholder="Search Challenge..." />
-                    <i class="bx bx-search"></i>
-                </form>
-            </div>
             <div class="header">
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
                 <div class="lead mb-3 text-mono text-success">Relax to answers the chall, We know you can do it !!!</div>
             </div>
             <div class="test-container">
-                <div class="card bg-sidebar text-white">
-                    <div class="card-body">
-                        <h3 class="card-title">Investigasi Pelaku</h3>
-                        <p class="card-text">Forensic & Stegano | 30 point</p>
-                        <p class="card-text">Anda adalah seorang digital forensik investigator yang menangani kasus peretasan satelit Cibiru606 oleh MR.Bucchaereli. Anda diberikan sebuah bahan petunjuk oleh informan rekan Anda, Anda diminta untuk melacak perangkat yang digunakan oleh peretas yang bernama MR.Bucchaereli itu.</p>
-                        <form>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="CTFinAJA{*}">
-                            </div>
-                            <div class="submit-btn">
-                                <a href="#" title="Submit" class="btn btn-success btn-shadow px-5 my-4 ml-0 text-left">
-                                    SUBMIT
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
                 <div class="card bg-sidebar text-white mt-4">
                     <div class="card-body">
-                        <h4 class="card-title">Recent Solvers</h4>
+                        <h4 class="card-title">Recent All Solvers</h4>
                         <table class="table table-dark table-striped">
                             <thead>
                                 <tr>
