@@ -189,7 +189,7 @@
                         <td>${user.no}</td>
                         <td>${user.username}</td>
                         <td>${user.email}</td>
-                        <td>${user.role}</td>
+                          <td>${user.role}</td>
                         <td><button class="btn btn-danger">${user.hapus}</button></td>
                     </tr>
                 `;
