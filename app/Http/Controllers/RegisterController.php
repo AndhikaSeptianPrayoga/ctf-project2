@@ -30,6 +30,6 @@ class RegisterController extends Controller
         $validate['password'] = hash::make($validate['password']);
         User::create($validate);
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Registrasi Berhasil!, silahkan login');
     }   
 }

@@ -19,8 +19,10 @@
 </head>
 
     <body>
-        
   <div id="particles-js"></div>
+  @auth
+  <h3>Welcome, {{Auth::user()->username}}</h3>
+  @endauth
     <nav class="main-menu">
           <div>
             <div class="user-info">

@@ -41,20 +41,36 @@
     </div>
 
     <div class="container py-5 mb-5">
+      @if(session()->has('success'))
+      <div class=alert alert-success alert-dismissible fade show role="alert">
+        {{ session('success')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
+
+      @if(session()->has('error'))
+      <div class=alert alert-danger alert-dismissible fade show role="alert">
+        {{ session('error')}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      @endif
       <h1 class="mb-5" style="text-align: center">Before we start HACKING<span class="vim-caret">͏͏&nbsp;&nbsp;</span></h1>
       <div class="row py-4 justify-content-center">
         <div class="col-md-6 glass-effect-login">
           <h4 class="mb-3">Enter your credentials</h4>
           <form class="needs-validation" novalidate action="/login" method="POST">
+            @csrf
             <div class="mb-3">
               <label for="username">Username</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">@</span>
                 </div>
-                <input type="text" class="form-control" id="username" placeholder="Username" required>
+                <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" placeholder="Username" required value="{{old('username')}}">
                 <div class="invalid-feedback" style="width: 100%;">
-                  Your username is required.
+                  @error('username')
+                    {{ $message }}
+                  @enderror
                 </div>
               </div>
             </div>
@@ -65,9 +81,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">#</span>
                 </div>
-                <input type="password" class="form-control" id="password" placeholder="Make sure nobody's behind you ;)">
+                <input type="password" class="form-control" id="password" placeholder="Make sure nobody's behind you ;)" required>
                 <div class="invalid-feedback">
-                  Please enter a valid password.
                 </div>
               </div>
               <small class="d-block text-center mt-3">Not a member? <a href="/register">Register</a></small>
