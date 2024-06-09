@@ -119,12 +119,8 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/detail-chall', [SolverController::class, 'index']); //buat detail challenge
+Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/user', [UserController::class, 'index'])->name('user')->middleware('auth');
-<<<<<<< HEAD
-Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
-=======
-Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
->>>>>>> 8f1a26b86da40efae21173e8ffa7bc0c83bfbc3e
+
