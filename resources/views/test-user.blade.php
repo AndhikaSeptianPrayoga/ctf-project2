@@ -114,6 +114,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Username</th>
+                                    <th>Challenge</th>
                                     <th>Time</th>
                                 </tr>
                             </thead>
@@ -122,6 +123,7 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $solver->username }}</td>
+                                    <td>{{ $solver->challenge_title }}</td>
                                     <td>{{ $solver->created_at->format('M/d, H:i:s') }}</td>
                                 </tr>
                                 @endforeach
