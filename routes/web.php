@@ -113,4 +113,4 @@ Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 
-Route::get('/detail-chall', [SolverController::class, 'index']); //buat detail challenge
+Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
