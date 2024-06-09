@@ -120,6 +120,8 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
+Route::get('/challenge', [ChallengeController::class, 'index']);
+Route::get('/challenge/detail-chall/{id}', [ChallengeController::class, 'show']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/user', [UserController::class, 'index'])->name('user')->middleware('auth');
