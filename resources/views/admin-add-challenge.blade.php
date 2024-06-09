@@ -57,11 +57,19 @@
               </a>
             </li>
           </ul>
+          <ul>
+            <li class="nav-item">
+              <a href="/admin-notification">
+                <i class="fa fa-bell nav-icon"></i>
+                <span class="nav-text">Notifications</span>
+              </a>
+            </li>
+          </ul>
         </div>
   
         <ul>
           <li class="nav-item">
-            <a href="/settings">
+            <a href="/setting-admin">
               <i class="fa fa-cog nav-icon"></i>
               <span class="nav-text">Settings</span>
             </a>
@@ -74,6 +82,7 @@
             </a>
           </li>
         </ul>
+
       </nav>
   
     <section class="content">

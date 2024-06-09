@@ -53,12 +53,19 @@
                 <span class="nav-text">Solved</span>
               </a>
             </li>
+            <li class="nav-item activa">
+                <a href="/notifications">
+                    <i class="fa fa-bell nav-icon"></i>
+                    <span class="nav-text">Notifications</span>
+                </a>
+            </li>
           </ul>
+
         </div>
   
         <ul>
           <li class="nav-item">
-            <a href="/setting">
+            <a href="/setting-admin">
               <i class="fa fa-cog nav-icon"></i>
               <span class="nav-text">Settings</span>
             </a>
