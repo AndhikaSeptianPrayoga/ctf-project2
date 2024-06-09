@@ -111,17 +111,16 @@ use App\Http\Controllers\AdminChallengeController;
 Route::get('/admin-challenge', [AdminChallengeController::class, 'index'])->name('admin-challenge.index');
 Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.destroy');
 
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-<<<<<<< HEAD
 Route::get('/detail-chall', [SolverController::class, 'index']); //buat detail challenge
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/user', [UserController::class, 'index'])->name('user');
-=======
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/user', [UserController::class, 'index'])->name('user')->middleware('auth');
 Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
->>>>>>> f57c8a02be53dea9134d4097b10bfcd90939a7de
