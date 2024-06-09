@@ -72,6 +72,7 @@
                 <input type="password" class="form-control" id="password" placeholder="Make sure nobody's behind you ;)">
                 <div class="invalid-feedback">Please enter a valid password.</div>
               </div>
+              <small class="d-block text-center mt-3">Are you a member? <a href="/login">Login</a></small>
             </div>
 
             <div class="mb-3">
@@ -88,6 +89,7 @@
               <input type="checkbox" class="custom-control-input" id="solemnly-swear">
               <label class="custom-control-label" for="solemnly-swear">I solemnly swear that I am up to no good.</label>
             </div>
+            <small class="form-text text-muted">By clicking "Count me in", you agree to our terms of service and privacy policy. We'll occasionally send you account related emails.</small>
             <hr class="mb-4">
             <button class="btn btn-outline-success btn-shadow btn-lg btn-block" type="submit">Count me in.</button>
           </form>

@@ -45,7 +45,7 @@
       <div class="row py-4 justify-content-center">
         <div class="col-md-6 glass-effect-login">
           <h4 class="mb-3">Enter your credentials</h4>
-          <form class="needs-validation" novalidate>
+          <form class="needs-validation" novalidate method="POST">
             <div class="mb-3">
               <label for="username">Username</label>
               <div class="input-group">
@@ -70,6 +70,7 @@
                   Please enter a valid password.
                 </div>
               </div>
+              <small class="d-block text-center mt-3">Not a member? <a href="/register">Register</a></small>
             </div>
             <hr class="mb-4">
             <button class="btn btn-outline-success btn-shadow btn-lg btn-block" type="submit"> Lets Hack! </button>
