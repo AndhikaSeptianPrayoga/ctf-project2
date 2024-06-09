@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Capture The Flag</title>
 
+    <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
@@ -186,7 +188,7 @@
                   <img class="card-img-top" src="{{ asset('img/Asep.jpg') }}" alt="Asep">
                   <div class="card-body text-center">
                     <h5 class="card-title">Andhika Septian Prayoga</h5>
-                    <p class="card-text">Fullstack Developer</p>
+                    <p class="card-text">Back End Developer</p>
                     <div class="social-icons">
                       <a href="#"><i class="fab fa-twitter"></i></a>
                       <a href="#"><i class="fab fa-facebook-f"></i></a>

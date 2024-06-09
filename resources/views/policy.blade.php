@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Capture The Flag</title>
 
+    <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
@@ -26,11 +28,11 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-            <a href="#" class="nav-item nav-link active text-white">Home</a>
-              <a href="#" class="nav-item nav-link text-white">Notification</a>
-              <a href="#" class="nav-item nav-link text-white">Users</a>
-              <a href="#" class="nav-item nav-link text-white">Scoreboard</a>
-              <a href="#" class="nav-item nav-link text-white">Challenges</a>
+            <a href="/" class="nav-item nav-link active text-white">Home</a>
+              <a href="/login" class="nav-item nav-link text-white">Notification</a>
+              <a href="/user" class="nav-item nav-link text-white">Users</a>
+              <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
+              <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>
             </div>
           </div>
         </nav>
@@ -76,8 +78,8 @@
     </section>
 </div>
 <!-- Footer Section -->
-<div class="footer" style="background-color: #222; color: white; padding: 20px; text-align: center; font-size: 16px; position: relative; z-index: 10;">
-  <p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="{{ url('/policy') }}" style="color: #ffffff;">Privacy Policy</a>.</p>
+<div class="footer" style=" color: white; padding: 20px; text-align: center; font-size: 16px; position: relative; z-index: 10;">
+  <p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="{{ url('/policy') }}">Privacy Policy.</a></p>
   <div class="social-icons">
     <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-twitter"></i></a>
     <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>

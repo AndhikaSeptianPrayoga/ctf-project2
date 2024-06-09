@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PICT - CTF</title>
 
+    <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
+
     <!-- Quill.js -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
@@ -28,28 +30,28 @@
           </div>
           <ul>
             <li class="nav-item ">
-              <a href="#">
+              <a href="/dashboard">
                 <i class="fa fa-home nav-icon"></i>
                 <span class="nav-text">Dashboard</span>
               </a>
             </li>
 
             <li class="nav-item  ">
-              <a href="profile.html">
+              <a href="/admin-user">
                 <i class="fa fa-users nav-icon"></i>
                 <span class="nav-text">Users</span>
               </a>
             </li>
   
             <li class="nav-item active">
-              <a href="#">
+              <a href="/admin-challenge">
                 <i class="fa fa-trophy nav-icon"></i>
                 <span class="nav-text">Challenges</span>
               </a>
             </li>
   
             <li class="nav-item">
-              <a href="scoreboard.html">
+              <a href="/solved">
                 <i class="fa fa-check nav-icon"></i>
                 <span class="nav-text">Solved</span>
               </a>
@@ -59,14 +61,14 @@
   
         <ul>
           <li class="nav-item">
-            <a href="settings.html">
+            <a href="/settings">
               <i class="fa fa-cog nav-icon"></i>
               <span class="nav-text">Settings</span>
             </a>
           </li>
   
           <li class="nav-item">
-            <a href="../index.html">
+            <a href="/">
               <i class="fa fa-sign-out-alt nav-icon"></i>
               <span class="nav-text">Logout</span>
             </a>
@@ -85,7 +87,7 @@
             <div class="header">
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
                <div class="lead mb-3 text-mono text-success">Control List Challenges. And here is for the admin to add new challenges 
-                    <a href="#"
+                    <a href="/admin-challenge"
                     title="Get Started"
                     class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">
                     Back to Challenge List

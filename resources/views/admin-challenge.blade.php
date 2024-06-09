@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PICT - CTF</title>
 
+    <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
@@ -33,7 +35,7 @@
           </div>
           <ul>
             <li class="nav-item ">
-              <a href="#">
+              <a href="/dashboard">
                 <i class="fa fa-home
                   nav-icon"></i>
                 <span class="nav-text">Dashboard</span>
@@ -41,7 +43,7 @@
             </li>
             
             <li class="nav-item">
-              <a href="profile.html">
+              <a href="/admin-user">
                 <i class="fa fa-users nav-icon"></i>
                 <span class="nav-text">Users</span>
               </a>
@@ -49,7 +51,7 @@
             </li>
 
             <li class="nav-item active">
-              <a href="#">
+              <a href="/admin-challenge">
                 <i class="fa fa-trophy nav-icon"></i>
                 <span class="nav-text">Challenges</span>
               </a>
@@ -57,7 +59,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="scoreboard.html">
+              <a href="/solved">
                 <i class="fa fa-check nav-icon"></i>
                 <span class="nav-text">Solved</span>
               </a>
@@ -72,14 +74,14 @@
   
         <ul>
           <li class="nav-item">
-            <a href="settings.html">
+            <a href="/setting">
               <i class="fa fa-cog nav-icon"></i>
               <span class="nav-text">Settings</span>
             </a>
           </li>
   
           <li class="nav-item">
-            <a href="../index.html">
+            <a href="/">
               <i class="fa fa-sign-out-alt nav-icon"></i>
               <span class="nav-text">Logout</span>
             </a>
@@ -99,7 +101,7 @@
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
                 <div class="lead mb-3 text-mono text-success">
                     Control List  challenges. And here is for the
-                    <a href="#" title="Get Started" class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">Add  challenge</a>
+                    <a href="/admin-add-challenge" title="Get Started" class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">Add  challenge</a>
                 </div>
             </div>
             <div class="table-responsive">
