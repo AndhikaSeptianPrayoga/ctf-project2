@@ -101,3 +101,9 @@ Route::get('/scoreboard', [ChallengeController::class, 'getRanking'])->name('sco
 
 Route::get('/views', [UserChallengeSolutionController::class, 'showSolutions'])->name('solutions');
 require __DIR__.'/auth.php';
+
+use App\Http\Controllers\AdminChallengeController;
+
+Route::get('/admin-challenge', [AdminChallengeController::class, 'index'])->name('admin-challenge.index');
+Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.destroy');
+
