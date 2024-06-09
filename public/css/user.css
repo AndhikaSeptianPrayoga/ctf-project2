@@ -954,6 +954,35 @@ td:nth-child(odd) {
   background-color: rgb(48, 153, 36);
 }
 
+/* Quils js */
+/* Custom styles for Quill.js editor */
+.ql-toolbar.ql-snow {
+    background-color: var(--ql-toolbar-bg, #2c2c2c);
+    border: 1px solid var(--ql-toolbar-border, #444);
+}
+.ql-container.ql-snow {
+    background-color: var(--ql-container-bg, #1e1e1e);
+    color: var(--ql-container-color, #fff);
+    border: 1px solid var(--ql-container-border, #444);
+}
+.ql-editor {
+    min-height: var(--ql-editor-min-height, 200px);
+}
+.ql-toolbar .ql-picker {
+    color: var(--ql-picker-color, #fff);
+}
+.ql-toolbar .ql-stroke {
+    stroke: var(--ql-stroke-color, #fff);
+}
+.ql-toolbar .ql-fill {
+    fill: var(--ql-fill-color, #fff);
+}
+.ql-toolbar .ql-picker-options {
+    background-color: var(--ql-picker-options-bg, #2c2c2c);
+}
+.ql-toolbar .ql-picker-item {
+    color: var(--ql-picker-item-color, #fff);
+}
 
 
 

@@ -57,6 +57,14 @@
               </a>
             </li>
           </ul>
+          <ul>
+            <li class="nav-item">
+              <a href="/admin-notification">
+                <i class="fa fa-bell nav-icon"></i>
+                <span class="nav-text">Notifications</span>
+              </a>
+            </li>
+          </ul>
         </div>
   
         <ul>
@@ -74,6 +82,7 @@
             </a>
           </li>
         </ul>
+
       </nav>
   
     <section class="content">
