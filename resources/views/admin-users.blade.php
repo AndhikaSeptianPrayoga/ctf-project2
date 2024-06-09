@@ -25,28 +25,28 @@
           </div>
           <ul>
             <li class="nav-item ">
-              <a href="#">
+              <a href="/dashboard">
                 <i class="fa fa-home nav-icon"></i>
                 <span class="nav-text">Dashboard</span>
               </a>
             </li>
 
             <li class="nav-item active ">
-              <a href="profile.html">
+              <a href="/admin-user">
                 <i class="fa fa-users nav-icon"></i>
                 <span class="nav-text">Users</span>
               </a>
             </li>
   
             <li class="nav-item">
-              <a href="#">
+              <a href="/admin-challenge">
                 <i class="fa fa-trophy nav-icon"></i>
                 <span class="nav-text">Challenges</span>
               </a>
             </li>
   
             <li class="nav-item">
-              <a href="scoreboard.html">
+              <a href="/solved">
                 <i class="fa fa-check nav-icon"></i>
                 <span class="nav-text">Solved</span>
               </a>
@@ -56,14 +56,14 @@
   
         <ul>
           <li class="nav-item">
-            <a href="settings.html">
+            <a href="/setting">
               <i class="fa fa-cog nav-icon"></i>
               <span class="nav-text">Settings</span>
             </a>
           </li>
   
           <li class="nav-item">
-            <a href="../index.html">
+            <a href="/">
               <i class="fa fa-sign-out-alt nav-icon"></i>
               <span class="nav-text">Logout</span>
             </a>
@@ -82,7 +82,7 @@
             <div class="header">
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
                 <div class="lead mb-3 text-mono text-success">Control List users. And here is for the 
-                    <a href="#"
+                    <a href="/admin-add-user"
                     title="Get Started"
                     class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">
                     Add User
