@@ -41,6 +41,7 @@ class LoginController extends Controller
             session_start();
             $_SESSION['username'] = $user->username;
             $_SESSION['role'] = $user->role;
+            $_SESSION['file'] = $user->file;
 
             Log::info('User logged in: ' . $user->username);
 

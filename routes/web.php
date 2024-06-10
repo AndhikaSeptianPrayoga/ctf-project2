@@ -145,6 +145,7 @@ Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //bua
 Route::get('/challenge', [ChallengeController::class, 'index']);
 Route::get('/challenge/detail-chall/{id}', [ChallengeController::class, 'show']);
 
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 

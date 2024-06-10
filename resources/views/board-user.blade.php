@@ -7,26 +7,27 @@
     <title>PICT - CTF</title>
 
     <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user.css') }}">
     <link rel="stylesheet" href="{{ asset('css/particles.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
-    <script defer   src="../Js/main.js"></script>
+    <script defer src="../Js/main.js"></script>
     <title>Capture And Flag</title>
 </head>
-
-    <body>
-        
+<body>
   <div id="particles-js"></div>
-    <nav class="main-menu">
-          <div>
-            <div class="user-info">
-                <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
-              <p>Name User</p>
-            </div>
+  <nav class="main-menu">
+      <div>
+          <div class="user-info">
+              <?php if (isset($_SESSION['file'])): ?>
+                  <img src="<?php echo asset($_SESSION['file']); ?>" alt="Profile Picture">
+              <?php else: ?>
+                  <img src="{{ asset('img/default-profile.png') }}" alt="Profile Picture">
+              <?php endif; ?>
+              <p><?php echo $_SESSION['username'] ?? 'Guest'; ?></p>
+          </div>
             <ul>
               <li class="nav-item">
                 <a href="/user">

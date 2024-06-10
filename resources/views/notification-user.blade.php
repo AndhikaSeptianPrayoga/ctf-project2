@@ -23,10 +23,14 @@
   <div id="particles-js"></div>
     <nav class="main-menu">
           <div>
-            <div class="user-info">
-                <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
-              <p>Name User</p>
-            </div>
+          <div class="user-info">
+              <?php if (isset($_SESSION['file'])): ?>
+                  <img src="<?php echo asset($_SESSION['file']); ?>" alt="Profile Picture">
+              <?php else: ?>
+                  <img src="{{ asset('img/default-profile.png') }}" alt="Profile Picture">
+              <?php endif; ?>
+              <p><?php echo $_SESSION['username'] ?? 'Guest'; ?></p>
+          </div>
             <ul>
               <li class="nav-item">
                 <a href="/user">
