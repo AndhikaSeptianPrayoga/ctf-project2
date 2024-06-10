@@ -95,21 +95,21 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 1) {
           </div>
            
           <div class="row">
-              <div class="col-md-12">
-                  <div class="card">
-                      <div class="card-header">
-                          <h5>Overview</h5>
-                      </div>
-                      <div class="card-body">
-                          <ul class="list-group">
-                              <li class="list-group-item"><i class="fas fa-users"></i> Total Users: </li>
-                              <li class="list-group-item"><i class="fas fa-trophy"></i> Total Challenges: </li>
-                              <li class="list-group-item"><i class="fas fa-check"></i> Total Solves: </li>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </div>
+          <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Overview</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="fas fa-users"></i> Total Users: {{ $totalUsers }}</li>
+                    <li class="list-group-item"><i class="fas fa-trophy"></i> Total Challenges: {{ $totalChallenges }}</li>
+                    <li class="list-group-item"><i class="fas fa-check"></i> Total Solves: {{ $totalSolves }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
           <br><br>
           <div class="col-md-12">
@@ -118,16 +118,19 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 1) {
                       <h5>Recent Solved Challenges</h5>
                   </div>
                   <div class="card-body">
-                      <ul class="list-group">
-                          <li class="list-group-item">
-                              <i class="fa fa-check"></i>
-                          </li>     
-                      </ul>
+                  <ul class="list-group">
+                        @foreach($recentSolves as $solve)
+                            <li class="list-group-item">
+                                <i class="fa fa-check"></i>
+                                Challenge {{ $solve->challenge_id }} - Solved by User {{ $solve->user_id }} at {{ $solve->created_at }}
+                            </li>
+                        @endforeach
+                    </ul>
                   </div>
               </div>
           </div>
 
-          <br><br><br>
+          <br><br>
 
           <div class="row">
               <div class="col-md-12">
@@ -137,23 +140,24 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 1) {
                       </div>
                       <div class="card-body">
                           <table class="table table-striped">
-                              <thead>
-                                  <tr>
-                                      <th>User ID</th>
-                                      <th>Username</th>
-                                      <th>Email</th>
-                                      <th>Role</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>?</td>
-                                      <td>?</td>
-                                      <td>?</td>
-                                      <td>?</td>
-                                      <div class="col-md-4"></div>
-                                  </tr>
-                              </tbody>
+                          <thead>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($users as $user)
+                                    <tr>
+                                        <td>{{ $user->id_user }}</td>
+                                        <td>{{ $user->username }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->role == 1 ? 'Admin' : 'User' }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
                           </table>
                       </div>
                   </div>
