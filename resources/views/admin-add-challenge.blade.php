@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PICT - CTF</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -92,7 +93,7 @@
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
                 <div class="lead mb-3 text-m  ono text-success">
                     Control List challenges. And here is for the
-                    <a href="/admin-add-challenge" title="Get Started" class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">Add challenge</a>
+                    <a href="/admin-new-challenge" title="Get Started" class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">Add challenge</a>
                 </div>
             </div>
             <div class="table-responsive">
@@ -119,90 +120,121 @@
         </div>
     </section>
     <script>
-        const challenges = @json($challenges);
-        const rowsPerPage = 10;
-        let currentPage = 1;
+const challenges = @json($challenges);
+const rowsPerPage = 10;
+let currentPage = 1;
 
-        // Mapping of category IDs to category names
-        const categoryMap = {
-            1: 'Programming',
-            2: 'Web Exploitation',
-            3: 'Cryptography',
-            4: 'Forensics',
-            5: 'Miscellaneous'
-        };
+// Mapping of category IDs to category names
+const categoryMap = {
+    1: 'OSINT',
+    2: 'REVERSE',
+    3: 'CRYPTO',
+    4: 'FORENSIC',
+    5: 'WEB',
+    6: 'MISC',
+    7: 'STEGANO',
+    8: 'PROGRAMMING'
+};
 
-        function renderTable() {
-            const tableBody = document.getElementById('challengeTableBody');
-            tableBody.innerHTML = '';
+function renderTable() {
+    const tableBody = document.getElementById('challengeTableBody');
+    tableBody.innerHTML = '';
 
-            const start = (currentPage - 1) * rowsPerPage;
-            const end = start + rowsPerPage;
-            const paginatedChallenges = challenges.slice(start, end);
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    const paginatedChallenges = challenges.slice(start, end);
 
-            paginatedChallenges.forEach((challenge, index) => {
-                console.log(challenge); // Log each challenge to debug
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${start + index + 1}</td>
-                    <td>${categoryMap[challenge.category_id] }</td>
-                    <td>${challenge.flag}</td>
-                    <td>${challenge.points}</td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </td>
-                `;
-                tableBody.appendChild(row);
-            });
+    paginatedChallenges.forEach((challenge, index) => {
+        console.log(challenge); // Log each challenge to debug
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${start + index + 1}</td>
+            <td>${categoryMap[challenge.id_category]}</td>
+            <td>${challenge.flag}</td>
+            <td>${challenge.poin}</td>
+            <td>
+                <a href="/admin-edit-challenge/${challenge.id_chall}" class="btn btn-primary">Edit</a>
+                <button class="btn btn-danger" onclick="deleteChallenge(${challenge.id_chall})">Delete</button>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
 
-            document.getElementById('page').innerText = currentPage;
-        }
+    document.getElementById('page').innerText = currentPage;
+}
 
-        function prevPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                renderTable();
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+    }
+}
+
+function nextPage() {
+    if ((currentPage * rowsPerPage) < challenges.length) {
+        currentPage++;
+        renderTable();
+    }
+}
+
+function searchChallenge() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const filteredChallenges = challenges.filter(challenge => 
+        (challenge.flag && challenge.flag.toLowerCase().includes(input)) ||
+        (categoryMap[challenge.id_category] && categoryMap[challenge.id_category].toLowerCase().includes(input))
+    );
+
+    const tableBody = document.getElementById('challengeTableBody');
+    tableBody.innerHTML = '';
+
+    filteredChallenges.forEach((challenge, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${categoryMap[challenge.id_category]}</td>
+            <td>${challenge.flag}</td>
+            <td>${challenge.poin}</td>
+            <td>
+                <a href="/admin-edit-challenge/${challenge.id_chall}" class="btn btn-primary">Edit</a>
+                <button class="btn btn-danger" onclick="deleteChallenge(${challenge.id_chall})">Delete</button>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+function deleteChallenge(id) {
+    if (confirm('Are you sure you want to delete this challenge?')) {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        fetch(`/admin-delete-challenge/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': csrfToken,
+                'Content-Type': 'application/json'
             }
-        }
-
-        function nextPage() {
-            if ((currentPage * rowsPerPage) < challenges.length) {
-                currentPage++;
+        })
+        .then(response => {
+            if (response.ok) {
+                challenges = challenges.filter(challenge => challenge.id_chall !== id);
                 renderTable();
+            } else {
+                return response.json().then(data => {
+                    console.error('Failed to delete the challenge:', data);
+                    alert('Failed to delete the challenge.');
+                });
             }
-        }
-
-        function searchChallenge() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const filteredChallenges = challenges.filter(challenge => 
-                (challenge.flag && challenge.flag.toLowerCase().includes(input)) ||
-                (categoryMap[challenge.category_id] && categoryMap[challenge.category_id].toLowerCase().includes(input))
-            );
-
-            const tableBody = document.getElementById('challengeTableBody');
-            tableBody.innerHTML = '';
-
-            filteredChallenges.forEach((challenge, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${categoryMap[challenge.category_id]}</td>
-                    <td>${challenge.flag}</td>
-                    <td>${challenge.points}</td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </td>
-                `;
-                tableBody.appendChild(row);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderTable();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while deleting the challenge.');
         });
-    </script>
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderTable();
+});
+</script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

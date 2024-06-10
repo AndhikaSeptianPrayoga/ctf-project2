@@ -116,6 +116,11 @@ Route::get('/notifications', function () {
     return view('notification-user');
 });
 
+Route::get('/admin-new-challenge', function () {
+    return view('admin-add-new-challenge');
+});
+
+
 Route::get('/scoreboard', [ChallengeController::class, 'getRanking'])->name('scoreboard');
 
 Route::get('/views', [UserChallengeSolutionController::class, 'showSolutions'])->name('solutions');
@@ -129,6 +134,7 @@ Route::post('/admin-challenge', [AdminChallengeController::class, 'store'])->nam
 Route::get('/solved', [AdminController::class, 'showSolvedChallenges']);
 Route::post('/admin-challenge/add', [ChallengeController::class, 'store'])->name('admin-challenge.store');
 Route::get('/admin-add-challenge', [ChallengeController::class, 'showChallenges']);
+Route::post('/admin/store-challenge', [AdminController::class, 'storeChallenge'])->name('admin.storeChallenge');
 
 
 
@@ -189,3 +195,10 @@ Route::get('/home-admin', function () {
 
 
 Route::get('/notifications', [NotificationUserController::class, 'index'])->name('notifications.index');
+
+
+Route::post('/admin/store-challenge', [AdminController::class, 'storeChallenge'])->name('admin.storeChallenge');
+
+Route::get('/admin-edit-challenge/{id}', [ChallengeController::class, 'edit'])->name('admin.edit.challenge');
+Route::put('/admin-update-challenge/{id}', [ChallengeController::class, 'update'])->name('admin.update.challenge');
+Route::get('/home-admin', [DashboardController::class, 'index'])->name('dashboard');
