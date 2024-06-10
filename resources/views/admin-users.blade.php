@@ -41,7 +41,7 @@
             </li>
   
             <li class="nav-item">
-              <a href="/admin-challenge">
+              <a href="/admin-add-challenge">
                 <i class="fa fa-trophy nav-icon"></i>
                 <span class="nav-text">Challenges</span>
               </a>
