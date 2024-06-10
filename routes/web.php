@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisterControllers;
 use App\Http\Controllers\SolverController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminChallengeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,10 +115,11 @@ Route::get('/scoreboard', [ChallengeController::class, 'getRanking'])->name('sco
 Route::get('/views', [UserChallengeSolutionController::class, 'showSolutions'])->name('solutions');
 require __DIR__.'/auth.php';
 
-use App\Http\Controllers\AdminChallengeController;
 
 Route::get('/admin-challenge', [AdminChallengeController::class, 'index'])->name('admin-challenge.index');
 Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.destroy');
+Route::get('/admin-challenge/create', [AdminChallengeController::class, 'create'])->name('admin-challenge.create');
+Route::post('/admin-challenge', [AdminChallengeController::class, 'store'])->name('admin-challenge.store');
 Route::get('/solved', [AdminController::class, 'showSolvedChallenges']);
 Route::post('/admin-challenge/add', [ChallengeController::class, 'store'])->name('admin-challenge.store');
 
@@ -152,7 +154,9 @@ Route::get('/notification', [NotificationController::class, 'index']);
 
 Route::get('/scoreboard', [ScoreboardController::class, 'index']);
 
+use App\Http\Controllers\HomeController;
 
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

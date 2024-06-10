@@ -117,10 +117,9 @@
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select class="form-control" id="category" name="category" required>
-                                    <option value="1">Programming</option>
-                                    <option value="2">Web Exploit</option>
-                                    <option value="3">Cryptography</option>
-                                    <option value="4">OSINT</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id_category }}">{{ $category->category }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
