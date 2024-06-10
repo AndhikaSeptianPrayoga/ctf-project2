@@ -13,7 +13,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminChallengeController;
 use App\Http\Controllers\AdminUserController;
-
+use App\Http\Controllers\BoardController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -160,7 +161,7 @@ Route::get('/notification', [NotificationController::class, 'index']);
 
 Route::get('/scoreboard', [ScoreboardController::class, 'index']);
 
-use App\Http\Controllers\HomeController;
+Route::get('/board', [BoardController::class, 'index']);
 
 Route::get('/', [HomeController::class, 'index']);
 
