@@ -110,8 +110,17 @@ class ChallengeController extends Controller
 
     public function update(Request $request, $id)
     {
-        $challenge = Challenge::findOrFail($id);
-        $challenge->update($request->all());
-        return redirect('/admin-add-challenge')->with('success', 'Challenge updated successfully');
+        $challenge = Challenge::find($id);
+        if ($challenge) {
+            $challenge->category = $request->input('category');
+            $challenge->flag = $request->input('flag');
+            $challenge->poin = $request->input('poin');
+            $challenge->description = $request->input('description');
+            $challenge->save();
+
+            return redirect('/admin-add-challenge')->with('success', 'Challenge updated successfully');
+        } else {
+            return redirect('/admin-add-challenge')->with('error', 'Challenge not found');
+        }
     }
 }
