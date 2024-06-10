@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminChallengeController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NotificationUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -111,6 +112,9 @@ Route::get('/notif', function () {
     return view('admin-notification');
 });
 
+Route::get('/notifications', function () {
+    return view('notification-user');
+});
 
 Route::get('/scoreboard', [ChallengeController::class, 'getRanking'])->name('scoreboard');
 
@@ -182,3 +186,6 @@ Route::get('/home-admin', function () {
 })->name('home-admin');
 
 
+
+
+Route::get('/notifications', [NotificationUserController::class, 'index'])->name('notifications.index');

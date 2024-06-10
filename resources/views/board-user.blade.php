@@ -55,6 +55,12 @@
                   <span class="nav-text">Scoreboard</span>
                 </a>
               </li>
+              <li class="nav-item">
+                  <a href="/notifications">
+                      <i class="fa fa-bell nav-icon"></i>
+                      <span class="nav-text">Notifications</span>
+                  </a>
+              </li>
             </ul>
           </div>
     

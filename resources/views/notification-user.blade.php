@@ -49,13 +49,13 @@
                 </a>
               </li>
     
-              <li class="nav-item">
+              <li class="nav-item ">
                 <a href="/board">
                   <i class="fa fa-trophy nav-icon"></i>
                   <span class="nav-text">Scoreboard</span>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                   <a href="/notifications">
                       <i class="fa fa-bell nav-icon"></i>
                       <span class="nav-text">Notifications</span>
@@ -65,7 +65,7 @@
           </div>
     
           <ul>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a href="/support">
                 <i class="fas fa-question-circle nav-icon"></i>
                 <span class="nav-text">Support</span>
@@ -90,65 +90,51 @@
         <section class="content">
           <div class="inside-content">
             <div class="search-and-check">
+             
           </div>
             <div class="header">
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
-                              <div class="lead mb-3 text-mono text-success">Welcome hackers! prove the world's most powerful hacking, is here! and prove the world that a computer genius with a laptop is not a nerd sitting in the corner ! join our CTF and expand your knowledge !</div>
+                              <div class="lead mb-3 text-mono text-success">Scoreboard Capture And Flag, You are AT the rank 1 !!</div>
             </div>
-            <div class="support">
-
-
-                <h1 class="faq-container">FAQ - Pertanyaan yang Sering Diajukan</h1>
-            
-                
-                <div id="faq">
-                  <details>
-                    <summary>Apa itu CTF?</summary>
-                    <p>CTF (Capture The Flag) adalah kompetisi keamanan cyber di mana peserta bersaing untuk menyelesaikan tantangan keamanan dan mencari bendera (flag) untuk mendapatkan poin.</p>
-                  </details>
-                  
-                  <details>
-                    <summary>Apa manfaat mengikuti CTF?</summary>
-                    <p>Mengikuti CTF dapat membantu meningkatkan keterampilan keamanan cyber, memperluas pengetahuan tentang kerentanan sistem, dan mengembangkan kemampuan pemecahan masalah.</p>
-                  </details>
-                  
-                  <details>
-                    <summary>Apa itu flag dalam konteks CTF?</summary>
-                    <p>Flag dalam konteks CTF adalah tanda atau kode unik yang dipasang dalam tantangan keamanan yang harus ditemukan atau diperoleh oleh peserta untuk mendapatkan poin.</p>
-                  </details>
-                  
-                  <details>
-                    <summary>Apa yang membuat CTF menarik?</summary>
-                    <p>CTF menarik karena tantangan yang beragam, komunitas yang solid, dan kesempatan untuk terlibat dalam simulasi skenario keamanan nyata.</p>
-                  </details>
-             </div> 
-                    
-                                <div class="edit-contact">  
-                                    <form id="contact" action="" method="post">
-                                      <h1> Send A Massege</h1>
-                                      <fieldset>
-                                        <h5>Name</h5>
-                                        <input placeholder="Lorem Ipsum" type="text" tabindex="1">
-                                      </fieldset>
-                                      <fieldset>
-                                        <h5>Email</h5>
-                                        <input placeholder="loremipsum@gmail.com" type="email" tabindex="2">
-                                      </fieldset>
-                                      <fieldset>
-                                        <h5>Phone</h5>
-                                        <input placeholder="Team Lorem Ipsum" type="tel" tabindex="3">
-                                      </fieldset>
-                                      <fieldset>
-                                        <h5>SUBJECT</h5>
-                                        <textarea placeholder="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum" tabindex="5"></textarea>
-                                      </fieldset>
-                                      <fieldset>
-                                        <button name="submit" type="submit" id="contact-submit" data-submit="Edit Profile Saved">Submit </button>
-                                      </fieldset>
-                                    </form>
-                                  </div>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Leaderboard</title>
+                <link rel="stylesheet" href="styles.css">
+            </head>
+            <body>
+                <div class="leaderboard-container">
+                    <h1>Notifications</h1>
+                    <form id="searchForm" class="search-box" onsubmit="search(event)">
+      
+                    <div class="container mt-5">
+        <div class="col-md-9">
+            <div class="notification-container">
+                <h3 class="text-center mb-4 text-white">Daftar Notifikasi</h3>
+                @foreach($notifications as $notification)
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <strong>#{{ $notification->id_notif }}</strong> - {{ $notification->title }}
                         </div>
-        </section>
+                        <div class="card-body">
+                            {!! $notification->description !!}
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+                    
+                </div>
+                <script src="script.js"></script>
+            </body>
+            </html>
+          </div>
+
+
+        </section</table>>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

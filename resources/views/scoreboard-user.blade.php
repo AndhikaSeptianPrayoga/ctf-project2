@@ -30,6 +30,7 @@
                     <a href="/user" class="nav-item nav-link text-white">Users</a>
                     <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
                     <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>
+                    
                 </div>
                 </div>
             </nav>
