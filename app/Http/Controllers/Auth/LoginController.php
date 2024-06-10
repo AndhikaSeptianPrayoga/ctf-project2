@@ -17,8 +17,8 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'username' => 'required',
-            'password' => 'required',
+            'username' => 'required|string|max:30|unique:users',
+            'password' => 'required|string|min:8|confirmed',
         ]);
 
         // Hash the input password using MD5
