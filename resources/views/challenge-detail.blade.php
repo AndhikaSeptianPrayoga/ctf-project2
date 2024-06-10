@@ -79,13 +79,30 @@
     <section class="content">
         <div class="inside-content">
             <div class="header">
-                <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
+                <a class="navbar-brand" href="/"><span>CTFin</span><span>AJA</span></a>
                 <div class="lead mb-3 text-mono text-success">Relax to answers the chall, We know you can do it !!!</div>
             </div>
             <div class="test-container">
+                <div class="card bg-sidebar text-white">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ $challenge->title }}</h3> <!-- menampilkan title challenge sesuai id_chall -->
+                        <p class="card-text">{{ $challenge->category }} | {{ $challenge->poin }} points</p> <!-- menampilkan kategori dan point challenge-->
+                        <p class="card-text">{!! $challenge->descript !!}</p> <!-- menampilkan kolom descript dari tabel challenge -->
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="CTFinAJA{*}">
+                            </div>
+                            <div class="submit-btn">
+                                <a href="#" title="Submit" class="btn btn-success btn-shadow px-5 my-4 ml-0 text-left">
+                                    SUBMIT
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <div class="card bg-sidebar text-white mt-4">
                     <div class="card-body">
-                        <h4 class="card-title">Recent All Solvers</h4>
+                        <h4 class="card-title">Top Speed Solvers</h4>
                         <table class="table table-dark table-striped">
                             <thead>
                                 <tr>

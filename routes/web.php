@@ -4,11 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserChallengeSolutionController;
 use App\Http\Controllers\ChallengeController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\NotificationController;
-
+use App\Http\Controllers\Auth\LoginControllers;
+use App\Http\Controllers\Auth\RegisterControllers;
+use App\Http\Controllers\SolverController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,7 +61,7 @@ Route::get('/scoreboard', function () {
     return view('scoreboard-user');
 });
 
-Route::get('/test', function () {
+Route::get('/detail-chall', function () {
     return view('test-user');
     return view('welcome');
 });
@@ -116,16 +118,38 @@ use App\Http\Controllers\AdminChallengeController;
 Route::get('/admin-challenge', [AdminChallengeController::class, 'index'])->name('admin-challenge.index');
 Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.destroy');
 
-Route::get('/login', [LoginController::class, 'index']);
 
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/login', [LoginControllers::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginControllers::class, 'login']);
+Route::post('/logout', [LoginControllers::class, 'logout'])->name('logout');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+Route::middleware(['auth', 'user'])->group(function () {
+    Route::get('/user', function () {
+        return view('home-user');
+    })->name('user');
+});
+
+Route::get('/register', [RegisterControllers::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterControllers::class, 'register']);
+
+Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
+Route::get('/challenge', [ChallengeController::class, 'index']);
+Route::get('/challenge/detail-chall/{id}', [ChallengeController::class, 'show']);
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 
 Route::get('/notification', [NotificationController::class, 'index']);
 
 Route::get('/scoreboard', [ScoreboardController::class, 'index']);
 
-use App\Http\Controllers\DashboardController;
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 

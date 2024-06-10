@@ -36,7 +36,8 @@
           <ul>
             <li class="nav-item ">
               <a href="/dashboard">
-                <i class="fa fa-home nav-icon"></i>
+                <i class="fa fa-home
+                  nav-icon"></i>
                 <span class="nav-text">Dashboard</span>
               </a>
             </li>
@@ -98,15 +99,15 @@
         <div class="inside-content">
             <div class="search-and-check">
                 <form class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search challenge..." onkeyup="searchChallenge()"/>
+                    <input type="text" id="searchInput" placeholder="Search  challenge..." onkeyup="search challenge()"/>
                     <i class="bx bx-search"></i>
                 </form>
             </div>
             <div class="header">
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
                 <div class="lead mb-3 text-mono text-success">
-                    Control List challenges. And here is for the
-                    <a href="/admin-add-challenge" title="Get Started" class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">Add challenge</a>
+                    Control List  challenges. And here is for the
+                    <a href="/admin-add-challenge" title="Get Started" class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">Add  challenge</a>
                 </div>
             </div>
             <div class="table-responsive">
@@ -114,34 +115,14 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>Image</th>
                             <th>Category</th>
                             <th>Flag</th>
                             <th>Point</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="challengeTableBody">
-                        @foreach($challenges as $challenge)
-                            <tr>
-                                <td>{{ $challenge->id_chall }}</td>
-                                <td>{{ $challenge->title }}</td>
-                                <td>{{ $challenge->descript }}</td>
-                                <td>{{ $challenge->img_challenge }}</td>
-                                <td>{{ $challenge->id_category }}</td>
-                                <td>{{ $challenge->flag }}</td>
-                                <td>{{ $challenge->poin }}</td>
-                                <td>
-                                    <form action="{{ route('admin-challenge.destroy', $challenge->id_chall) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
+                    <tbody id=" challengeTableBody">
+                        <!--  challenge rows will be inserted here by JavaScript -->
                     </tbody>
                 </table>
             </div>
@@ -154,99 +135,85 @@
     </section>
     
     <script>
-    const challenges = @json($challenges);
-    const rowsPerPage = 10;
-    let currentPage = 1;
-
-    function displayChallenges() {
-        const start = (currentPage - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
-        const paginatedChallenges = challenges.slice(start, end);
-
-        const tableBody = document.getElementById("challengeTableBody");
-        tableBody.innerHTML = "";
-
-        for (const challenge of paginatedChallenges) {
-            const row = `
-                <tr>
-                    <td>${challenge.id_chall}</td>
-                    <td>${challenge.title}</td>
-                    <td>${challenge.descript}</td>
-                    <td><img src="${challenge.img_challenge}" alt="Challenge Image" width="100"></td>
-                    <td>${challenge.id_category}</td>
-                    <td>${challenge.flag}</td>
-                    <td>${challenge.poin}</td>
-                    <td>
-                        <form action="/admin-challenge/${challenge.id_chall}" method="POST">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            `;
-            tableBody.insertAdjacentHTML('beforeend', row);
+        const  challenges = [
+            
+        ];
+        const rowsPerPage = 10;
+        let currentPage = 1;
+    
+        function display challenges() {
+            const start = (currentPage - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            const paginated challenges =  challenges.slice(start, end);
+    
+            const tableBody = document.getElementById(" challengeTableBody");
+            tableBody.innerHTML = "";
+    
+            for (const  challenge of paginated challenges) {
+                const row = `
+                    <tr>
+                        <td>${ challenge.no}</td>
+                        <td>${ challenge. challengename}</td>
+                        <td>${ challenge.email}</td>
+                        <td>${ challenge.category}</td>
+                        <td>${ challenge.flag}</td>
+                        <td>${ challenge.point}</td>
+                        <td><button class="btn btn-danger">${ challenge.action}</button></td>
+                    </tr>
+                `;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            }
+    
+            document.getElementById("page").innerText = currentPage;
+            document.getElementById("btnPrev").disabled = currentPage === 1;
+            document.getElementById("btnNext").disabled = end >=  challenges.length;
         }
-
-        document.getElementById("page").innerText = currentPage;
-        document.getElementById("btnPrev").disabled = currentPage === 1;
-        document.getElementById("btnNext").disabled = end >= challenges.length;
-    }
-
-    function prevPage() {
-        if (currentPage > 1) {
-            currentPage--;
-            displayChallenges();
+    
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                display challenges();
+            }
         }
-    }
-
-    function nextPage() {
-        if ((currentPage * rowsPerPage) < challenges.length) {
-            currentPage++;
-            displayChallenges();
+    
+        function nextPage() {
+            if ((currentPage * rowsPerPage) <  challenges.length) {
+                currentPage++;
+                display challenges();
+            }
         }
-    }
-
-    function searchChallenge() {
-        const searchInput = document.getElementById("searchInput").value.toLowerCase();
-        const filteredChallenges = challenges.filter(challenge =>
-            challenge.title.toLowerCase().includes(searchInput) ||
-            challenge.descript.toLowerCase().includes(searchInput) ||
-            challenge.id_category.toString().includes(searchInput) ||
-            challenge.flag.toLowerCase().includes(searchInput) ||
-            challenge.poin.toString().includes(searchInput)
-        );
-
-        const tableBody = document.getElementById("challengeTableBody");
-        tableBody.innerHTML = "";
-
-        for (const challenge of filteredChallenges) {
-            const row = `
-                <tr>
-                    <td>${challenge.id_chall}</td>
-                    <td>${challenge.title}</td>
-                    <td>${challenge.descript}</td>
-                    <td><img src="${challenge.img_challenge}" alt="Challenge Image" width="100"></td>
-                    <td>${challenge.id_category}</td>
-                    <td>${challenge.flag}</td>
-                    <td>${challenge.poin}</td>
-                    <td>
-                        <form action="/admin-challenge/${challenge.id_chall}" method="POST">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            `;
-            tableBody.insertAdjacentHTML('beforeend', row);
+    
+        function search challenge() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const filtered challenges =  challenges.filter( challenge =>
+                 challenge.email.toLowerCase().includes(searchInput) ||
+                 challenge.category.toLowerCase().includes(searchInput) ||
+                 challenge.flag.toLowerCase().includes(searchInput) ||
+                 challenge.point.toString().includes(searchInput) ||
+                 challenge.action.toLowerCase().includes(searchInput)
+            );
+    
+            const tableBody = document.getElementById(" challengeTableBody");
+            tableBody.innerHTML = "";
+    
+            for (const  challenge of filtered challenges) {
+                const row = `
+                    <tr>
+                        <td>${ challenge.no}</td>
+                        <td>${ challenge.category}</td>
+                        <td>${ challenge.flag}</td>
+                        <td>${ challenge.point}</td>
+                        <td><button class="btn btn-danger">${ challenge.action}</button></td>
+                    </tr>
+                `;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            }
         }
-    }
-
-    window.onload = function() {
-        displayChallenges();
-    };
-</script>
+    
+        window.onload = function() {
+            display challenges();
+        };
+    </script>
 
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
