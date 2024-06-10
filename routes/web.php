@@ -6,7 +6,7 @@ use App\Http\Controllers\UserChallengeSolutionController;
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\ScoreboardController;
 use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\Auth\LoginControllers;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterControllers;
 use App\Http\Controllers\SolverController;
 use App\Http\Controllers\DashboardController;
@@ -126,26 +126,7 @@ Route::get('/solved', [AdminController::class, 'showSolvedChallenges']);
 Route::post('/admin-challenge/add', [ChallengeController::class, 'store'])->name('admin-challenge.store');
 
 
-Route::get('/login', [LoginControllers::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginControllers::class, 'login']);
-Route::post('/logout', [LoginControllers::class, 'logout'])->name('logout');
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/user', [ProfileController::class, 'index'])->name('user');
-});
-
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-
-Route::middleware(['auth', 'user'])->group(function () {
-    Route::get('/user', function () {
-        return view('home-user');
-    })->name('user');
-});
 
 Route::get('/register', [RegisterControllers::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterControllers::class, 'register']);
@@ -168,3 +149,33 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/admin-user', [AdminUserController::class, 'index'])->name('admin.user.index');
+
+
+// update fix login register pake sesi nativ lol
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/home-user', function () {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (isset($_SESSION['username']) && $_SESSION['role'] == 0) {
+        return view('home-user');
+    } else {
+        return redirect('/login');
+    }
+})->name('home-user');
+
+Route::get('/home-admin', function () {
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    if (isset($_SESSION['username']) && $_SESSION['role'] == 1) {
+        return view('dashboard');
+    } else {
+        return redirect('/login');
+    }
+})->name('home-admin');

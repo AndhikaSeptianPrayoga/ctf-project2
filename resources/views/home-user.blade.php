@@ -7,81 +7,86 @@
     <title>PICT - CTF</title>
 
     <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user.css') }}">
     <link rel="stylesheet" href="{{ asset('css/particles.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
-    <script defer   src="../Js/main.js"></script>
+    <script defer src="../Js/main.js"></script>
     <title>Capture And Flag</title>
 </head>
-
-    <body>
+<body>
   <div id="particles-js"></div>
-  @auth
-  <h3>Welcome, {{Auth::user()->username}}</h3>
-  @endauth
-    <nav class="main-menu">
-          <div>
-            <div class="user-info">
-                <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
-              <p>Name User</p>
-            </div>
-            <ul>
-              <li class="nav-item active">
-                <a href="/user">
-                  <i class="fa fa-home nav-icon"></i>
-                  <span class="nav-text">Home</span>
-                </a>
-              </li>
 
-              <li class="nav-item">
-                <a href="/profile">
-                  <i class="fa fa-user nav-icon"></i>
-                  <span class="nav-text">Profile</span>
-                </a>
-              </li>
-    
-              <li class="nav-item">
-                <a href="/challenge">
-                  <i class="fa fa-bars nav-icon"></i>
-                  <span class="nav-text">Challenges</span>
-                </a>
-              </li>
-    
-              <li class="nav-item">
-                <a href="/board">
-                  <i class="fa fa-trophy nav-icon"></i>
-                  <span class="nav-text">Scoreboard</span>
-                </a>
-              </li>
-            </ul>
+  <?php
+  if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+  }
+  if(isset($_SESSION['username'])) {
+      // echo "<h3>Welcome, " . $_SESSION['username'] . "</h3>";
+  } else {
+      header("Location: /login");
+      exit();
+  }
+  ?>
+  <nav class="main-menu">
+      <div>
+          <div class="user-info">
+              <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
+              <p>Name User</p>
           </div>
-    
           <ul>
-            <li class="nav-item">
-              <a href="/support">
-                <i class="fas fa-question-circle nav-icon"></i>
-                <span class="nav-text">Support</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="/setting">
-                <i class="fa fa-cog nav-icon"></i>
-                <span class="nav-text">Settings</span>
-              </a>
-            </li>
-    
-            <li class="nav-item">
-              <a href="/">
-                <i class="fa fa-sign-out-alt nav-icon"></i>
-                <span class="nav-text">Logout</span>
-              </a>
-            </li>
+              <li class="nav-item active">
+                  <a href="/home-user">
+                      <i class="fa fa-home nav-icon"></i>
+                      <span class="nav-text">Home</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="/profile">
+                      <i class="fa fa-user nav-icon"></i>
+                      <span class="nav-text">Profile</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="/challenge">
+                      <i class="fa fa-bars nav-icon"></i>
+                      <span class="nav-text">Challenges</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a href="/board">
+                      <i class="fa fa-trophy nav-icon"></i>
+                      <span class="nav-text">Scoreboard</span>
+                  </a>
+              </li>
           </ul>
-        </nav>
+      </div>
+      <ul>
+          <li class="nav-item">
+              <a href="/support">
+                  <i class="fas fa-question-circle nav-icon"></i>
+                  <span class="nav-text">Support</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a href="/setting">
+                  <i class="fa fa-cog nav-icon"></i>
+                  <span class="nav-text">Settings</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <button type="submit" class="btn btn-link nav-icon">
+                      <i class="fa fa-sign-out-alt"></i>
+                      <!-- <span class="nav-text">Logout</span> -->
+                  </button>
+              </form>
+          </li>
+      </ul>
+  </nav>
     
         <section class="content">
           <div class="inside-content">
