@@ -54,7 +54,7 @@ class AdminChallengeController extends Controller
 
     public function index()
     {
-        // Ambil data dashboard
+     
         $dashboardData = [
             'total_users' => User::count(),
             'total_solves' => Solve::count(),
