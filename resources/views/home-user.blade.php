@@ -80,7 +80,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 0) {
               </a>
           </li>
           <li class="nav-item">
-              <form method="POST" action="{{ route('logout') }}">
+            <form method="POST" action="{{ route('logout') }}">
                   @csrf
                   <button type="submit" class="btn btn-link nav-icon">
                       <i class="fa fa-sign-out-alt"></i>
