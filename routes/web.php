@@ -179,7 +179,7 @@ Route::get('/home-admin', function () {
     }
 
     if (isset($_SESSION['username']) && $_SESSION['role'] == 1) {
-        return view('dashboard');
+        return view('/dashboard');
     } else {
         return redirect('/login');
     }
@@ -187,5 +187,5 @@ Route::get('/home-admin', function () {
 
 
 
-
 Route::get('/notifications', [NotificationUserController::class, 'index'])->name('notifications.index');
+Route::get('/home-admin', [DashboardController::class, 'index'])->name('dashboard');
