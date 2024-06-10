@@ -13,6 +13,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminChallengeController;
+use App\Http\Controllers\IndexController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -159,3 +163,4 @@ Route::get('/board', [BoardController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('/', [IndexController::class, 'index']);

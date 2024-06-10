@@ -103,21 +103,25 @@
             </div>
           </div>
           <div class="stats-section">
-  <div class="container text-center py-5">
+          <div class="container text-center py-5">
+          <div class="container text-center py-5">
     <div class="row">
       <div class="col-md-4">
-        <h2 class="stat-number">302,493</h2>
-        <p class="stat-label">Flags Submitted</p>
+        <h2 class="stat-number">{{ $dashboardData['total_users'] }}</h2>
+        <p class="stat-label">Total User</p>
       </div>
       <div class="col-md-4">
-        <h2 class="stat-number">715</h2>
-        <p class="stat-label">CTFs Hosted</p>
+        <h2 class="stat-number">{{ $dashboardData['total_solves'] }}</h2>
+        <p class="stat-label">Total Solves</p>
       </div>
       <div class="col-md-4">
-        <h2 class="stat-number">64,282</h2>
-        <p class="stat-label">Teams Competed</p>
+        <h2 class="stat-number">{{ $dashboardData['total_challenges'] }}</h2>
+        <p class="stat-label">Total Challenges</p>
       </div>
     </div>
+</div>
+
+
     <div class="row py-5">
       <div class="col-12">
         <img src="{{ asset('img/banner.png') }}" alt="Hacking Content" class="img-fluid">
