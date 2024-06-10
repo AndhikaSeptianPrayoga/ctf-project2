@@ -1,6 +1,5 @@
 <?php
 
-// app/Models/Notification.php
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,4 +18,6 @@ class Notification extends Model
         'description',
         'status'
     ];
+
+    public $timestamps = false; // Tambahkan baris ini untuk menonaktifkan timestamps
 }

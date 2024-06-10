@@ -209,3 +209,13 @@ Route::post('/admin/store-challenge', [AdminController::class, 'storeChallenge']
 Route::get('/admin-edit-challenge/{id}', [ChallengeController::class, 'edit'])->name('admin.edit.challenge');
 Route::put('/admin-update-challenge/{id}', [ChallengeController::class, 'update'])->name('admin.update.challenge');
 Route::get('/home-admin', [DashboardController::class, 'index'])->name('dashboard');
+
+
+
+
+
+Route::get('/admin/add-notification', [NotificationController::class, 'create'])->name('admin.add.notification');
+Route::post('/notifications', [NotificationController::class, 'store'])->name('notifications.store');
+Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
+Route::post('/admin/store/notification', [NotificationController::class, 'store'])->name('admin.store.notification');
+
