@@ -139,19 +139,39 @@
     const rowsPerPage = 10;
     let currentPage = 1;
 
+    // Mapping of category IDs to category names
+    const categoryMap = {
+        1: 'Programming',
+        2: 'Web Exploit',
+        3: 'Cryptography',
+        4: 'OSINT'
+    };
+
+    // Function to sort challenges by category name
+    function sortChallengesByCategoryName(challenges) {
+        return challenges.sort((a, b) => {
+            const categoryA = categoryMap[a.id_category].toLowerCase();
+            const categoryB = categoryMap[b.id_category].toLowerCase();
+            if (categoryA < categoryB) return -1;
+            if (categoryA > categoryB) return 1;
+            return 0;
+        });
+    }
+
     function displayChallenges() {
+        const sortedChallenges = sortChallengesByCategoryName(challenges);
         const start = (currentPage - 1) * rowsPerPage;
         const end = start + rowsPerPage;
-        const paginatedChallenges = challenges.slice(start, end);
+        const paginatedChallenges = sortedChallenges.slice(start, end);
 
         const tableBody = document.getElementById("challengeTableBody");
         tableBody.innerHTML = "";
 
-        for (const challenge of paginatedChallenges) {
+        for (const [index, challenge] of paginatedChallenges.entries()) {
             const row = `
                 <tr>
-                    <td>${challenge.id_chall}</td>
-                    <td>${challenge.id_category}</td>
+                    <td>${start + index + 1}</td>
+                    <td>${categoryMap[challenge.id_category]}</td>
                     <td>${challenge.flag}</td>
                     <td>${challenge.poin}</td>
                     <td><button class="btn btn-danger">Delete</button></td>
@@ -182,7 +202,7 @@
     function searchChallenge() {
         const searchInput = document.getElementById("searchInput").value.toLowerCase();
         const filteredChallenges = challenges.filter(challenge =>
-            challenge.id_category.toLowerCase().includes(searchInput) ||
+            categoryMap[challenge.id_category].toLowerCase().includes(searchInput) ||
             challenge.flag.toLowerCase().includes(searchInput) ||
             challenge.poin.toString().includes(searchInput)
         );
@@ -190,11 +210,11 @@
         const tableBody = document.getElementById("challengeTableBody");
         tableBody.innerHTML = "";
 
-        for (const challenge of filteredChallenges) {
+        for (const [index, challenge] of filteredChallenges.entries()) {
             const row = `
                 <tr>
-                    <td>${challenge.id_chall}</td>
-                    <td>${challenge.id_category}</td>
+                    <td>${index + 1}</td>
+                    <td>${categoryMap[challenge.id_category]}</td>
                     <td>${challenge.flag}</td>
                     <td>${challenge.poin}</td>
                     <td><button class="btn btn-danger">Delete</button></td>
