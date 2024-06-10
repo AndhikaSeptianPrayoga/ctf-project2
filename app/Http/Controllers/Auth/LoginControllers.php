@@ -1,52 +1,46 @@
 <?php
+
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 
-class RegisterControllers extends Controller
+class LoginControllers extends Controller
 {
-    public function showRegistrationForm()
+    public function showLoginForm()
     {
-        return view('registration');
+        return view('login');
     }
 
-    public function register(Request $request)
+    public function login(Request $request)
     {
-        // Validasi input
-        $validator = Validator::make($request->all(), [
-            'username' => 'required|string|max:30|unique:users',
-            'email' => 'required|string|email|max:50|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
+        $credentials = $request->only('username', 'password');
 
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
+        // Hashing password with md5 before attempting login
+        $credentials['password'] = md5($credentials['password']);
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            if ($user->role == 1) {
+                return redirect()->route('dashboard');
+            } elseif ($user->role == 0) {
+                return redirect()->route('user');
+            }
         }
 
-        // Upload file
-        $filePath = 'img/default-profile.png';
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = 'img/' . $fileName;
-            $file->move(public_path('img'), $fileName);
-        }
-
-        // Buat user baru dengan hashing password menggunakan bcrypt
-        $user = User::create([
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'file' => $filePath,
-            'role' => 0,
+        return redirect()->back()->withErrors([
+            'message' => 'The provided credentials do not match our records.',
         ]);
+    }
 
-        // Redirect ke halaman login atau halaman lain sesuai kebutuhan
-        return redirect()->route('login')->with('success', 'Registration successful! Please login.');
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }
