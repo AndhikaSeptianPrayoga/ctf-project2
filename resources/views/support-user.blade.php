@@ -84,10 +84,6 @@
         <section class="content">
           <div class="inside-content">
             <div class="search-and-check">
-              <form class="search-box">
-                <input type="text" placeholder="Search Challenge..." />
-                <i class="bx bx-search"></i>
-              </form>
           </div>
             <div class="header">
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
