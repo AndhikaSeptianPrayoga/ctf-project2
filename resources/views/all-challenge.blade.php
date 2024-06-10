@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+  if (session_status() == PHP_SESSION_NONE) {
+     session_start();
+}
+if (!isset($_SESSION['username']) || $_SESSION['role'] != 0) {
+    header('Location: /login');
+    exit();
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -7,7 +15,6 @@
     <title>PICT - CTF</title>
 
     <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user.css') }}">
@@ -17,15 +24,18 @@
     <script defer src="../Js/main.js"></script>
     <title>Capture And Flag</title>
 </head>
-
 <body>
   <div id="particles-js"></div>
   <nav class="main-menu">
-    <div>
-      <div class="user-info">
-        <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
-        <p>Name User</p>
-      </div>
+      <div>
+          <div class="user-info">
+              <?php if (isset($_SESSION['file'])): ?>
+                  <img src="<?php echo asset($_SESSION['file']); ?>" alt="Profile Picture">
+              <?php else: ?>
+                  <img src="{{ asset('img/default-profile.png') }}" alt="Profile Picture">
+              <?php endif; ?>
+              <p><?php echo $_SESSION['username'] ?? 'Guest'; ?></p>
+          </div>
       <ul>
         <li class="nav-item ">
           <a href="/user">
@@ -78,11 +88,14 @@
       </li>
 
       <li class="nav-item">
-        <a href="/">
-          <i class="fa fa-sign-out-alt nav-icon"></i>
-          <span class="nav-text">Logout</span>
-        </a>
-      </li>
+            <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <button type="submit" class="btn btn-link nav-icon">
+                      <i class="fa fa-sign-out-alt"></i>
+                      <!-- <span class="nav-text">Logout</span> -->
+                  </button>
+              </form>
+          </li>
     </ul>
   </nav>
 

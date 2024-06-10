@@ -29,7 +29,7 @@
 
 <body>
 
-        <div id="particles-js"></div>
+    <div id="particles-js"></div>
     <nav class="main-menu">
         <div>
           <div class="user-info">
@@ -141,7 +141,30 @@
 
         function addUser(event) {
             event.preventDefault();
-            
+            var form = document.getElementById('addUserForm');
+            var formData = new FormData(form);
+
+            fetch('/admin-add-user', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('User added successfully!');
+                    form.reset();
+                    document.getElementById('image-preview').style.display = 'none';
+                } else {
+                    alert('Error adding user: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while adding the user.');
+            });
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

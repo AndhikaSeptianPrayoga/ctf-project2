@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+  if (session_status() == PHP_SESSION_NONE) {
+     session_start();
+}
+if (!isset($_SESSION['username']) || $_SESSION['role'] != 0) {
+    header('Location: /login');
+    exit();
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -7,26 +15,27 @@
     <title>PICT - CTF</title>
 
     <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user.css') }}">
     <link rel="stylesheet" href="{{ asset('css/particles.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
-    <script defer   src="../Js/main.js"></script>
+    <script defer src="../Js/main.js"></script>
     <title>Capture And Flag</title>
 </head>
-
-    <body>
-        
+<body>
   <div id="particles-js"></div>
-    <nav class="main-menu">
-          <div>
-            <div class="user-info">
-                <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
-              <p>Name User</p>
-            </div>
+  <nav class="main-menu">
+      <div>
+          <div class="user-info">
+              <?php if (isset($_SESSION['file'])): ?>
+                  <img src="<?php echo asset($_SESSION['file']); ?>" alt="Profile Picture">
+              <?php else: ?>
+                  <img src="{{ asset('img/default-profile.png') }}" alt="Profile Picture">
+              <?php endif; ?>
+              <p><?php echo $_SESSION['username'] ?? 'Guest'; ?></p>
+          </div>
             <ul>
               <li class="nav-item ">
                 <a href="user">
@@ -79,11 +88,14 @@
             </li>
     
             <li class="nav-item">
-              <a href="/">
-                <i class="fa fa-sign-out-alt nav-icon"></i>
-                <span class="nav-text">Logout</span>
-              </a>
-            </li>
+            <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <button type="submit" class="btn btn-link nav-icon">
+                      <i class="fa fa-sign-out-alt"></i>
+                      <!-- <span class="nav-text">Logout</span> -->
+                  </button>
+              </form>
+          </li>
           </ul>
         </nav>
     
@@ -137,58 +149,7 @@
 
 
 </section>
-<div class="ctf-Profile">
-                <h1>Recent Challenge</h1>
-          </div>
-<div class="challange-container">
-<div class="card challange-card">
-                  <div class="challange-header">
-                    <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
-                    <p>30 Points</p>
-                    <i class="bx bx-heart like-btn"></i>
-                  </div>
-                  <div class="challange-content">
-                    <h2>Basic Injection</h2>
-                    <p>Web || intelagent</p>
-                    <p><strong>Date :</strong> {{ date('Y-m-d') }}</p> 
-                  </div>
-                  <div class="challange-footer">
-                    <p style="background-color: #b31a4d">You Got 30 point</p>
-                  </div>
-                </div>
-                <div class="card challange-card">
-                  <div class="challange-header">
-                    <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
-                    <p>30 Points</p>
-                    <i class="bx bx-heart like-btn"></i>
-                  </div>
-                  <div class="challange-content">
-                    <h2>Basic Injection</h2>
-                    <p>Web || intelagent</p>
-                    <p><strong>Date :</strong> {{ date('Y-m-d') }}</p> 
-                  </div>
-                  <div class="challange-footer">
-                    <p style="background-color: #b31a4d">You Got 30 point</p>
-                  </div>
-                </div>
-                <div class="card challange-card">
-                  <div class="challange-header">
-                    <img src="{{ asset('img/sample_placeholder.png') }}" alt="">
-                    <p>30 Points</p>
-                    <i class="bx bx-heart like-btn"></i>
-                  </div>
-                  <div class="challange-content">
-                    <h2>Basic Injection</h2>
-                    <p>Web || intelagent</p>
-                    <p><strong>Date :</strong> {{ date('Y-m-d') }}</p> 
-                  </div>
-                  <div class="challange-footer">
-                    <p style="background-color: #b31a4d">You Got 30 point</p>
-                  </div>
-                </div>
-          </div>
-          </div>
-        </section>
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

@@ -145,6 +145,7 @@ Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //bua
 Route::get('/challenge', [ChallengeController::class, 'index']);
 Route::get('/challenge/detail-chall/{id}', [ChallengeController::class, 'show']);
 
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 
@@ -159,6 +160,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/admin-user', [AdminUserController::class, 'index'])->name('admin.user.index');
+Route::delete('/admin-user/{id}', [AdminUserController::class, 'destroy'])->name('admin-user.destroy');
 
 
 // update fix login register pake sesi nativ lol
@@ -208,6 +210,14 @@ Route::post('/admin/store-challenge', [AdminController::class, 'storeChallenge']
 
 Route::get('/admin-edit-challenge/{id}', [ChallengeController::class, 'edit'])->name('admin.edit.challenge');
 Route::put('/admin-update-challenge/{id}', [ChallengeController::class, 'update'])->name('admin.update.challenge');
+
+Route::get('/home-admin', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::post('/admin-add-user', [UserController::class, 'store']);
+
+Route::get('/admin-edit-user/{id}', [UserController::class, 'edit'])->name('admin.edit.user');
+Route::put('/admin-update-user/{id}', [UserController::class, 'update'])->name('admin.update.user');
+
 Route::get('/home-admin', [DashboardController::class, 'index'])->name('dashboard');
 
 
@@ -218,4 +228,5 @@ Route::get('/admin/add-notification', [NotificationController::class, 'create'])
 Route::post('/notifications', [NotificationController::class, 'store'])->name('notifications.store');
 Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
 Route::post('/admin/store/notification', [NotificationController::class, 'store'])->name('admin.store.notification');
+
 
