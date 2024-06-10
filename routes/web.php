@@ -123,11 +123,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/admin-challenge', [AdminChallengeController::class, 'index'])->name('admin-challenge.index');
 Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.destroy');
-<<<<<<< HEAD
 Route::get('/solved', [AdminController::class, 'showSolvedChallenges']);
-=======
-
->>>>>>> 94f4e64e4b61779c2a1977ef17eaa7297b3812f5
 
 
 Route::get('/solved', [AdminController::class, 'solved'])->name('admin.solved');
