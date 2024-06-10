@@ -116,6 +116,11 @@ Route::get('/notifications', function () {
     return view('notification-user');
 });
 
+Route::get('/admin-new-challenge', function () {
+    return view('admin-add-new-challenge');
+});
+
+
 Route::get('/scoreboard', [ChallengeController::class, 'getRanking'])->name('scoreboard');
 
 Route::get('/views', [UserChallengeSolutionController::class, 'showSolutions'])->name('solutions');
@@ -129,6 +134,7 @@ Route::post('/admin-challenge', [AdminChallengeController::class, 'store'])->nam
 Route::get('/solved', [AdminController::class, 'showSolvedChallenges']);
 Route::post('/admin-challenge/add', [ChallengeController::class, 'store'])->name('admin-challenge.store');
 Route::get('/admin-add-challenge', [ChallengeController::class, 'showChallenges']);
+Route::post('/admin/store-challenge', [AdminController::class, 'storeChallenge'])->name('admin.storeChallenge');
 
 
 
@@ -161,6 +167,14 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::post('/logout', function () {
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    session_destroy();
+    return redirect('/login');
+})->name('logout');
+
 Route::get('/home-user', function () {
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
@@ -188,4 +202,3 @@ Route::get('/home-admin', function () {
 
 
 Route::get('/notifications', [NotificationUserController::class, 'index'])->name('notifications.index');
-Route::get('/home-admin', [DashboardController::class, 'index'])->name('dashboard');

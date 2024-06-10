@@ -1,13 +1,14 @@
 <?php
 
 // app/Http/Controllers/AdminController.php
-   namespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
-   use Illuminate\Support\Facades\DB;
-   use App\Models\Solve;
+use Illuminate\Support\Facades\DB;
+use App\Models\Solve;
+use Illuminate\Http\Request;
 
-   class AdminController extends Controller
-   {
+class AdminController extends Controller
+{
     public function showSolvedChallenges()
     {
         $solvedChallenges = DB::table('solves')
@@ -19,4 +20,26 @@
 
         return view('admin-solved', compact('solvedChallenges'));
     }
-   }
+
+    public function storeChallenge(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:50',
+            'description' => 'required|string',
+            'category' => 'required|integer',
+            'flag' => 'required|string|max:50',
+            'points' => 'required|integer',
+        ]);
+
+        DB::table('challenges')->insert([
+            'title' => $request->title,
+            'descript' => $request->description,
+            'id_category' => $request->category,
+            'flag' => $request->flag,
+            'poin' => $request->points,
+            'status' => 1, // Assuming 1 means active
+        ]);
+
+        return redirect()->back()->with('success', 'Challenge added successfully!');
+    }
+}

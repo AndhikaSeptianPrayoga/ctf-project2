@@ -91,4 +91,27 @@ class ChallengeController extends Controller
         // Pass the challenges to the view
         return view('admin-add-challenge', ['challenges' => $challenges]);
     }
+
+    public function edit($id)
+    {
+        $challenge = Challenge::findOrFail($id);
+        $categories = [
+            1 => 'OSINT',
+            2 => 'REVERSE',
+            3 => 'CRYPTO',
+            4 => 'FORENSIC',
+            5 => 'WEB',
+            6 => 'MISC',
+            7 => 'STEGANO',
+            8 => 'PROGRAMMING'
+        ];
+        return view('admin-edit-challenge', compact('challenge', 'categories'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $challenge = Challenge::findOrFail($id);
+        $challenge->update($request->all());
+        return redirect('/admin-add-challenge')->with('success', 'Challenge updated successfully');
+    }
 }

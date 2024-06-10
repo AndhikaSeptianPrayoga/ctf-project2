@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2024 at 05:40 PM
+-- Generation Time: Jun 10, 2024 at 09:24 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -387,6 +387,7 @@ CREATE TABLE `users` (
   `username` varchar(30) NOT NULL,
   `password` char(32) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `file` varchar(255) DEFAULT NULL,
   `role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -394,21 +395,22 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `username`, `password`, `email`, `role`) VALUES
-(18141, 'FaizalAG', 'd489a3289ecdc847cb67f7a480e6f9fa', 'faizalazzriel@gmail.com', 0),
-(18152, 'admin', '250301faa7ff245750df7b7bb00553f4', 'admin@ctf.akbarwiran.my.id', 1),
-(18153, 'Akbar_Wira', '11922c130465a5ef37e2b957b1b1f00d', 'akbarwiranugraha2@gmail.com', 0),
-(18155, 'Dhika', '0cc175b9c0f1b6a831c399e269772661', 'a@gmail.com', 0),
-(18156, 'andhikap', '390ba5f6b5f18dd4c63d7cda170a0c74', 'andhikapangestu66@gmail.com', 0),
-(18157, 'BentarCr00s', '993b757c971bb0110e2831b33a4d8d53', 'bentar.croos@upi.edu', 0),
-(18158, 'a', '0cc175b9c0f1b6a831c399e269772661', 'a@gmail.com', 0),
-(18159, 'Riza', '41a44352a6f3cd3b45282acbce50927c', 'rizlli@gmail.com', 0),
-(18160, 'rizaa', '41a44352a6f3cd3b45282acbce50927c', 'rizllidsd@gmail.com', 0),
-(18161, 'faizal', '97404a2d1c5fa01027e2650fff41e108', 'faizalazzriel@gmail.com', 0),
-(18162, 'abaykansaja', '55f967c2abf032adc35824e3cfb6b48d', 'pantaibabi@gmail.com', 0),
-(18163, 'IvanBesti', '4a041a67f0d9b3afd33a84891001112c', 'crack3806@gmail.com', 0),
-(18164, 'Halobanh', '4297f44b13955235245b2497399d7a93', 'a@gmail.com', 0),
-(18165, 'rizz', 'riza123', 'admiadssdn@gmail.com', 0);
+INSERT INTO `users` (`id_user`, `username`, `password`, `email`, `file`, `role`) VALUES
+(18141, 'FaizalAG', 'd489a3289ecdc847cb67f7a480e6f9fa', 'faizalazzriel@gmail.com', NULL, 0),
+(18152, 'admin', '250301faa7ff245750df7b7bb00553f4', 'admin@ctf.akbarwiran.my.id', NULL, 1),
+(18153, 'Akbar_Wira', '11922c130465a5ef37e2b957b1b1f00d', 'akbarwiranugraha2@gmail.com', NULL, 0),
+(18155, 'Dhika', '0cc175b9c0f1b6a831c399e269772661', 'a@gmail.com', NULL, 0),
+(18156, 'andhikap', '390ba5f6b5f18dd4c63d7cda170a0c74', 'andhikapangestu66@gmail.com', NULL, 0),
+(18157, 'BentarCr00s', '993b757c971bb0110e2831b33a4d8d53', 'bentar.croos@upi.edu', NULL, 0),
+(18158, 'a', '0cc175b9c0f1b6a831c399e269772661', 'a@gmail.com', NULL, 0),
+(18159, 'Riza', '41a44352a6f3cd3b45282acbce50927c', 'rizlli@gmail.com', NULL, 0),
+(18160, 'rizaa', '41a44352a6f3cd3b45282acbce50927c', 'rizllidsd@gmail.com', NULL, 0),
+(18161, 'faizal', '97404a2d1c5fa01027e2650fff41e108', 'faizalazzriel@gmail.com', NULL, 0),
+(18162, 'abaykansaja', '55f967c2abf032adc35824e3cfb6b48d', 'pantaibabi@gmail.com', NULL, 0),
+(18163, 'IvanBesti', '4a041a67f0d9b3afd33a84891001112c', 'crack3806@gmail.com', NULL, 0),
+(18164, 'Halobanh', '4297f44b13955235245b2497399d7a93', 'a@gmail.com', NULL, 0),
+(18165, 'rizz', 'riza123', 'admiadssdn@gmail.com', NULL, 0),
+(18166, 'riza1', '8041fcaa002f024b5648b2e7e6e15680', 'mangrizagt@gmail.com', 'img/default-profile.png', 1);
 
 -- --------------------------------------------------------
 
@@ -522,7 +524,7 @@ ALTER TABLE `solves`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18166;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18167;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

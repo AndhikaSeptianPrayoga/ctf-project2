@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+  if (session_status() == PHP_SESSION_NONE) {
+     session_start();
+}
+if (!isset($_SESSION['username']) || $_SESSION['role'] != 0) {
+    header('Location: /login');
+    exit();
+}
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -18,18 +26,6 @@
 </head>
 <body>
   <div id="particles-js"></div>
-
-  <?php
-  if (session_status() == PHP_SESSION_NONE) {
-      session_start();
-  }
-  if(isset($_SESSION['username'])) {
-      // echo "<h3>Welcome, " . $_SESSION['username'] . "</h3>";
-  } else {
-      header("Location: /login");
-      exit();
-  }
-  ?>
   <nav class="main-menu">
       <div>
           <div class="user-info">
@@ -84,7 +80,7 @@
               </a>
           </li>
           <li class="nav-item">
-              <form method="POST" action="{{ route('logout') }}">
+            <form method="POST" action="{{ route('logout') }}">
                   @csrf
                   <button type="submit" class="btn btn-link nav-icon">
                       <i class="fa fa-sign-out-alt"></i>
