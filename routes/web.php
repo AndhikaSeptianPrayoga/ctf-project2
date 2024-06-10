@@ -128,6 +128,11 @@ Route::get('/login', [LoginControllers::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginControllers::class, 'login']);
 Route::post('/logout', [LoginControllers::class, 'logout'])->name('logout');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/user', [ProfileController::class, 'index'])->name('user');
+});
+
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
