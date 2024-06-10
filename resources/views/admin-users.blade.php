@@ -80,135 +80,124 @@
         </ul>
       </nav>
   
-    <section class="content">
-        <div class="inside-content">
-            <div class="search-and-check">
-                <form class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search User..." onkeyup="searchUser()"/>
-                    <i class="bx bx-search"></i>
-                </form>
-            </div>
-            <div class="header">
-                <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
-                <div class="lead mb-3 text-mono text-success">Control List users. And here is for the 
-                    <a href="/admin-add-user"
-                    title="Get Started"
-                    class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">
-                    Add User
-                  </a>
-            </div>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Hapus</th>
-                        </tr>
-                    </thead>
-                    <tbody id="userTableBody">
-                        <!-- User rows will be inserted here by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-            <div class="pagination">
-                <button onclick="prevPage()" id="btnPrev">Previous</button>
-                                Page: <span id="page"></span>
-                <button onclick="nextPage()" id="btnNext">Next</button>
-
+      <section class="content">
+    <div class="inside-content">
+        <div class="search-and-check">
+            <form class="search-box">
+                <input type="text" id="searchInput" placeholder="Search User..." onkeyup="searchUser()"/>
+                <i class="bx bx-search"></i>
+            </form>
+        </div>
+        <div class="header">
+            <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
+            <div class="lead mb-3 text-mono text-success">Control List users. And here is for the 
+                <a href="/admin-add-user" title="Get Started" class="btn btn-success btn-shadow px-1 my-1 ml-1 text-left">Add User</a>
             </div>
         </div>
-    </section>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Hapus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if($users->isEmpty())
+                        <tr>
+                            <td colspan="5">No users found.</td>
+                        </tr>
+                    @else
+                        @foreach($users as $key => $user)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->role }}</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" ">Delete</button>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination">
+            <button onclick="prevPage()" id="btnPrev">Previous</button>
+            Page: <span id="page"></span>
+            <button onclick="nextPage()" id="btnNext">Next</button>
+        </div>
+    </div>
+</section>
+
     <script>
-        const users = [
-            { no: 1, username: "FaizalAG", email: "faizalazzriel@gmail.com",   role: "Users", hapus: "Hapus" },
-            { no: 2, username: "admin", email: "admin@ctf.akbarwirian.my.id",   role: "Admin", hapus: "Hapus" },
-            { no: 3, username: "Akbar_Wira", email: "akbarwiranugraha@gmail.com",   role: "Users", hapus: "Hapus" },
-            { no: 4, username: "Dhika", email: "a@gmail.com",   role: "Users", hapus: "Hapus" },
-            { no: 5, username: "andhika", email: "andhikapangestu6@gmail.com",   role: "Users", hapus: "Hapus" },
-            { no: 6, username: "BentarCr00s", email: "bentar.croos@upi.edu",   role: "Users", hapus: "Hapus" },
-            { no: 7, username: "a", email: "a@gmail.com",   role: "Users", hapus: "Hapus" },
-            { no: 8, username: "Riza", email: "rizlli@gmail.com",   role: "Users", hapus: "Hapus" },
-            { no: 9, username: "rizaa", email: "rizlildsd@gmail.com",   role: "Users", hapus: "Hapus" },
-            { no: 10, username: "faizal", email: "faizalazzriel@gmail.com",   role: "Users", hapus: "Hapus" },
-            { no: 11, username: "JohnDoe", email: "john.doe@gmail.com",   role: "Users", hapus: "Hapus" },
-            { no: 12, username: "JaneSmith", email: "jane.smith@gmail.com",   role: "Users", hapus: "Hapus" },
-            { no: 13, username: "User123", email: "user123@gmail.com",   role: "Users", hapus: "Hapus" }
-        ];
-        const rowsPerPage = 10;
-        let currentPage = 1;
-
-        function displayUsers() {
-            const start = (currentPage - 1) * rowsPerPage;
-            const end = start + rowsPerPage;
-            const paginatedUsers = users.slice(start, end);
-
-            const tableBody = document.getElementById("userTableBody");
-            tableBody.innerHTML = "";
-
-            for (const user of paginatedUsers) {
-                const row = `
-                    <tr>
-                        <td>${user.no}</td>
-                        <td>${user.username}</td>
-                        <td>${user.email}</td>
-
-                        <td>${user.role}</td>
-                        <td><button class="btn btn-danger">${user.hapus}</button></td>
-                    </tr>
-                `;
-                tableBody.insertAdjacentHTML('beforeend', row);
-            }
-
-            document.getElementById("page").innerText = currentPage;
-            document.getElementById("btnPrev").disabled = currentPage === 1;
-            document.getElementById("btnNext").disabled = end >= users.length;
-        }
-
-        function prevPage() {
-            if (currentPage > 1) {
-                currentPage--;
-                displayUsers();
+        
+     
+function searchUser() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.querySelector(".table");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1]; 
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
             }
         }
+    }
+}
 
-        function nextPage() {
-            if ((currentPage * rowsPerPage) < users.length) {
-                currentPage++;
-                displayUsers();
-            }
+
+var currentPage = 1;
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        updatePage();
+    }
+}
+function nextPage() {
+    var maxPage = getMaxPage();
+    if (currentPage < maxPage) {
+        currentPage++;
+        updatePage();
+    }
+}
+function getMaxPage() {
+    var table = document.querySelector(".table");
+    var rows = table.rows.length - 1; 
+    var rowsPerPage = 10; 
+    return Math.ceil(rows / rowsPerPage);
+}
+function updatePage() {
+    document.getElementById("page").innerText = currentPage;
+    var table = document.querySelector(".table");
+    var rows = table.rows;
+    var rowsPerPage = 10;
+    var start = (currentPage - 1) * rowsPerPage;
+    var end = start + rowsPerPage;
+    for (var i = 1; i < rows.length; i++) { 
+        if (i >= start && i < end) {
+            rows[i].style.display = "";
+        } else {
+            rows[i].style.display = "none";
         }
+    }
+}
 
-        function searchUser() {
-            const searchInput = document.getElementById("searchInput").value.toLowerCase();
-            const filteredUsers = users.filter(user =>
-                user.username.toLowerCase().includes(searchInput) || 
-                user.email.toLowerCase().includes(searchInput)
-            );
 
-            const tableBody = document.getElementById("userTableBody");
-            tableBody.innerHTML = "";
+window.onload = function() {
+    updatePage();
+};
 
-            for (const user of filteredUsers) {
-                const row = `
-                    <tr>
-                        <td>${user.no}</td>
-                        <td>${user.username}</td>
-                        <td>${user.email}</td>
-                          <td>${user.role}</td>
-                        <td><button class="btn btn-danger">${user.hapus}</button></td>
-                    </tr>
-                `;
-                tableBody.insertAdjacentHTML('beforeend', row);
-            }
-        }
-
-        window.onload = function() {
-            displayUsers();
-        };
     </script>
 
     

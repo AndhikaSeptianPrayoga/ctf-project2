@@ -12,6 +12,7 @@ use App\Http\Controllers\SolverController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminChallengeController;
+use App\Http\Controllers\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -165,3 +166,4 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('/admin-user', [AdminUserController::class, 'index'])->name('admin.user.index');
