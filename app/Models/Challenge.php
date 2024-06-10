@@ -15,6 +15,8 @@ class Challenge extends Model
     // Define the primary key if it's not 'id'
     protected $primaryKey = 'id_chall';
 
+    
+
     // Specify the fields that are mass assignable
     protected $fillable = [
         'title',
@@ -30,4 +32,5 @@ class Challenge extends Model
     {
         return $this->hasMany(Solve::class, 'id_chall');
     }
+    
 }

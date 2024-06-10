@@ -83,4 +83,12 @@ class ChallengeController extends Controller
 
         return redirect()->route('admin-challenge')->with('success', 'Challenge added successfully!');
     }
+    public function showChallenges()
+    {
+        // Fetch challenges from the database
+        $challenges = Challenge::all();
+
+        // Pass the challenges to the view
+        return view('admin-add-challenge', ['challenges' => $challenges]);
+    }
 }

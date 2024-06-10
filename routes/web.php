@@ -124,6 +124,7 @@ Route::get('/admin-challenge/create', [AdminChallengeController::class, 'create'
 Route::post('/admin-challenge', [AdminChallengeController::class, 'store'])->name('admin-challenge.store');
 Route::get('/solved', [AdminController::class, 'showSolvedChallenges']);
 Route::post('/admin-challenge/add', [ChallengeController::class, 'store'])->name('admin-challenge.store');
+Route::get('/admin-add-challenge', [ChallengeController::class, 'showChallenges']);
 
 
 
