@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Capture The Flag</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/particles.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+    
+  </head>
+  <body>
+
+  <div id="particles-js"></div>
+    <div class="navbar-dark text-white">
+      <div class="container">
+        <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/"><span>CTFin</span><span>AJA</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a href="/" class="nav-item nav-link active text-white">Home</a>
+              <a href="/notification" class="nav-item nav-link text-white">Notification</a>
+              <a href="/user" class="nav-item nav-link text-white">Users</a>
+              <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
+              <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div id="particles-js"></div>
+    
+
+    <div class="container mt-5">
+        <div class="col-md-9">
+            <div class="notification-container">
+                <h3 class="text-center mb-4 text-white">Daftar Notifikasi</h3>
+                @foreach($notifications as $notification)
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <strong>#{{ $notification->id_notif }}</strong> - {{ $notification->title }}
+                        </div>
+                        <div class="card-body">
+                            {!! $notification->description !!}
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+          
+          <!-- End of Our Team Section -->
+          <div class="footer">
+</div>
+
+    </div>
+</div>
+
+<!-- Footer Section -->
+<div class="footer" style=" color: white; padding: 20px; text-align: center; font-size: 16px;">
+<p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="/policy">Privacy Policy.</a></p>
+  <div class="social-icons">
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-twitter"></i></a>
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div>
+          </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/particles.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    </body>
+</html>

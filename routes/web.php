@@ -6,6 +6,8 @@ use App\Http\Controllers\UserChallengeSolutionController;
 use App\Http\Controllers\ChallengeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ScoreboardController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +100,12 @@ Route::get('/setting-admin', function () {
     return view('admin-setting');
 });
 
+
+Route::get('/notif', function () {
+    return view('admin-notification');
+});
+
+
 Route::get('/scoreboard', [ChallengeController::class, 'getRanking'])->name('scoreboard');
 
 Route::get('/views', [UserChallengeSolutionController::class, 'showSolutions'])->name('solutions');
@@ -111,4 +119,14 @@ Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destro
 Route::get('/login', [LoginController::class, 'index']);
 
 Route::get('/register', [RegisterController::class, 'index']);
+
+
+Route::get('/notification', [NotificationController::class, 'index']);
+
+Route::get('/scoreboard', [ScoreboardController::class, 'index']);
+
+use App\Http\Controllers\DashboardController;
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 

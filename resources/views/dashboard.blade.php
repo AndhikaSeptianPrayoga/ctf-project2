@@ -58,7 +58,7 @@
                 </a>
               </li>
               <li class="nav-item ">
-                <a href="/notifications">
+                <a href="/notif">
                     <i class="fa fa-bell nav-icon"></i>
                     <span class="nav-text">Notifications</span>
                 </a>
@@ -89,26 +89,27 @@
           <div class="inside-content">
             <div class="header">
               <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
-              <div class="lead mb-3 text-mono text-success">You are Login As Admin Dont tell Anyone You Are Control THE CTFINAJA</div>
+              <div class="lead mb-3 text-mono text-success"> <p >Welcome Youare admin </p></div>
             </div>
-
+           
             <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header">
-                    <h5>Overview</h5>
-                  </div>
-                  <div class="card-body">
-                    <ul class="list-group">
-                      <li class="list-group-item"><i class="fas fa-users"></i> Total Users: 13</li>
-                      <li class="list-group-item"><i class="fas fa-trophy"></i> Total Challenges: 5</li>
-                      <li class="list-group-item"><i class="fas fa-bell"></i> Total Notifications: 1</li>
-                      <li class="list-group-item"><i class="fas fa-check"></i> Total Solves: 156</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Overview</h5>
             </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="fas fa-users"></i> Total Users: {{ $totalUsers }}</li>
+                    <li class="list-group-item"><i class="fas fa-trophy"></i> Total Challenges: {{ $totalChallenges }}</li>
+                    <li class="list-group-item"><i class="fas fa-bell"></i> Total Notifications: {{ $totalNotifications }}</li>
+                    <li class="list-group-item"><i class="fas fa-check"></i> Total Solves: {{ $totalSolves }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
             <br>
             <br>
             <br>
@@ -130,13 +131,15 @@
                   <div class="card-header">
                     <h5>Recent Solved Challenges</h5>
                   </div>
-                    <div class="card-body">
-                    <ul class="list-group">
-                      <li class="list-group-item"><i class="fa fa-check"></i> Challenge 1 - Solved by User 1</li>
-                      <li class="list-group-item"><i class="fa fa-check"></i> Challenge 2 - Solved by User 2</li>
-                      <li class="list-group-item"><i class="fa fa-check"></i> Challenge 3 - Solved by User 3</li>
-                    </ul>
-                    </div>
+                  <ul class="list-group">
+    @foreach($recentSolves as $solve)
+        <li class="list-group-item">
+            <i class="fa fa-check"></i>
+            Challenge {{ $solve->challenge_id }} - Solved by User {{ $solve->user_id }}
+        </li>
+    @endforeach
+</ul>
+
                 </div>
               </div>
             </div>
@@ -146,44 +149,43 @@
             <br>
 
             <div class="row">
-              <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header">
-                    <h5>User Information</h5>
-                  </div>
-                  <div class="card-body">
-                    <table class="table table-striped">
-                      <thead>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>User Information</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
                         <tr>
-                          <th>User ID</th>
-                          <th>Username</th>
-                          <th>Email</th>
-                          <th>Role</th>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
                         </tr>
-                      </thead>
-                      <tbody>
+                    </thead>
+                    <tbody>
+                        @foreach($users as $user)
                         <tr>
-                          <td>1</td>
-                          <td>User 1</td>
-                          <td>user1@example.com</td>
-                          <td>Admin</td>
+                            <td>{{ $user->id_user }}</td>
+                            <td>{{ $user->username }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                    @if($user->role == 1)
+                                        Admin
+                                    @else
+                                        User
+                                    @endif
+                                </td>
                         </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>User 2</td>
-                          <td>user2@example.com</td>
-                          <td>User</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>User 3</td>
-                          <td>user3@example.com</td>
-                          <td>User</td>
-                        </tr>
-                        <!-- Add more table rows here -->
-                      </tbody>
-                    </table>
-                  </div>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">

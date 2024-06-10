@@ -6,19 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PICT - CTF</title>
 
-    <link rel="icon" href="{{ asset('img/CTFicon.jpg') }}" type="image/jpg">
-
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/bootstrap4-neon-glow.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user.css') }}">
     <link rel="stylesheet" href="{{ asset('css/particles.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
-    <style>
-        .bg-sidebar {
-            background-color: #1c1c1c; /* Sesuaikan dengan warna sidebar */
-        }
-    </style>
+   
 </head>
 <body>
     <div id="particles-js"></div>
@@ -32,7 +26,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a href="/user" class="nav-item nav-link active text-white">Home</a>
-                    <a href="#" class="nav-item nav-link text-white">Notification</a>
+                    <a href="/notifications" class="nav-item nav-link text-white">Notification</a>
                     <a href="/user" class="nav-item nav-link text-white">Users</a>
                     <a href="/scoreboard" class="nav-item nav-link text-white">Scoreboard</a>
                     <a href="/challenge" class="nav-item nav-link text-white">Challenges</a>
@@ -46,44 +40,60 @@
         <div class="col-md-9">
             <div class="leaderboard-container">
                 <h3 class="text-center mb-4">Leaderboard</h3>
-             
-   
-             
-    <table class="table table-dark table-hover" style="width: 100%; min-width: 800px;">
-        <colgroup>
-            <col style="width: 10%;">
-            <col style="width: 40%;">
-            <col style="width: 50%;">
-        </colgroup>
-        <thead>
-            <tr>
-                <th>Rank</th>
-                <th>Username</th>
-                <th>Score Point</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($rankings as $key => $ranking)
-            <tr>
-                <td>{{ $key + 1 }}</td>
-                <td>{{ $ranking->username }}</td>
-                <td>{{ $ranking->total_points }}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+                <table class="table table-dark table-hover" style="width: 100%; min-width: 800px;">
+                    <colgroup>
+                        <col style="width: 10%;">
+                        <col style="width: 40%;">
+                        <col style="width: 50%;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Username</th>
+                            <th>Score Point</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($rankings as $key => $ranking)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $ranking->username }}</td>
+                            <td>{{ $ranking->total_points }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-
-
-</div>
+    
                 </div>
             </div>
         </div>
         </div>
+        
     </div>
         </div>
     </div>
+    
+          <!-- End of Our Team Section -->
+          <div class="footer">
+</div>
 
+    </div>
+</div>
+
+<!-- Footer Section -->
+<div class="footer" style=" color: white; padding: 20px; text-align: center; font-size: 16px;">
+<p>&copy; 2024 KELOMPOK CTF. All tasks and writeups are copyrighted by their respective authors. <a href="/policy">Privacy Policy.</a></p>
+  <div class="social-icons">
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-twitter"></i></a>
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-instagram"></i></a>
+    <a href="#" style="color: white; margin-right: 10px;"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div>          
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
