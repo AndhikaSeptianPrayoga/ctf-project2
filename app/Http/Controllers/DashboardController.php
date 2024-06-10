@@ -16,12 +16,10 @@ class DashboardController extends Controller
         $totalNotifications = Notification::count();
         $totalSolves = Solve::where('status', 1)->count();
         $totalChallenges = Challenge::count();
-
        
         $recentSolves = Solve::where('status', 1)->orderBy('created_at', 'desc')->take(3)->get();
 
         $users = User::all();
-
 
         return view('dashboard', [
             'totalUsers' => $totalUsers,
