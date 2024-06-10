@@ -6,20 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Solve extends Model
 {
-    protected $table = 'solves'; // Sesuaikan dengan nama tabel di database
+    protected $table = 'solves'; // Ensure this matches your database table name
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_user'); // Sesuaikan dengan nama kolom yang digunakan sebagai kunci asing
+        return $this->belongsTo(User::class, 'id_user'); // Ensure 'id_user' is the correct foreign key
     }
 
     public function challenge()
     {
-        return $this->belongsTo(Challenge::class, 'id_chall');
+        return $this->belongsTo(Challenge::class, 'id_chall'); // Ensure 'id_chall' is the correct foreign key
     }
 
-    // Tentukan atribut-atribut yang dapat diisi
+    // Define fillable attributes
     protected $fillable = [
-        // Masukkan nama kolom yang sesuai di sini
+        // Add the column names that can be mass-assigned
     ];
 }
