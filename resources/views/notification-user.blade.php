@@ -94,7 +94,7 @@
           </div>
             <div class="header">
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
-                              <div class="lead mb-3 text-mono text-success">Scoreboard Capture And Flag, You are AT the rank 1 !!</div>
+                              <div class="lead mb-3 text-mono text-success">Welcome to Notifications!</div>
             </div>
             <!DOCTYPE html>
             <html lang="en">
@@ -106,11 +106,10 @@
             </head>
             <body>
                 <div class="leaderboard-container">
-                    <h1>Notifications</h1>
                     <form id="searchForm" class="search-box" onsubmit="search(event)">
       
                     <div class="container mt-5">
-        <div class="col-md-9">
+        <div class="col-md-20">
             <div class="notification-container">
                 <h3 class="text-center mb-4 text-white">Daftar Notifikasi</h3>
                 @foreach($notifications as $notification)
