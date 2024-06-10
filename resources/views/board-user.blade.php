@@ -106,16 +106,22 @@
                     <h2>Leaderboard</h2>
                     <input type="text" id="filterInput" placeholder="Filter by name...">
                     <table id="leaderboardTable">
-                        <thead>
-                            <tr>
-                                <th>Rank</th>
-                                <th>Name</th>
-                                <th>Score</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- User rows will be populated here by JavaScript -->
-                        </tbody>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Username</th>
+                            <th>Score Point</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($rankings as $key => $ranking)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ $ranking->username }}</td>
+                            <td>{{ $ranking->total_points }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                     </table>
                     <div class="pagination-container">
                         <button id="prevPage">Previous</button>

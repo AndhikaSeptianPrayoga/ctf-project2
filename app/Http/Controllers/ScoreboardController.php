@@ -20,5 +20,7 @@ class ScoreboardController extends Controller
             ->get();
 
         return view('scoreboard-user', compact('rankings'));
+        return view('board-user', compact('rankings'));
+      
     }
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisterControllers;
 use App\Http\Controllers\SolverController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BoardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -149,7 +150,7 @@ Route::get('/notification', [NotificationController::class, 'index']);
 
 Route::get('/scoreboard', [ScoreboardController::class, 'index']);
 
-
+Route::get('/board', [BoardController::class, 'index']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
