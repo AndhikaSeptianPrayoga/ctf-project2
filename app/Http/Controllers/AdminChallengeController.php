@@ -27,7 +27,6 @@ class AdminChallengeController extends Controller
     }
     public function showSolvedChallenges()
     {
-        $solvedChallenges = SolvedChallenge::paginate(10); // Adjust the model name as necessary
         return view('admin-solved', compact('solvedChallenges'));
     }
 

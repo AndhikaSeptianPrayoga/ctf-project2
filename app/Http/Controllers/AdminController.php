@@ -17,6 +17,6 @@
             ->orderBy('solves.created_at', 'desc')
             ->get();
 
-            return view('admin-solved', compact('solvedChallenges'));
+        return view('admin-solved', compact('solvedChallenges'));
     }
    }

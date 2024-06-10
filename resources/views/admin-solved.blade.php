@@ -81,6 +81,10 @@
     <section class="content">
         <div class="inside-content">
             <div class="search-and-check">
+                <form class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search User..." onkeyup="searchUser()"/>
+                    <i class="bx bx-search"></i>
+                </form>
             </div>
             <table id="solvedTable" class="table table-striped table-dark table-hover mt-3">
                 <thead>
@@ -106,6 +110,19 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="pagination-section">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item"><a class="page-link" href="#" aria-label="Previous">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                         <li class="page-item"><a class="page-link" href="#">3</a></li>
+                         <li class="page-item"><a class="page-link" href="#">4</a></li>
+                         <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#" aria-label="Next">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </section>
 
