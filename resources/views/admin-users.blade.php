@@ -95,37 +95,38 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Hapus</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if($users->isEmpty())
-                        <tr>
-                            <td colspan="5">No users found.</td>
-                        </tr>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Hapus</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($users as $key => $user)
+            <tr>
+                <td>{{ $key + 1 }}</td>
+                <td>{{ $user->username }}</td>
+                <td>{{ $user->email }}</td>
+                <td>
+                    @if($user->role == 1)
+                        Admin
                     @else
-                        @foreach($users as $key => $user)
-                        <tr>
-                            <td>{{ $key + 1 }}</td>
-                            <td>{{ $user->username }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->role }}</td>
-                            <td>
-                                <button class="btn btn-danger btn-sm" ">Delete</button>
-                            </td>
-                        </tr>
-                        @endforeach
+                        User
                     @endif
-                </tbody>
-            </table>
-        </div>
+                </td>
+                <td>
+                    <button class="btn btn-danger btn-sm" ">Delete</button>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
         <div class="pagination">
             <button onclick="prevPage()" id="btnPrev">Previous</button>
             Page: <span id="page"></span>
