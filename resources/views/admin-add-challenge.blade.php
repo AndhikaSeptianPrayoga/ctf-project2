@@ -59,7 +59,7 @@
           </ul>
           <ul>
             <li class="nav-item">
-              <a href="/admin-notification">
+              <a href="/notif">
                 <i class="fa fa-bell nav-icon"></i>
                 <span class="nav-text">Notifications</span>
               </a>

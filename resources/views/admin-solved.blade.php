@@ -54,7 +54,7 @@
               </a>
             </li>
             <li class="nav-item activa">
-                <a href="/notifications">
+                <a href="/notif">
                     <i class="fa fa-bell nav-icon"></i>
                     <span class="nav-text">Notifications</span>
                 </a>
