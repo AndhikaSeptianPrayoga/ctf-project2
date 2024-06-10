@@ -105,21 +105,34 @@
           <div class="stats-section">
           <div class="container text-center py-5">
           <div class="container text-center py-5">
-    <div class="row">
-      <div class="col-md-4">
-        <h2 class="stat-number">{{ $dashboardData['total_users'] }}</h2>
-        <p class="stat-label">Total User</p>
-      </div>
-      <div class="col-md-4">
-        <h2 class="stat-number">{{ $dashboardData['total_solves'] }}</h2>
-        <p class="stat-label">Total Solves</p>
-      </div>
-      <div class="col-md-4">
-        <h2 class="stat-number">{{ $dashboardData['total_challenges'] }}</h2>
-        <p class="stat-label">Total Challenges</p>
-      </div>
-    </div>
+          <div class="row">
+
+<div class="col-md-4">
+
+    <h2 class="stat-number">{{ $dashboardData->total_users }}</h2>
+
+    <p class="stat-label">Total User</p>
+
 </div>
+
+<div class="col-md-4">
+
+    <h2 class="stat-number">{{ $dashboardData->total_solves }}</h2>
+
+    <p class="stat-label">Total Flags Submited</p>
+
+</div>
+
+<div class="col-md-4">
+
+    <h2 class="stat-number">{{ $dashboardData->total_challenges }}</h2>
+
+    <p class="stat-label">Total Challenges</p>
+
+</div>
+
+</div>
+
 
 
     <div class="row py-5">
