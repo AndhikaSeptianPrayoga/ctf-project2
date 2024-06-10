@@ -60,6 +60,8 @@
               <img class="canvas_img" src="{{ asset('img/canvas.png') }}" alt="">
             </div>
           </div>
+
+          
           <div class="container py-5">
           <div class="row text-center">
               <div class="col-12">
@@ -243,7 +245,7 @@
                   <img class="card-img-top" src="{{ asset('img/saeful.jpg') }}" alt="Ipul">
                   <div class="card-body text-center">
                     <h5 class="card-title">Saeful Rizal</h5>
-                    <p class="card-text">Database Engineer</p>
+                    <p class="card-text">Front End Developer</p>
                     <div class="social-icons">
                       <a href="#"><i class="fab fa-twitter"></i></a>
                       <a href="#"><i class="fab fa-facebook-f"></i></a>

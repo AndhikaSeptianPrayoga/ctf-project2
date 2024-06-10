@@ -161,9 +161,16 @@ a::-moz-focus-inner {
   margin-bottom: 40px;
 }
 
+
+.features{
+  padding: 3 rem 2 rem;
+  text-align: center;
+}
+
 .features-title{
   font-size: 2rem;
   margin-top: 70px;
+  text-align: center;
 
 }
 
@@ -176,15 +183,25 @@ a::-moz-focus-inner {
 
 
 .features-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 1rem 1.3rem;
   border-radius: 0.5rem;
+}
+
+.features-icon, h3{
+text-align: center;
 }
 
 .features-icon svg{
   fill: white;
 }
 
+.section-subtitle{
+  text-align: center;
+}
 
 
 .challenge-type h3 {
