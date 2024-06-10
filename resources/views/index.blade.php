@@ -210,7 +210,7 @@
                   <img class="card-img-top" src="{{ asset('img/riza.jpg') }}" alt="Rija">
                   <div class="card-body text-center">
                     <h5 class="card-title">M Riza Buccharelli</h5>
-                    <p class="card-text">Full Stack Developer</p>
+                    <p class="card-text">Front End Developer</p>
                     <div class="social-icons">
                       <a href="#"><i class="fab fa-twitter"></i></a>
                       <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -229,7 +229,7 @@
                   <img class="card-img-top" src="{{ asset('img/akbar.jpeg') }}" alt="Abay">
                   <div class="card-body text-center">
                     <h5 class="card-title">Akbar Wira Nugraha</h5>
-                    <p class="card-text">Front End Developer</p>
+                    <p class="card-text">Back End Developer</p>
                     <div class="social-icons">
                       <a href="#"><i class="fab fa-twitter"></i></a>
                       <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -245,7 +245,7 @@
                   <img class="card-img-top" src="{{ asset('img/saeful.jpg') }}" alt="Ipul">
                   <div class="card-body text-center">
                     <h5 class="card-title">Saeful Rizal</h5>
-                    <p class="card-text">Front End Developer</p>
+                    <p class="card-text">Database Engineering</p>
                     <div class="social-icons">
                       <a href="#"><i class="fab fa-twitter"></i></a>
                       <a href="#"><i class="fab fa-facebook-f"></i></a>

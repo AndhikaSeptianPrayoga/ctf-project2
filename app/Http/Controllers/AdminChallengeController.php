@@ -5,17 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Challenge;
+use App\Models\User; // Pastikan untuk mengimpor model User
+use App\Models\Solve; // Pastikan untuk mengimpor model Solve
 
 class AdminChallengeController extends Controller
 {
     public function create()
     {
+        // Ambil semua kategori
         $categories = Category::all();
+        // Kembalikan view dengan data kategori
         return view('admin-add-challenge', compact('categories'));
     }
 
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
             'title' => 'required|string|max:50',
             'category' => 'required|integer|exists:categories,id_category',
@@ -25,34 +30,38 @@ class AdminChallengeController extends Controller
             'image' => 'nullable|image'
         ]);
 
+        // Buat instance Challenge baru
         $challenge = new Challenge();
         $challenge->title = $request->title;
         $challenge->id_category = $request->category;
         $challenge->descript = $request->description;
         $challenge->flag = $request->flag;
         $challenge->poin = $request->points;
-        $challenge->status = 1; // Assuming status 1 means active
+        $challenge->status = 1; // Anggap status 1 berarti aktif
 
+        // Jika ada file gambar, simpan dan set path-nya
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images', 'public');
             $challenge->image = $path;
         }
 
+        // Simpan Challenge ke database
         $challenge->save();
 
+        // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('admin-challenge.index')->with('success', 'Challenge added successfully');
     }
 
     public function index()
-{
-    // Fetch the dashboard data
-    $dashboardData = [
-        'total_users' => User::count(),
-        'total_solves' => Solve::count(),
-        'total_challenges' => Challenge::count(),
-    ];
+    {
+        // Ambil data dashboard
+        $dashboardData = [
+            'total_users' => User::count(),
+            'total_solves' => Solve::count(),
+            'total_challenges' => Challenge::count(),
+        ];
 
-    // Return the view with the dashboard data
-    return view('index')->with('dashboardData', (object) $dashboardData);
-}
+        // Kembalikan view dengan data dashboard
+        return view('index')->with('dashboardData', (object) $dashboardData);
+    }
 }
