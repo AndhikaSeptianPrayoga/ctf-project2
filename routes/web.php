@@ -119,6 +119,7 @@ use App\Http\Controllers\AdminChallengeController;
 Route::get('/admin-challenge', [AdminChallengeController::class, 'index'])->name('admin-challenge.index');
 Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.destroy');
 Route::get('/solved', [AdminController::class, 'showSolvedChallenges']);
+Route::post('/admin-challenge/add', [ChallengeController::class, 'store'])->name('admin-challenge.store');
 
 
 Route::get('/login', [LoginControllers::class, 'showLoginForm'])->name('login');

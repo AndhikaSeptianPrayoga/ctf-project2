@@ -55,4 +55,32 @@ class ChallengeController extends Controller
         // Kirim data ke view 'challenge-detail'
         return view('challenge-detail', compact('challenge', 'solvers'));
     }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:50',
+            'category' => 'required|integer',
+            'description' => 'required|string',
+            'flag' => 'required|string|max:50',
+            'points' => 'required|integer',
+            'image' => 'nullable|image|max:2048',
+        ]);
+
+        $challenge = new Challenge();
+        $challenge->title = $request->title;
+        $challenge->id_category = $request->category;
+        $challenge->descript = $request->description;
+        $challenge->flag = $request->flag;
+        $challenge->poin = $request->points;
+        $challenge->status = 1; // Assuming status is active by default
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('challenges', 'public');
+            $challenge->image = $imagePath;
+        }
+
+        $challenge->save();
+
+        return redirect()->route('admin-challenge')->with('success', 'Challenge added successfully!');
+    }
 }

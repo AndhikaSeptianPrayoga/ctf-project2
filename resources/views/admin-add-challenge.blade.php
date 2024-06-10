@@ -105,44 +105,45 @@
             </div>
             
             <div class="container mt-5">
-                <h3 class="text-center">Challenges</h3>
+                <h3 class="text-center">Add New Challenge</h3>
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
-                        <form>
+                        <form action="{{ route('admin-challenge.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title" placeholder="Enter Title">
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" required>
                             </div>
                             <div class="form-group">
                                 <label for="category">Category</label>
-                                <select class="form-control" id="category">
-                                    <option>OSINT</option>
-                                    <option>Web</option>
-                                    <option>Forensics</option>
-                                    <option>Crypto</option>
-                                    <option>Misc</option>
+                                <select class="form-control" id="category" name="category" required>
+                                    <option value="1">Programming</option>
+                                    <option value="2">Web Exploit</option>
+                                    <option value="3">Cryptography</option>
+                                    <option value="4">OSINT</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
                                 <div id="editor-container" style="height: 200px;"></div>
+                                <input type="hidden" id="description" name="description">
                             </div>
                             <div class="form-group">
                                 <label for="flag">Flag</label>
-                                <input type="text" class="form-control" id="flag" placeholder="Enter flag">
+                                <input type="text" class="form-control" id="flag" name="flag" placeholder="Enter flag" required>
                             </div>
                             <div class="form-group">
                                 <label for="points">Points</label>
-                                <input type="number" class="form-control" id="points" placeholder="Enter points">
+                                <input type="number" class="form-control" id="points" name="points" placeholder="Enter points" required>
                             </div>
                             <div class="form-group">
                                 <label for="image">Upload Image</label>
-                                <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="previewImage(event)" required>
+                                <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="previewImage(event)">
                                 <img id="image-preview" src="#" alt="Image Preview" style="display:none;">
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Submit</button>
                         </form>
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -155,43 +156,40 @@
                 theme: 'snow',
                 modules: {
                     toolbar: [
-                        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+                        ['bold', 'italic', 'underline', 'strike'],
                         ['blockquote', 'code-block'],
-                        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+                        [{ 'header': 1 }, { 'header': 2 }],
                         [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-                        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-                        [{ 'direction': 'rtl' }],                         // text direction
-                        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+                        [{ 'script': 'sub'}, { 'script': 'super' }],
+                        [{ 'indent': '-1'}, { 'indent': '+1' }],
+                        [{ 'direction': 'rtl' }],
+                        [{ 'size': ['small', false, 'large', 'huge'] }],
                         [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+                        [{ 'color': [] }, { 'background': [] }],
                         [{ 'font': [] }],
                         [{ 'align': [] }],
-                        ['clean'],                                         // remove formatting button
-                        ['link', 'image', 'video', 'code-block']           // link and image, video
+                        ['clean'],
+                        ['link', 'image', 'video', 'code-block']
                     ]
                 }
             });
+
+            document.querySelector('form').onsubmit = function() {
+                document.querySelector('input[name=description]').value = quill.root.innerHTML;
+            };
         });
+
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('image-preview');
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
     </script>
 
-<script>
-    function previewImage(event) {
-        var reader = new FileReader();
-        reader.onload = function() {
-            var output = document.getElementById('image-preview');
-            output.src = reader.result;
-            output.style.display = 'block';
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    }
-
-    function addUser(event) {
-        event.preventDefault();
-        // Add your form submission logic here
-    }
-</script>
-    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
