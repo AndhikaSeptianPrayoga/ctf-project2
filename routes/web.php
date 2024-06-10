@@ -229,5 +229,7 @@ Route::get('/admin/add-notification', [NotificationController::class, 'create'])
 Route::post('/notifications', [NotificationController::class, 'store'])->name('notifications.store');
 Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index');
 Route::post('/admin/store/notification', [NotificationController::class, 'store'])->name('admin.store.notification');
+Route::delete('/admin-delete-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.delete');
+Route::get('/admin-edit-challenge/{id}', [AdminChallengeController::class, 'edit'])->name('admin-challenge.edit');
 
 

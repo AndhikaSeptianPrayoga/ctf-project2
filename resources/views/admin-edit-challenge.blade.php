@@ -82,7 +82,8 @@
                     Edit Challenge
                 </div>
             </div>
-            <form action="/admin-update-challenge/{{ $challenge->id }}" method="POST">
+            <form id="edit-form" action="/admin-update-challenge/{{ $challenge->id }}" method="POST">
+
     @csrf
     @method('PUT')
     <div class="form-group">
@@ -101,14 +102,52 @@
         <label for="poin">Point</label>
         <input type="number" id="poin" name="poin" class="form-control" value="{{ $challenge->poin }}">
     </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-        <textarea id="description" name="description" class="form-control">{{ $challenge->description }}</textarea>
-    </div>
     <button type="submit" class="btn btn-success">Update Challenge</button>
 </form>
         </div>
     </section>
+
+
+    <script>
+        // Ambil form pembaruan dari halaman HTML
+var editForm = document.getElementById('edit-form');
+
+// Tambahkan event listener untuk mengirim permintaan pembaruan ketika formulir disubmit
+editForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Menghentikan perilaku bawaan formulir (pengiriman langsung)
+
+    // Ambil data dari formulir
+    var formData = new FormData(editForm);
+    var challengeId = editForm.getAttribute('data-challenge-id');
+
+    // Kirim permintaan PUT menggunakan AJAX
+    fetch('/admin-update-challenge/' + challengeId, {
+        method: 'PUT',
+        body: formData,
+        headers: {
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        }
+    })
+    .then(function(response) {
+        // Periksa apakah respons berhasil (status kode 200)
+        if (response.ok) {
+            // Jika berhasil, tampilkan pesan sukses
+            alert('Challenge updated successfully');
+            // Redirect ke halaman lain jika diperlukan
+            window.location.href = '/admin-challenge';
+        } else {
+            // Jika respons tidak berhasil, tangani error
+            alert('An error occurred while updating the challenge.');
+        }
+    })
+    .catch(function(error) {
+        // Tangani error jika permintaan gagal
+        console.error('Error:', error);
+        alert('An error occurred while updating the challenge.');
+    });
+});
+
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
