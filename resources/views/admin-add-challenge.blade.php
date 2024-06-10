@@ -220,13 +220,13 @@ function deleteChallenge(id) {
             } else {
                 return response.json().then(data => {
                     console.error('Failed to delete the challenge:', data);
-                    alert('Failed to delete the challenge.');
+                    alert('Failed to delete the challenge. Error: ' + (data.message || 'Unknown error'));
                 });
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while deleting the challenge.');
+            alert('An error occurred while deleting the challenge. Error: ' + error.message);
         });
     }
 }
