@@ -112,32 +112,23 @@
 
             <br>
             <br>
-            <br>
+           
 
-            <div class="row">
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-header">
-                    <h5>Users Chart</h5>
-                  </div>
-                  <div class="card-body">
-                    <canvas id="users-chart" width="400" height="200"></canvas>
-                  </div>
-                </div>
-              </div>
+       
 
-              <div class="col-md-6">
-                <div class="card">
-                  <div class="card-header">
+            <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
                     <h5>Recent Solved Challenges</h5>
                   </div>
-                  <ul class="list-group">
-    @foreach($recentSolves as $solve)
+                  <div class="card-body">
+                <ul class="list-group">
+                  @foreach($recentSolves as $solve)
         <li class="list-group-item">
             <i class="fa fa-check"></i>
             Challenge {{ $solve->challenge_id }} - Solved by User {{ $solve->user_id }}
         </li>
-    @endforeach
+                  @endforeach
 </ul>
 
                 </div>
