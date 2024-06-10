@@ -123,8 +123,7 @@ Route::get('/admin-new-challenge', function () {
 
 Route::get('/scoreboard', [ChallengeController::class, 'getRanking'])->name('scoreboard');
 
-Route::get('/views', [UserChallengeSolutionController::class, 'showSolutions'])->name('solutions');
-require __DIR__.'/auth.php';
+
 
 
 Route::get('/admin-challenge', [AdminChallengeController::class, 'index'])->name('admin-challenge.index');
@@ -193,7 +192,7 @@ Route::get('/home-admin', function () {
     }
 
     if (isset($_SESSION['username']) && $_SESSION['role'] == 1) {
-        return view('/dashboard');
+        return view('dashboard');
     } else {
         return redirect('/login');
     }
@@ -201,4 +200,12 @@ Route::get('/home-admin', function () {
 
 
 
+
 Route::get('/notifications', [NotificationUserController::class, 'index'])->name('notifications.index');
+
+
+Route::post('/admin/store-challenge', [AdminController::class, 'storeChallenge'])->name('admin.storeChallenge');
+
+Route::get('/admin-edit-challenge/{id}', [ChallengeController::class, 'edit'])->name('admin.edit.challenge');
+Route::put('/admin-update-challenge/{id}', [ChallengeController::class, 'update'])->name('admin.update.challenge');
+Route::get('/home-admin', [DashboardController::class, 'index'])->name('dashboard');
