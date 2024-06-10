@@ -25,4 +25,9 @@ class Challenge extends Model
         'status',
         'img-challenge'
     ];
+
+    public function solves()
+    {
+        return $this->hasMany(Solve::class, 'id_chall');
+    }
 }
