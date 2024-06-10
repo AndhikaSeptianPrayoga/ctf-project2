@@ -51,13 +51,10 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">@</span>
                             </div>
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required value="{{ old('username') }}">
-                            <div class="invalid-feedback" style="width: 100%;">
-                                Your username is required.
-                            </div>
-                        @error('username')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
+                            <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Username" required value="{{ old('username') }}">
+                            @error('username')
+                            	<div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
 
@@ -67,15 +64,12 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">#</span>
                             </div>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Make sure nobody's behind you ;)">
-                            <div class="invalid-feedback">
-                                Please enter a valid password.
-                            </div>
-                        @error('password')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Make sure nobody's behind you ;)">
+                            @error('password')
+                            	<div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
-                        <small class="d-block text-center mt-3">Not a member? <a href="/register">Register</a></small>
+                        <small class="d-block text-right mt-3">Not a member? <a href="/register">Register</a></small>
                     </div>
                     <hr class="mb-4">
                     <button class="btn btn-outline-success btn-shadow btn-lg btn-block" type="submit"> Lets Hack! </button>

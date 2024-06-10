@@ -160,6 +160,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/admin-user', [AdminUserController::class, 'index'])->name('admin.user.index');
+Route::delete('/admin-user/{id}', [AdminUserController::class, 'destroy'])->name('admin-user.destroy');
 
 
 // update fix login register pake sesi nativ lol
@@ -209,4 +210,12 @@ Route::post('/admin/store-challenge', [AdminController::class, 'storeChallenge']
 
 Route::get('/admin-edit-challenge/{id}', [ChallengeController::class, 'edit'])->name('admin.edit.challenge');
 Route::put('/admin-update-challenge/{id}', [ChallengeController::class, 'update'])->name('admin.update.challenge');
+
+Route::get('/home-admin', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::post('/admin-add-user', [UserController::class, 'store']);
+
+Route::get('/admin-edit-user/{id}', [UserController::class, 'edit'])->name('admin.edit.user');
+Route::put('/admin-update-user/{id}', [UserController::class, 'update'])->name('admin.update.user');
+
 Route::get('/home-admin', [DashboardController::class, 'index'])->name('dashboard');

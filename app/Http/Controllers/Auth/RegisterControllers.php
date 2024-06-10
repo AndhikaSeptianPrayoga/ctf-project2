@@ -19,7 +19,7 @@ class RegisterControllers extends Controller
         // Validasi input
         $validator = Validator::make($request->all(), [
             'username' => 'required|string|max:30|unique:users',
-            'email' => 'required|string|email|max:50|unique:users',
+            'email' => 'required|string|email:dns|max:50|unique:users',
             'password' => 'required|string|min:8|confirmed',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);

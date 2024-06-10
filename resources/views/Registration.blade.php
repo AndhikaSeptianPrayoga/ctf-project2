@@ -49,21 +49,19 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">@</span>
                             </div>
-                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{ old('username') }}" required>
-                            <div class="invalid-feedback" style="width: 100%;">Your username is required.</div>
+                            <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Username" value="{{ old('username') }}" required>
                             @error('username')
-                                <div class="text-danger">{{ $message }}</div>
+                            	<div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="email">Email <span class="text-muted"></span></label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" value="{{ old('email') }}" required>
-                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="you@example.com" value="{{ old('email') }}" required>
                         @error('email')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
+                            	<div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                     </div>
 
                     <div class="mb-3">
@@ -72,10 +70,9 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">#</span>
                             </div>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Make sure nobody's behind you ;)" required>
-                            <div class="invalid-feedback">Please enter a valid password.</div>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" placeholder="Make sure nobody's behind you ;)" required>
                             @error('password')
-                                <div class="text-danger">{{ $message }}</div>
+                            	<div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
@@ -86,11 +83,13 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">#</span>
                             </div>
-                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Confirm your password" required>
-                            <div class="invalid-feedback">Please enter the password again.</div>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password_confirmation" name="password_confirmation" placeholder="Confirm your password" required>
+                            @error('password')
+                            	<div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
-
+                    <small class="d-block text-right mt-3">already a member? <a href="/login">login</a></small>
                     <div class="mb-3">
                         <label for="image">Upload Image</label>
                         <input type="file" class="form-control-file" id="image" name="image" onchange="previewImage(event)">
@@ -98,7 +97,6 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-
                     <div class="mb-3">
                         <img id="imagePreview" src="" alt="Image Preview" style="display: none; max-width: 100%; height: auto;">
                     </div>
