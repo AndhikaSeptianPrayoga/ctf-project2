@@ -9,8 +9,9 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Auth\LoginControllers;
 use App\Http\Controllers\Auth\RegisterControllers;
 use App\Http\Controllers\SolverController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -118,6 +119,8 @@ use App\Http\Controllers\AdminChallengeController;
 Route::get('/admin-challenge', [AdminChallengeController::class, 'index'])->name('admin-challenge.index');
 Route::delete('/admin-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.destroy');
 
+Route::get('/solved', [AdminController::class, 'solved']);
+
 
 Route::get('/login', [LoginControllers::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginControllers::class, 'login']);
@@ -152,5 +155,4 @@ Route::get('/scoreboard', [ScoreboardController::class, 'index']);
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
 

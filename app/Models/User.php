@@ -28,4 +28,11 @@ class User extends Authenticatable
     ];
 
     public $timestamps = false; // Nonaktifkan timestamps
+
+    protected $table = 'users';
+
+    public function solves()
+    {
+        return $this->hasMany(Solve::class, 'id_user');
+    }
 }

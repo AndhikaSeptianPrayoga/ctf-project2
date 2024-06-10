@@ -5,13 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Solve extends Model
-
 {
+    protected $table = 'solves'; // Sesuaikan dengan nama tabel di database
+
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user'); // Sesuaikan dengan nama kolom yang digunakan sebagai kunci asing
     }
-    protected $table = 'solves'; // Sesuaikan dengan nama tabel di database
+
+    public function challenge()
+    {
+        return $this->belongsTo(Challenge::class, 'id_chall');
+    }
 
     // Tentukan atribut-atribut yang dapat diisi
     protected $fillable = [

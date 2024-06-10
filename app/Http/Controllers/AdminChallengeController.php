@@ -25,4 +25,10 @@ class AdminChallengeController extends Controller
         // Redirect back to the challenges list with a success message
         return redirect()->route('admin-challenge.index')->with('success', 'Challenge deleted successfully');
     }
+
+    public function solved()
+    {
+        $solves = Solve::with(['user', 'challenge'])->get();
+        return view('admin-solved', compact('solves'));
+    }
 }
