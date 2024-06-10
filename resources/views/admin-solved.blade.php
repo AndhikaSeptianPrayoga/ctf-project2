@@ -53,11 +53,11 @@
               </a>
             </li>
             <li class="nav-item activa">
-                <a href="/notifications">
-                    <i class="fa fa-bell nav-icon"></i>
-                    <span class="nav-text">Notifications</span>
-                </a>
-            </li>
+              <a href="/notif">
+                  <i class="fa fa-bell nav-icon"></i>
+                  <span class="nav-text">Notifications</span>
+              </a>
+          </li>
           </ul>
         </div>
   
