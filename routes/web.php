@@ -167,6 +167,14 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::post('/logout', function () {
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+    session_destroy();
+    return redirect('/login');
+})->name('logout');
+
 Route::get('/home-user', function () {
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
