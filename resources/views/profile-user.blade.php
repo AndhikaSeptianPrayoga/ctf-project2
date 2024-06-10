@@ -111,43 +111,18 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 0) {
             <section class="profile-section">
     <div class="profile-header">
         <div class="profile-picture">
-            <img src="{{ asset('img/sample_placeholder.png') }}" alt="Profile Picture">
+            <?php if (isset($_SESSION['file'])): ?>
+                <img src="<?php echo asset($_SESSION['file']); ?>" alt="Profile Picture">
+            <?php else: ?>
+                <img src="{{ asset('img/default-profile.png') }}" alt="Profile Picture">
+            <?php endif; ?>
         </div>
         <div class="profile-info">
-            <p><strong>Name :</strong> Lorem ipsum</p>
-            <p><strong>Email :</strong> loremipsum@Gmail.com</p>
-            <p><strong>Team :</strong> team Lorem ipsum</p>
-            <p><strong>Total Score :</strong> 9999</p>
-            <p><strong>Rank :</strong> 1</p>
+            <p><strong>Name :</strong> <?php echo $_SESSION['username'] ?? 'Guest'; ?></p>
+            <p><strong>Email :</strong> <?php echo $_SESSION['email'] ?? 'Not provided'; ?></p>
+            <p><strong>Total Score :</strong> <?php echo $_SESSION['total_score'] ?? '0'; ?></p>
         </div>
     </div>
-    <div class="score-challenge">
-        <h2>Score Challenge</h2>
-        <table>
-            <tr>
-                <td>Basic Injection</td>
-                <td>: 30 Points</td>
-            </tr>
-            <tr>
-                <td>Practice Flag</td>
-                <td>: 10 Points</td>
-            </tr>
-            <tr>
-                <td>Forensics 101</td>
-                <td>: 30 Points</td>
-            </tr>
-            <tr>
-                <td>Character Encoding</td>
-                <td>: 30 Points</td>
-            </tr>
-            <tr>
-                <td>Morse Code</td>
-                <td>: 30 Points</td>
-            </tr>
-        </table>
-    </div>
-
-
 </section>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
