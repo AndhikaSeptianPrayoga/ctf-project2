@@ -21,7 +21,6 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        // Hash the input password using MD5
         $hashedPassword = md5($request->password);
 
         $user = DB::table('users')
@@ -30,18 +29,14 @@ class LoginController extends Controller
             ->first();
 
         if ($user) {
-            // Check if session is active
-            if (session_status() === PHP_SESSION_ACTIVE) {
-                // Destroy the session if it's active
-                if (isset($_SESSION['role']) && ($_SESSION['role'] == 0 || $_SESSION['role'] == 1)) {
-                    session_destroy();
-                }
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
             }
 
-            session_start();
             $_SESSION['username'] = $user->username;
             $_SESSION['role'] = $user->role;
             $_SESSION['file'] = $user->file;
+            $_SESSION['id_user'] = $user->id_user;
 
             Log::info('User logged in: ' . $user->username);
 

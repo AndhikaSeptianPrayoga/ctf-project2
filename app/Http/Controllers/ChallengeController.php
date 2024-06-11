@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Challenge;
 use App\Models\Solve;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ChallengeController extends Controller
 {
@@ -92,35 +93,47 @@ class ChallengeController extends Controller
         return view('admin-add-challenge', ['challenges' => $challenges]);
     }
 
-    public function edit($id)
+    public function submitFlag(Request $request)
     {
-        $challenge = Challenge::findOrFail($id);
-        $categories = [
-            1 => 'OSINT',
-            2 => 'REVERSE',
-            3 => 'CRYPTO',
-            4 => 'FORENSIC',
-            5 => 'WEB',
-            6 => 'MISC',
-            7 => 'STEGANO',
-            8 => 'PROGRAMMING'
-        ];
-        return view('admin-edit-challenge', compact('challenge', 'categories'));
-    }
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
-    public function update(Request $request, $id)
-    {
-        $challenge = Challenge::find($id);
-        if ($challenge) {
-            $challenge->category = $request->input('category');
-            $challenge->flag = $request->input('flag');
-            $challenge->poin = $request->input('poin');
-            $challenge->description = $request->input('description');
-            $challenge->save();
+        $request->validate([
+            'id_chall' => 'required|integer',
+            'user_flag' => 'required|string|max:50',
+        ]);
 
-            return redirect('/admin-add-challenge')->with('success', 'Challenge updated successfully');
+        $challenge = Challenge::find($request->id_chall);
+
+        if (!$challenge) {
+            return redirect()->back()->with('error', 'Challenge not found.');
+        }
+
+        $status = $request->user_flag === $challenge->flag ? 1 : 0;
+
+        // Tambahkan log untuk debugging
+        \Log::info('User ID: ' . ($_SESSION['id_user'] ?? 'not set'));
+        \Log::info('Challenge ID: ' . $request->id_chall);
+        \Log::info('User Flag: ' . $request->user_flag);
+        \Log::info('Status: ' . $status);
+
+        if (isset($_SESSION['id_user'])) {
+            DB::table('solves')->insert([
+                'id_user' => $_SESSION['id_user'],
+                'id_chall' => $request->id_chall,
+                'user_flag' => $request->user_flag,
+                'created_at' => now(),
+                'status' => $status,
+            ]);
+
+            if ($status === 1) {
+                return redirect()->back()->with('success', 'Correct flag!');
+            } else {
+                return redirect()->back()->with('error', 'Incorrect flag.');
+            }
         } else {
-            return redirect('/admin-add-challenge')->with('error', 'Challenge not found');
+            return redirect()->back()->with('error', 'User ID not found in session.');
         }
     }
 }

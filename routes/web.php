@@ -144,6 +144,7 @@ Route::post('/register', [RegisterControllers::class, 'register']);
 Route::get('/challenge/detail-chall', [SolverController::class, 'index']); //buat detail challenge
 Route::get('/challenge', [ChallengeController::class, 'index']);
 Route::get('/challenge/detail-chall/{id}', [ChallengeController::class, 'show']);
+Route::post('/submit-flag', [ChallengeController::class, 'submitFlag'])->name('submit-flag');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
