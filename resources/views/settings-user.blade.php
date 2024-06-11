@@ -45,7 +45,7 @@ $poin = $user->poin ?? '0';
             </div>
             <ul>
                 <li class="nav-item">
-                    <a href="/user">
+                    <a href="/user">`   
                         <i class="fa fa-home nav-icon"></i>
                         <span class="nav-text">Home</span>
                     </a>

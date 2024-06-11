@@ -16,6 +16,34 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
     <script defer   src="../Js/main.js"></script>
     <title>Capture And Flag</title>
+
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.faq-container {
+    padding: 20px;
+    background-color: green;
+}
+
+.send-message-container {
+    padding: 20px;
+    margin-top: 100px; /* Jarak antara container FAQ dan Send a Message */
+}
+
+.send-message-card {
+    padding: 20px;
+    color: black
+    border: 3px solid #00008B; /* Border untuk box */
+    border-radius: 10px; /* Border radius untuk sudut melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow untuk efek kotak */
+    background-color: green; /* Warna background untuk box */
+}
+
+    </style>
 </head>
 
     <body>
@@ -95,7 +123,7 @@
                 <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
                               <div class="lead mb-3 text-mono text-success">Welcome hackers! prove the world's most powerful hacking, is here! and prove the world that a computer genius with a laptop is not a nerd sitting in the corner ! join our CTF and expand your knowledge !</div>
             </div>
-            <div class="support">
+            <div class="suppor">
 
 
                 <h1 class="faq-container">FAQ - Pertanyaan yang Sering Diajukan</h1>
@@ -122,8 +150,8 @@
                     <p>CTF menarik karena tantangan yang beragam, komunitas yang solid, dan kesempatan untuk terlibat dalam simulasi skenario keamanan nyata.</p>
                   </details>
              </div> 
-                    
-                                <div class="edit-contact">  
+                    <div class="send-message-container">
+                                <div class="edit-contact send-message-card">  
                                     <form id="contact" action="" method="post">
                                       <h1> Send A Massege</h1>
                                       <fieldset>
@@ -148,12 +176,12 @@
                                     </form>
                                   </div>
                         </div>
+            </div>
         </section>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
         <script src="{{ asset('js/particles.js') }}"></script>
         <script src="{{ asset('js/app.js') }}"></script>
-      </body>
+      </body>
 </html>
-

@@ -237,3 +237,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
     Route::get('/settings', [UserController::class, 'settings'])->name('user.settings');
 });
+
+Route::post('/admin/ban-user/{id_user}', [AdminController::class, 'banUser'])->name('admin.ban.user');
+Route::post('/admin/unban-user/{id_user}', [AdminController::class, 'unbanUser'])->name('admin.unban.user');

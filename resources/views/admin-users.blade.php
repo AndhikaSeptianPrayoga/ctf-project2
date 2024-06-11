@@ -103,6 +103,7 @@
                 <th>Email</th>
                 <th>Role</th>
                 <th>Edit</th>
+                <th>Ban/Unban</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -121,6 +122,19 @@
                 </td>
                 <td>
                     <a href="{{ route('admin.edit.user', $user->id_user) }}" class="btn btn-warning btn-sm">Edit</a>
+                </td>
+                <td>
+                    @if($user->banned)
+                        <form action="{{ route('admin.unban.user', $user->id_user) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-success btn-sm">Unban</button>
+                        </form>
+                    @else
+                        <form action="{{ route('admin.ban.user', $user->id_user) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm">Ban</button>
+                        </form>
+                    @endif
                 </td>
                 <td>
                     <button class="btn btn-danger btn-sm">Delete</button>

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Models\Solve;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -41,5 +42,27 @@ class AdminController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Challenge added successfully!');
+    }
+
+    public function banUser($id_user)
+    {
+        $user = User::where('id_user', $id_user)->first();
+        if ($user) {
+            $user->banned = true;
+            $user->save();
+            return redirect()->back()->with('success', 'User has been banned.');
+        }
+        return redirect()->back()->withErrors('User not found.');
+    }
+
+    public function unbanUser($id_user)
+    {
+        $user = User::where('id_user', $id_user)->first();
+        if ($user) {
+            $user->banned = false;
+            $user->save();
+            return redirect()->back()->with('success', 'User has been unbanned.');
+        }
+        return redirect()->back()->withErrors('User not found.');
     }
 }

@@ -116,7 +116,10 @@
                 <button onclick="prevPage()" id="btnPrev">Previous</button>
                 Page: <span id="page"></span>
                 <button onclick="nextPage()" id="btnNext">Next</button>
+                <div class="refresh-button">
+            <button onclick="location.reload()">Refresh Page</button>
             </div>
+        </div>
         </div>
     </section>
     <script>
@@ -124,7 +127,6 @@ const challenges = @json($challenges);
 const rowsPerPage = 10;
 let currentPage = 1;
 
-// Mapping of category IDs to category names
 const categoryMap = {
     1: 'OSINT',
     2: 'REVERSE',
@@ -145,7 +147,7 @@ function renderTable() {
     const paginatedChallenges = challenges.slice(start, end);
 
     paginatedChallenges.forEach((challenge, index) => {
-        console.log(challenge); // Log each challenge to debug
+        console.log(challenge);
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${start + index + 1}</td>
@@ -154,7 +156,7 @@ function renderTable() {
             <td>${challenge.poin}</td>
             <td>
                 <a href="/admin-edit-challenge/${challenge.id_chall}" class="btn btn-primary">Edit</a>
-                <button class="btn btn-danger" onclick="deleteChallenge(${challenge.id_chall})">Delete</button>
+                <button class="btn btn-danger" onclick="deleteChallenge(${challenge.id_chall}); location.reload();">Delete</button>
             </td>
         `;
         tableBody.appendChild(row);
@@ -196,7 +198,7 @@ function searchChallenge() {
             <td>${challenge.poin}</td>
             <td>
                 <a href="/admin-edit-challenge/${challenge.id_chall}" class="btn btn-primary">Edit</a>
-                <button class="btn btn-danger" onclick="deleteChallenge(${challenge.id_chall})">Delete</button>
+                <button class="btn btn-danger" onclick="deleteChallenge onclick="location.reload() (${challenge.id_chall})">Delete</button>
             </td>
         `;
         tableBody.appendChild(row);
@@ -204,37 +206,32 @@ function searchChallenge() {
 }
 
 function deleteChallenge(id) {
-    if (confirm('Are you sure you want to delete this challenge?')) {
-        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-        fetch(`/admin-delete-challenge/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'X-CSRF-TOKEN': csrfToken,
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                challenges = challenges.filter(challenge => challenge.id_chall !== id);
-                renderTable();
-            } else {
-                return response.json().then(data => {
-                    console.error('Failed to delete the challenge:', data);
-                    alert('Failed to delete the challenge. Error: ' + (data.message || 'Unknown error'));
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred while deleting the challenge. Error: ' + error.message);
-        });
-    }
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+    fetch(`/admin-delete-challenge/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'X-CSRF-TOKEN': csrfToken,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            challenges = challenges.filter(challenge => challenge.id_chall !== id);
+            renderTable();
+        } else {
+            console.error('Failed to delete the challenge');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     renderTable();
 });
 </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>

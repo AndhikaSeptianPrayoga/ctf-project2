@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -48,6 +49,14 @@ class LoginController extends Controller
         } else {
             Log::warning('Login failed for username: ' . $request->username);
             return back()->withErrors(['username' => 'Invalid credentials.']);
+        }
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->banned) {
+            Auth::logout();
+            return redirect('/login')->withErrors(['Your account has been banned.']);
         }
     }
 
