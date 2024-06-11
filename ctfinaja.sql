@@ -21,11 +21,10 @@ SET time_zone = "+00:00";
 -- Database: `ctfinaja`
 --
 
-DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUserRankings` ()   BEGIN
+DELIMITER //
+
+CREATE PROCEDURE `GetUserRankings` ()
+BEGIN
     SELECT 
         u.id_user,
         u.username,
@@ -41,7 +40,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `GetUserRankings` ()   BEGIN
         u.id_user, u.username
     ORDER BY 
         total_points DESC;
-END$$
+END //
 
 DELIMITER ;
 
