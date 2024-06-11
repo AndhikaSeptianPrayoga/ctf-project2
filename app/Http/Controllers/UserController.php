@@ -53,33 +53,33 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+        $user = Auth::user();
+
+        if (!$user || $user->id != $id) {
+            return redirect()->back()->withErrors('Unauthorized action.');
+        }
+
         $request->validate([
-            'username' => 'required|string|max:30|unique:users,username,' . $id . ',id_user',
-            'email' => 'required|email|unique:users,email,' . $id . ',id_user',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'username' => 'required|string|max:30',
+            'email' => 'required|string|email|max:50',
+            'password' => 'nullable|string|min:8',
         ]);
 
-        try {
-            $user = User::findOrFail($id);
-            $user->username = $request->username;
-            $user->email = $request->email;
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
 
-            if ($request->hasFile('image')) {
-                // Delete the old image if it exists
-                if ($user->file && file_exists(public_path($user->file))) {
-                    unlink(public_path($user->file));
-                }
-
-                $imageName = time().'.'.$request->image->extension();
-                $request->image->move(public_path('images'), $imageName);
-                $user->file = 'images/' . $imageName;
-            }
-
-            $user->save();
-
-            return response()->json(['success' => true]);
-        } catch (\Exception $e) {
-            return response()->json(['success' => false, 'message' => $e->getMessage()]);
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->input('password'));
         }
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $path = $file->store('public/profile_pics');
+            $user->file = basename($path);
+        }
+
+        $user->save();
+
+        return redirect()->back()->with('success', 'Profile updated successfully.');
     }
 }

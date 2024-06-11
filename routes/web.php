@@ -233,4 +233,7 @@ Route::post('/admin/store/notification', [NotificationController::class, 'store'
 Route::delete('/admin-delete-challenge/{id}', [AdminChallengeController::class, 'destroy'])->name('admin-challenge.delete');
 Route::get('/admin-edit-challenge/{id}', [AdminChallengeController::class, 'edit'])->name('admin-challenge.edit');
 
-
+Route::middleware(['auth'])->group(function () {
+    Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::get('/settings', [UserController::class, 'settings'])->name('user.settings');
+});

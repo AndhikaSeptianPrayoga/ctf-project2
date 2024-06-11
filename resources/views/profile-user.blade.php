@@ -1,12 +1,48 @@
 <?php
   if (session_status() == PHP_SESSION_NONE) {
      session_start();
-}
-if (!isset($_SESSION['username']) || $_SESSION['role'] != 0) {
+  }
+
+  if (!isset($_SESSION['username']) || $_SESSION['role'] != 0) {
     header('Location: /login');
     exit();
-}
-?><!DOCTYPE html>
+  }
+
+  // Database connection
+  $conn = new mysqli('127.0.0.1', 'root', '', 'ctfinaja');
+
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+
+  // Fetch user details
+  $username = $conn->real_escape_string($_SESSION['username']);
+  $sql = "SELECT email, poin FROM users WHERE username = '$username'";
+  $result = $conn->query($sql);
+
+  if ($result) {
+    if ($result->num_rows > 0) {
+      // Store user details in session
+      $row = $result->fetch_assoc();
+      $_SESSION['email'] = $row['email'];
+      $_SESSION['poin'] = $row['poin'];
+    } else {
+      $_SESSION['email'] = 'Not provided';
+      $_SESSION['poin'] = '0';
+    }
+  } else {
+    // Handle query error
+    echo "Error: " . $conn->error;
+    $_SESSION['email'] = 'Not provided';
+    $_SESSION['poin'] = '0';
+  }
+
+
+
+  $conn->close();
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -120,7 +156,7 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 0) {
         <div class="profile-info">
             <p><strong>Name :</strong> <?php echo $_SESSION['username'] ?? 'Guest'; ?></p>
             <p><strong>Email :</strong> <?php echo $_SESSION['email'] ?? 'Not provided'; ?></p>
-            <p><strong>Total Score :</strong> <?php echo $_SESSION['total_score'] ?? '0'; ?></p>
+            <p><strong>Total Score :</strong> <?php echo $_SESSION['poin'] ?? '0'; ?></p>
         </div>
     </div>
 </section>
@@ -132,4 +168,3 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 0) {
         <script src="{{ asset('js/app.js') }}"></script>
       </body>
 </html>
-
