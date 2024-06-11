@@ -95,45 +95,35 @@ class ChallengeController extends Controller
 
     public function submitFlag(Request $request)
     {
+        // Start the session
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
 
-        $request->validate([
-            'id_chall' => 'required|integer',
-            'user_flag' => 'required|string|max:50',
+        // Get the user flag and challenge ID from the request
+        $userFlag = $request->input('user_flag');
+        $challengeId = $request->input('id_chall');
+
+        // Get the correct flag from the database
+        $correctFlag = DB::table('challenges')->where('id_chall', $challengeId)->value('flag');
+
+        // Determine the status (1 for correct, 0 for incorrect)
+        $status = ($userFlag == $correctFlag) ? 1 : 0;
+
+        // Insert into the solves table
+        DB::table('solves')->insert([
+            'id_user' => $_SESSION['id_user'], // Use PHP session
+            'id_chall' => $challengeId,
+            'user_flag' => $userFlag,
+            'created_at' => now(),
+            'status' => $status,
         ]);
 
-        $challenge = Challenge::find($request->id_chall);
-
-        if (!$challenge) {
-            return redirect()->back()->with('error', 'Challenge not found.');
-        }
-
-        $status = $request->user_flag === $challenge->flag ? 1 : 0;
-
-        // Tambahkan log untuk debugging
-        \Log::info('User ID: ' . ($_SESSION['id_user'] ?? 'not set'));
-        \Log::info('Challenge ID: ' . $request->id_chall);
-        \Log::info('User Flag: ' . $request->user_flag);
-        \Log::info('Status: ' . $status);
-
-        if (isset($_SESSION['id_user'])) {
-            DB::table('solves')->insert([
-                'id_user' => $_SESSION['id_user'],
-                'id_chall' => $request->id_chall,
-                'user_flag' => $request->user_flag,
-                'created_at' => now(),
-                'status' => $status,
-            ]);
-
-            if ($status === 1) {
-                return redirect()->back()->with('success', 'Correct flag!');
-            } else {
-                return redirect()->back()->with('error', 'Incorrect flag.');
-            }
+        // Redirect back with success or error message
+        if ($status) {
+            return redirect()->back()->with('success', 'Flag correct!');
         } else {
-            return redirect()->back()->with('error', 'User ID not found in session.');
+            return redirect()->back()->with('error', 'Flag incorrect!');
         }
     }
 }
