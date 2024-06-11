@@ -15,25 +15,24 @@ class ChallengeController extends Controller
         // Ambil input pencarian
         $search = $request->input('search');
 
-        // Query untuk mengambil data dari tabel challenges, gabungkan dengan category, dan hitung jumlah solves
-        $query = Challenge::select('challenges.id_chall', 'challenges.title', 'category.category', 'challenges.poin', \DB::raw('COUNT(solves.id_solve) as solve_count'))
-            ->leftJoin('solves', 'challenges.id_chall', '=', 'solves.id_chall')
-            ->leftJoin('category', 'challenges.id_category', '=', 'category.id_category')
-            ->where('solves.status', 1);
+    // Query untuk mengambil data dari tabel challenges, gabungkan dengan category, dan hitung jumlah solves
+    $query = Challenge::select('challenges.id_chall', 'challenges.title', 'category.category', 'challenges.poin', \DB::raw('COUNT(solves.id_solve) as solve_count'))
+        ->leftJoin('solves', 'challenges.id_chall', '=', 'solves.id_chall')
+        ->leftJoin('category', 'challenges.id_category', '=', 'category.id_category')
+        ->groupBy('challenges.id_chall', 'challenges.title', 'category.category', 'challenges.poin');
 
-        // Tambahkan kondisi pencarian jika ada input
-        if ($search) {
-            $query->where(function ($q) use ($search) {
-                $q->where('challenges.title', 'LIKE', "%{$search}%")
-                  ->orWhere('category.category', 'LIKE', "%{$search}%");
-            });
-        }
+    // Tambahkan kondisi pencarian jika ada input
+    if ($search) {
+        $query->where(function ($q) use ($search) {
+            $q->where('challenges.title', 'LIKE', "%{$search}%")
+              ->orWhere('category.category', 'LIKE', "%{$search}%");
+        });
+    }
 
-        $challenges = $query->groupBy('challenges.id_chall', 'challenges.title', 'category.category', 'challenges.poin')
-            ->get();
+    $challenges = $query->get();
 
-        // Kirim data ke view 'all-challenge'
-        return view('all-challenge', compact('challenges', 'search'));
+    // Kirim data ke view 'all-challenge'
+    return view('all-challenge', compact('challenges', 'search'));
     }
 
     public function show($id)
