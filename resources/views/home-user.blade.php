@@ -94,7 +94,31 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] != 0) {
           </li>
       </ul>
   </nav>
-    
+  
+  <section class="content">
+          <div class="inside-content">
+            <div class="search-and-check">
+                <i class="bx bx-search"></i>
+          </div>
+            <div class="header">
+                <a class="navbar-brand" href="#"><span>CTFin</span><span>AJA</span></a>
+                              <div class="lead mb-3 text-mono text-success">Welcome hackers! prove the world's most powerful hacking, is here! and prove the world that a computer genius with a laptop is not a nerd sitting in the corner ! join our CTF and expand your knowledge !</div>
+
+                              <div class="row py-5">
+      <div class="col-12">
+        <img src="{{ asset('img/banner.png') }}" alt="Hacking Content" class="img-fluid">
+            </div>
+            <section class="profile-section">
+
+            <div class="profile-header">
+    <h2>Tips and Trick Mengerjakan Challenges CTF</h2>
+    <ul>
+        <li>Osin: Lakukan pencarian informasi yang ekstensif, termasuk analisis kebijakan, sosial media, dan rekayasa sosial.</li>
+        <li>Cryptography: Pahami konsep dasar kriptografi seperti enkripsi, dekripsi, dan analisis frekuensi huruf.</li>
+        <li>Web Exploitation: Teliti dengan seksama kode sumber halaman web, coba eksploitasi celah keamanan seperti SQL injection dan XSS.</li>
+        <li>Pemrograman: Kuasai bahasa pemrograman yang umum digunakan seperti Python, C++, atau Java untuk menyelesaikan tantangan pemrograman.</li>
+    </ul>
+</div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
