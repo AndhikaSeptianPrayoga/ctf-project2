@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Challenge;
-use App\Models\User; // Pastikan untuk mengimpor model User
-use App\Models\Solve; // Pastikan untuk mengimpor model Solve
+use App\Models\User;
+use App\Models\Solve;
+use Illuminate\Support\Facades\Log;
 
 class AdminChallengeController extends Controller
 {
@@ -23,7 +24,7 @@ class AdminChallengeController extends Controller
         // Validasi input
         $request->validate([
             'title' => 'required|string|max:50',
-            'category' => 'required|integer|exists:categories,id_category',
+            'category' => 'required|integer|exists:category,id_category',
             'description' => 'required|string',
             'flag' => 'required|string|max:50',
             'points' => 'required|integer',
@@ -64,4 +65,37 @@ class AdminChallengeController extends Controller
         // Kembalikan view dengan data dashboard
         return view('index')->with('dashboardData', (object) $dashboardData);
     }
+
+    public function destroy($id)
+    {
+        // Temukan challenge berdasarkan ID
+        $challenge = Challenge::findOrFail($id);
+    
+        // Hapus challenge
+        $challenge->delete();
+    
+        // Mengembalikan respons kosong
+        return response()->json(['message' => 'Challenge deleted successfully']);
+    }
+    
+    public function edit($id)
+{
+    try {
+        // Temukan challenge berdasarkan ID
+        $challenge = Challenge::findOrFail($id);
+
+        // Ambil semua kategori
+        $categories = Category::all();
+
+        // Kembalikan view dengan data challenge yang akan diedit dan data kategori
+        return view('admin-edit-challenge', compact('challenge', 'categories'));
+    } catch (\Exception $e) {
+        // Log error
+        Log::error($e);
+
+        // Tampilkan pesan error yang lebih spesifik
+        dd("An error occurred while editing the challenge: " . $e->getMessage());
+    }
+}
+
 }

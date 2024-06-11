@@ -85,17 +85,23 @@
                 <div class="lead mb-3 text-mono text-success">You are Now Control the notifications alert</div>
             </div>
             <div class="container mt-5">
-                <h3 class="text-center">Challenges</h3>
+                <h3 class="text-center">Add Notification</h3>
+                @if(session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
-                        <form>
+                        <form action="{{ route('admin.store.notification') }}" method="POST">
+                            @csrf
                             <div class="form-group">
                                 <label for="title">Title Notification</label>
-                                <input type="text" class="form-control" id="title" placeholder="Enter Title">
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title" required>
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <div id="editor-container" style="height: 200px;"></div>
+                                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Submit</button>
                         </form>
@@ -104,33 +110,35 @@
             </div>
         </div>
     </section>
-
-    <!-- Initialize Quill.js -->
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var quill = new Quill('#editor-container', {
-                theme: 'snow',
-                modules: {
-                    toolbar: [
-                        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-                        ['blockquote', 'code-block'],
-                        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-                        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-                        [{ 'direction': 'rtl' }],                         // text direction
-               [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-               [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-               [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-               [{ 'font': [] }],
-               [{ 'align': [] }],
-               ['clean'],                                         // remove formatting button
-               ['link', 'image', 'video', 'code-block']           // link and image, video
-           ]
-       }
-   });
-});
+    document.addEventListener('DOMContentLoaded', function () {
+        var quill = new Quill('#editor-container', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline', 'strike'],       
+                    ['blockquote', 'code-block'],
+                    [{ 'header': 1 }, { 'header': 2 }],               
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'script': 'sub'}, { 'script': 'super' }],     
+                    [{ 'indent': '-1'}, { 'indent': '+1' }],         
+                    [{ 'direction': 'rtl' }],                        
+                    [{ 'size': ['small', false, 'large', 'huge'] }],  
+                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                    [{ 'color': [] }, { 'background': [] }],          
+                    [{ 'font': [] }],
+                    [{ 'align': [] }],
+                    ['clean'],                                        
+                    ['link', 'image', 'video', 'code-block']          
+                ]
+            }
+        });
+
+     
+        document.querySelector('form').addEventListener('submit', function() {
+            document.querySelector('#description').value = quill.root.innerHTML;
+        });
+    });
 </script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
